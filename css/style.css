@@ -157,3 +157,163 @@ img {
 html {
     scroll-behavior: smooth;
 }
+
+/* ============================================================
+   ПАЗЛ №3: СТИЛИ ШАПКИ
+   ============================================================ */
+
+/* ----- САМА ШАПКА ----- */
+#header {
+    position: fixed;     
+    /* 
+       fixed — шапка всегда видна сверху, даже при прокрутке.
+       sticky тоже вариант, но fixed надёжнее для нашей задачи.
+    */
+    top: 0;
+    left: 0;
+    width: 100%;          /* на всю ширину экрана */
+    z-index: 1000;        /* чтобы шапка была поверх всего контента */
+    
+    /* Фон: тёмно-синий с лёгкой прозрачностью (стеклянный эффект) */
+    background-color: rgba(10, 25, 47, 0.85);
+    
+    /* 
+       backdrop-filter — размытие фона под шапкой.
+       Работает в современных браузерах. Красиво и технологично.
+    */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);  /* для Safari */
+    
+    /* Тонкая линия снизу для отделения от контента */
+    border-bottom: 1px solid var(--color-border);
+    
+    /* Небольшая тень для глубины */
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ----- ВНУТРЕННИЙ КОНТЕЙНЕР ШАПКИ ----- */
+.header-inner {
+    display: flex;            /* флекс-контейнер: элементы в ряд */
+    justify-content: space-between;  /* имя слева, навигация справа */
+    align-items: center;      /* выравнивание по вертикали */
+    height: 60px;             /* фиксированная высота шапки */
+}
+
+/* ----- ИМЯ-ЛОГОТИП ----- */
+.logo {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-text-heading);
+    letter-spacing: 0.5px;    /* лёгкий межбуквенный интервал */
+    transition: color 0.3s ease;
+}
+
+.logo:hover {
+    color: var(--color-accent);  /* при наведении — бордовый */
+}
+
+/* ----- НАВИГАЦИЯ (контейнер для ссылок и переключателя) ----- */
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;                 /* расстояние между элементами навигации */
+}
+
+/* ----- ИКОНКИ GITHUB И TELEGRAM ----- */
+.header-icon-link {
+    color: var(--color-text-muted);
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: flex;             /* чтобы SVG внутри центрировался */
+    align-items: center;
+}
+
+.header-icon-link:hover {
+    color: var(--color-accent);
+    transform: translateY(-2px);  /* лёгкий подъём при наведении */
+}
+
+/* ============================================================
+   ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКОВ (ВЫПАДАЮЩИЙ)
+   ============================================================ */
+
+/* ----- КОНТЕЙНЕР ПЕРЕКЛЮЧАТЕЛЯ ----- */
+.lang-switcher {
+    position: relative;        
+    /* 
+       relative — чтобы выпадающее меню (.lang-dropdown)
+       позиционировалось относительно этого контейнера.
+    */
+    cursor: pointer;
+    user-select: none;         /* запрет выделения текста при клике */
+}
+
+/* ----- ТЕКУЩИЙ ФЛАГ (всегда виден) ----- */
+.lang-current {
+    font-size: 20px;           /* флаг покрупнее */
+    line-height: 1;
+    display: block;
+    padding: 4px;
+    transition: transform 0.3s ease;
+}
+
+/* Лёгкое увеличение флага при наведении */
+.lang-switcher:hover .lang-current {
+    transform: scale(1.15);
+}
+
+/* ----- ВЫПАДАЮЩЕЕ МЕНЮ С ФЛАГАМИ ----- */
+.lang-dropdown {
+    position: absolute;        /* позиционируется относительно .lang-switcher */
+    top: 100%;                 /* прямо под текущим флагом */
+    right: 0;                  /* прижато к правому краю */
+    margin-top: 8px;           /* небольшой отступ от флага */
+    
+    /* Скрыто по умолчанию */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-5px);  /* лёгкий сдвиг вверх для анимации */
+    
+    /* Стили фона */
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 4px;
+    
+    /* Тень */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    
+    /* Плавное появление */
+    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+    
+    list-style: none;          /* убираем маркеры списка */
+    display: flex;
+    flex-direction: column;    /* флаги друг под другом */
+    gap: 2px;
+}
+
+/* ----- ПОКАЗ ВЫПАДАЮЩЕГО МЕНЮ ПРИ НАВЕДЕНИИ ----- */
+.lang-switcher:hover .lang-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);  /* возвращаем на место */
+}
+
+/* ----- КНОПКА С ФЛАГОМ ВНУТРИ ВЫПАДАЮЩЕГО МЕНЮ ----- */
+.lang-option {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 6px 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+    line-height: 1;
+    
+    /* Убираем стандартную обводку кнопки */
+    outline: none;
+}
+
+/* Подсветка кнопки при наведении */
+.lang-option:hover {
+    background-color: rgba(139, 0, 0, 0.2);  /* бордовый с прозрачностью */
+}
