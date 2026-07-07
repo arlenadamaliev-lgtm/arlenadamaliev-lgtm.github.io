@@ -129,49 +129,716 @@
         <!-- ПАЗЛ 4: HERO-СЕКЦИЯ (первый экран)           -->
         <!-- Будет заполнен позже                         -->
         <!-- ============================================= -->
-        <section id="hero">
-            <!-- Сюда вставим: фото, имя, ударную фразу, кнопку -->
-        </section>
+        <!-- ============================================= -->
+<!-- ПАЗЛ 4: HERO-СЕКЦИЯ (первый экран)           -->
+<!-- ============================================= -->
+<section id="hero">
+    <!-- 
+      .container — ограничивает ширину и центрирует.
+      .hero-grid — двухколоночная сетка: фото | текст.
+    -->
+    <div class="container hero-grid">
+
+        <!-- ===== ФОТО (левая колонка) ===== -->
+        <div class="hero-image-wrapper">
+            <!-- 
+              ЗАГЛУШКА-ИЗОБРАЖЕНИЕ.
+              ПОЗЖЕ ЗАМЕНИТЬ НА: твоё реальное фото.
+              Сейчас используем CSS-градиент как placeholder.
+              alt — описание для скринридеров и если фото не загрузилось.
+            -->
+            <div class="hero-avatar-placeholder" aria-label="Фото Arlen">
+                <!-- 
+                  Пустой div, который стилизуем через CSS:
+                  круглый, с градиентом, внутри текст "ФОТО".
+                  Когда появится реальное фото — заменим на <img src="images/avatar.jpg" alt="Arlen Aliaskar uulu">
+                -->
+                <span class="placeholder-text">ФОТО</span>
+            </div>
+        </div>
+
+        <!-- ===== ТЕКСТ И КНОПКА (правая колонка) ===== -->
+        <div class="hero-content">
+
+            <!-- Должность (над именем, мелким шрифтом) -->
+            <!-- 
+              ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА: "Python Developer"
+            -->
+            <p class="hero-role">[Python-разработчик]</p>
+
+            <!-- Имя (крупно) -->
+            <!-- 
+              ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА: "Arlen Aliaskar uulu"
+            -->
+            <h1 class="hero-name">[Arlen Aliaskar uulu]</h1>
+
+            <!-- Ударная фраза (суть твоей ценности для клиента) -->
+            <!-- 
+              ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА:
+              "Автоматизирую рутинные процессы и создаю надёжные
+              Python-инструменты, которые экономят время и деньги."
+              Сейчас — краткое описание того, что здесь должно быть.
+            -->
+            <p class="hero-tagline">
+                [Здесь твоя ударная фраза — 1-2 предложения о том, какую
+                проблему клиента ты решаешь с помощью Python.]
+            </p>
+
+            <!-- Кнопка-призыв -->
+            <!-- 
+              href="#contacts" — ведёт к секции с контактами (Пазл 9).
+              Плавная прокрутка уже настроена в style.css (scroll-behavior: smooth).
+            -->
+            <a href="#contacts" class="hero-cta">
+                [Обсудить автоматизацию]
+            </a>
+        </div>
+    </div>
+</section>
 
         <!-- ============================================= -->
         <!-- ПАЗЛ 5: ПОЧЕМУ PYTHON (3 карточки)           -->
         <!-- Будет заполнен позже                         -->
         <!-- ============================================= -->
-        <section id="why-python">
-            <!-- Сюда вставим: заголовок + 3 карточки с преимуществами -->
-        </section>
+        <!-- ============================================= -->
+<!-- ПАЗЛ 5: ПОЧЕМУ PYTHON (3 карточки)           -->
+<!-- ============================================= -->
+<section id="why-python">
+    <div class="container">
+
+        <!-- Заголовок секции -->
+        <!-- 
+          ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА:
+          "Why Python means fast, affordable, and reliable solutions for you"
+        -->
+        <h2 class="section-title">
+            [Здесь заголовок: почему Python — это выгодно для клиента]
+        </h2>
+
+        <!-- Подзаголовок (пояснение) -->
+        <!-- 
+          ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА:
+          "As a Python developer, I don't just write code — I solve business problems
+          with tools that are built quickly, work reliably, and are easy to maintain."
+        -->
+        <p class="section-subtitle">
+            [Здесь пояснение: ты не просто пишешь код, а решаешь бизнес-задачи
+            инструментами, которые быстро создаются, надёжно работают
+            и легко поддерживаются.]
+        </p>
+
+        <!-- Сетка из трёх карточек -->
+        <div class="cards-grid">
+
+            <!-- ===== КАРТОЧКА 1: СКОРОСТЬ ===== -->
+            <div class="info-card">
+                <!-- Иконка (эмодзи как заглушка, позже можно заменить на SVG) -->
+                <div class="info-card-icon">⚡</div>
+
+                <!-- Заголовок карточки -->
+                <!-- 
+                  ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА:
+                  "Fast Development = Lower Cost"
+                -->
+                <h3 class="info-card-title">
+                    [Скорость разработки = ниже стоимость]
+                </h3>
+
+                <!-- Описание -->
+                <!-- 
+                  ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА:
+                  "Python's clean syntax and rich ecosystem allow me to build
+                  solutions faster than with many other languages. Less development
+                  time means lower project cost for you — without sacrificing quality."
+                -->
+                <p class="info-card-text">
+                    [Здесь текст: чистый синтаксис и богатая экосистема Python
+                    позволяют создавать решения быстрее, чем на многих других языках.
+                    Меньше времени разработки = ниже стоимость проекта для клиента.]
+                </p>
+            </div>
+
+            <!-- ===== КАРТОЧКА 2: АВТОМАТИЗАЦИЯ ===== -->
+            <div class="info-card">
+                <div class="info-card-icon">🔗</div>
+
+                <!-- 
+                  ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА:
+                  "Automate Anything"
+                -->
+                <h3 class="info-card-title">
+                    [Автоматизация чего угодно]
+                </h3>
+
+                <!-- 
+                  ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА:
+                  "Excel reports, Telegram bots, email notifications, database sync,
+                  web scraping — Python connects and automates it all. If your team
+                  does repetitive tasks, there's a way to automate them."
+                -->
+                <p class="info-card-text">
+                    [Здесь текст: Excel-отчёты, Telegram-боты, email-рассылки,
+                    синхронизация баз данных, парсинг — Python связывает
+                    и автоматизирует всё это. Если команда делает повторяющиеся
+                    задачи — их можно автоматизировать.]
+                </p>
+            </div>
+
+            <!-- ===== КАРТОЧКА 3: НАДЁЖНОСТЬ ===== -->
+            <div class="info-card">
+                <div class="info-card-icon">🔒</div>
+
+                <!-- 
+                  ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА:
+                  "Reliable & Transparent"
+                -->
+                <h3 class="info-card-title">
+                    [Надёжность и прозрачность]
+                </h3>
+
+                <!-- 
+                  ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА:
+                  "Python code is clean and readable by design. You're never locked
+                  into working with just one developer — any Python specialist can
+                  pick up and maintain the project. Full transparency, no black boxes."
+                -->
+                <p class="info-card-text">
+                    [Здесь текст: код на Python чистый и читаемый по своей природе.
+                    Клиент не привязан к одному разработчику — любой Python-специалист
+                    сможет продолжить работу. Полная прозрачность, никаких чёрных ящиков.]
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
 
         <!-- ============================================= -->
         <!-- ПАЗЛ 6: ПОЧЕМУ Я (обо мне + условия)         -->
         <!-- Будет заполнен позже                         -->
         <!-- ============================================= -->
-        <section id="about-me">
-            <!-- Сюда вставим: 4 блока (переход в IT, гибкость, честность, оплата) -->
-        </section>
+        <!-- ============================================= -->
+<!-- ПАЗЛ 6: ПОЧЕМУ Я (обо мне + условия)         -->
+<!-- ============================================= -->
+<section id="about-me">
+    <div class="container">
+
+        <!-- Заголовок секции -->
+        <!-- 
+          ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА:
+          "Why choose me"
+        -->
+        <h2 class="section-title">
+            [Почему вам стоит выбрать меня]
+        </h2>
+
+        <!-- Блоки причин — каждый в своей "плитке" -->
+        <div class="reasons-grid">
+
+            <!-- ===== ПРИЧИНА 1: ОСОЗНАННЫЙ ПЕРЕХОД ===== -->
+            <div class="reason-card">
+                <!-- Номер причины (чисто декоративно) -->
+                <span class="reason-number">01</span>
+                
+                <!-- 
+                  ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА:
+                  "I chose IT deliberately"
+                -->
+                <h3 class="reason-title">
+                    [Осознанный переход в IT]
+                </h3>
+                
+                <!-- 
+                  ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА:
+                  "I left a well-paid job to build a career in tech.
+                  This wasn't a spontaneous decision — I knew the risks
+                  and took responsibility. Now I bring that same level
+                  of commitment to every project I work on."
+                -->
+                <p class="reason-text">
+                    [Здесь текст: ты ушёл с хорошо оплачиваемой работы,
+                    чтобы строить карьеру в IT. Это не спонтанное решение —
+                    ты знал риски и взял на себя ответственность.
+                    Теперь ты привносишь тот же уровень обязательств
+                    в каждый проект.]
+                </p>
+            </div>
+
+            <!-- ===== ПРИЧИНА 2: ГИБКОСТЬ ===== -->
+            <div class="reason-card">
+                <span class="reason-number">02</span>
+                
+                <!-- 
+                  ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА:
+                  "Flexible & eager to solve different problems"
+                -->
+                <h3 class="reason-title">
+                    [Гибкость и интерес к разным задачам]
+                </h3>
+                
+                <!-- 
+                  ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА:
+                  "I'm genuinely interested in a wide range of projects —
+                  from automation scripts to Telegram bots to data tools.
+                  Each new challenge expands my expertise, and I bring
+                  that cross-domain perspective to your task. If you have
+                  an unusual problem — I'm the one who wants to solve it."
+                -->
+                <p class="reason-text">
+                    [Здесь текст: тебе искренне интересны разные проекты —
+                    от скриптов автоматизации до Telegram-ботов и работы с данными.
+                    Каждая новая задача расширяет твой кругозор,
+                    и ты привносишь этот междисциплинарный взгляд в работу.
+                    Если у клиента нестандартная задача — ты хочешь её решить.]
+                </p>
+            </div>
+
+            <!-- ===== ПРИЧИНА 3: ЧЕСТНОСТЬ ПРО ПОРТФОЛИО ===== -->
+            <div class="reason-card">
+                <span class="reason-number">03</span>
+                
+                <!-- 
+                  ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА:
+                  "Building portfolio — maximum attention to your project"
+                -->
+                <h3 class="reason-title">
+                    [Портфолио строится — максимум внимания к вашему проекту]
+                </h3>
+                
+                <!-- 
+                  ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА:
+                  "I'm actively building my portfolio right now, so every
+                  project receives my full focus on quality, deadlines, and
+                  communication. Your project isn't just another task —
+                  it's a cornerstone of my professional reputation."
+                -->
+                <p class="reason-text">
+                    [Здесь текст: ты сейчас активно формируешь портфолио,
+                    поэтому каждый проект получает максимум твоего внимания
+                    к качеству, срокам и коммуникации. Проект клиента —
+                    это не просто задача, а фундамент твоей репутации.]
+                </p>
+            </div>
+
+            <!-- ===== ПРИЧИНА 4: УСЛОВИЯ ОПЛАТЫ ===== -->
+            <div class="reason-card">
+                <span class="reason-number">04</span>
+                
+                <!-- 
+                  ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА:
+                  "Transparent pricing & fair terms"
+                -->
+                <h3 class="reason-title">
+                    [Прозрачные условия и доступные цены]
+                </h3>
+                
+                <!-- 
+                  ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА:
+                  "The cost is determined after we discuss your specific task —
+                  no hidden fees, no surprises. I work with partial prepayment.
+                  My rates are affordable at this stage because my primary goal
+                  isn't just income — it's building a portfolio and long-term
+                  working relationships."
+                -->
+                <p class="reason-text">
+                    [Здесь текст: стоимость определяется после обсуждения
+                    конкретной задачи — никаких скрытых платежей и сюрпризов.
+                    Работаю по частичной предоплате. Цены сейчас доступные,
+                    потому что главная цель — не просто заработок,
+                    а построение портфолио и долгосрочных отношений.]
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
 
         <!-- ============================================= -->
         <!-- ПАЗЛ 7: ПРОЦЕСС РАБОТЫ (4 шага)              -->
         <!-- Будет заполнен позже                         -->
         <!-- ============================================= -->
-        <section id="workflow">
-            <!-- Сюда вставим: таймлайн из 4 шагов -->
-        </section>
+        <!-- ============================================= -->
+<!-- ПАЗЛ 7: ПРОЦЕСС РАБОТЫ (4 шага, timeline)    -->
+<!-- ============================================= -->
+<section id="workflow">
+    <div class="container">
+
+        <!-- Заголовок секции -->
+        <!-- 
+          ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА:
+          "How we'll work together"
+        -->
+        <h2 class="section-title">
+            [Как мы будем работать]
+        </h2>
+
+        <!-- 
+          Таймлайн-контейнер.
+          На десктопе шаги выстроены горизонтально с линией между ними.
+          На мобильных — вертикально.
+        -->
+        <div class="timeline">
+
+            <!-- ===== ШАГ 1 ===== -->
+            <div class="timeline-step">
+                <!-- Кружок с номером на линии -->
+                <div class="timeline-dot">1</div>
+                
+                <!-- Содержимое шага -->
+                <div class="timeline-content">
+                    <!-- 
+                      ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА:
+                      "Briefing & Analysis"
+                    -->
+                    <h3 class="timeline-title">
+                        [Брифинг и анализ]
+                    </h3>
+                    <!-- 
+                      ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА:
+                      "We discuss your task in detail: goals, current workflow,
+                      pain points, expected result. I ask questions, you share context.
+                      The outcome: a clear technical specification."
+                    -->
+                    <p class="timeline-text">
+                        [Здесь текст: детально обсуждаем задачу — цели, текущие процессы,
+                        боли, ожидаемый результат. Ты задаёшь вопросы, клиент делится
+                        контекстом. Итог: чёткое техническое задание.]
+                    </p>
+                </div>
+            </div>
+
+            <!-- ===== ШАГ 2 ===== -->
+            <div class="timeline-step">
+                <div class="timeline-dot">2</div>
+                
+                <div class="timeline-content">
+                    <!-- 
+                      ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА:
+                      "Prototype & Approval"
+                    -->
+                    <h3 class="timeline-title">
+                        [Прототип и утверждение]
+                    </h3>
+                    <!-- 
+                      ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА:
+                      "I outline the solution structure: how the tool will work,
+                      what technologies will be used, approximate timeline.
+                      We align expectations before a single line of code is written."
+                    -->
+                    <p class="timeline-text">
+                        [Здесь текст: показываю структуру будущего решения — как инструмент
+                        будет работать, какие технологии использую, примерный срок.
+                        Согласовываем ожидания до того, как написан хоть один код.]
+                    </p>
+                </div>
+            </div>
+
+            <!-- ===== ШАГ 3 ===== -->
+            <div class="timeline-step">
+                <div class="timeline-dot">3</div>
+                
+                <div class="timeline-content">
+                    <!-- 
+                      ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА:
+                      "Development & Check-ins"
+                    -->
+                    <h3 class="timeline-title">
+                        [Разработка с промежуточной демонстрацией]
+                    </h3>
+                    <!-- 
+                      ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА:
+                      "I build the solution iteratively. You see intermediate
+                      results and can provide feedback. No surprises at the end —
+                      we stay aligned throughout the process."
+                    -->
+                    <p class="timeline-text">
+                        [Здесь текст: создаю решение итеративно. Клиент видит
+                        промежуточные результаты и может корректировать направление.
+                        Никаких сюрпризов в конце — мы синхронизированы на всём пути.]
+                    </p>
+                </div>
+            </div>
+
+            <!-- ===== ШАГ 4 ===== -->
+            <div class="timeline-step">
+                <div class="timeline-dot">4</div>
+                
+                <div class="timeline-content">
+                    <!-- 
+                      ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА:
+                      "Delivery & Support"
+                    -->
+                    <h3 class="timeline-title">
+                        [Передача и поддержка]
+                    </h3>
+                    <!-- 
+                      ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА:
+                      "You receive the finished tool, documentation, and instructions.
+                      I stay available for questions and quick fixes after launch.
+                      My goal: you're confident using the solution independently."
+                    -->
+                    <p class="timeline-text">
+                        [Здесь текст: клиент получает готовый инструмент, документацию
+                        и инструкцию. Ты остаёшься на связи для вопросов и оперативных
+                        правок после запуска. Цель — чтобы клиент уверенно пользовался
+                        решением самостоятельно.]
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
 
         <!-- ============================================= -->
         <!-- ПАЗЛ 8: ПРОЕКТЫ (портфолио + ссылка на GitHub)-->
         <!-- Будет заполнен позже                         -->
         <!-- ============================================= -->
-        <section id="projects">
-            <!-- Сюда вставим: карточки проектов + ссылку "Больше на GitHub" -->
-        </section>
+        <!-- ============================================= -->
+<!-- ПАЗЛ 8: ПРОЕКТЫ (портфолио + ссылка на GitHub)-->
+<!-- ============================================= -->
+<section id="projects">
+    <div class="container">
+
+        <!-- Заголовок секции -->
+        <!-- 
+          ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА:
+          "Projects"
+        -->
+        <h2 class="section-title">
+            [Проекты]
+        </h2>
+
+        <!-- Сетка из трёх карточек проектов -->
+        <div class="projects-grid">
+
+            <!-- ===== ПРОЕКТ 1: КАЛЬКУЛЯТОР ===== -->
+            <div class="project-card">
+                <!-- 
+                  ЗАГЛУШКА-ИЗОБРАЖЕНИЕ ПРОЕКТА.
+                  ПОЗЖЕ ЗАМЕНИТЬ НА: <img src="images/project-1.jpg" alt="Calculator">
+                  Сейчас — тёмный прямоугольник с подписью.
+                -->
+                <div class="project-image-placeholder">
+                    <span>СКРИНШОТ ПРОЕКТА</span>
+                </div>
+                
+                <!-- Информация о проекте -->
+                <div class="project-info">
+                    <!-- 
+                      ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА: "Calculator"
+                    -->
+                    <h3 class="project-title">[Калькулятор]</h3>
+                    
+                    <!-- 
+                      ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА:
+                      Краткое описание: что делает, какая задача решалась.
+                    -->
+                    <p class="project-description">
+                        [Здесь краткое описание проекта: что делает инструмент,
+                        какую задачу решал.]
+                    </p>
+                    
+                    <!-- Стек технологий (теги) -->
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <!-- Добавь другие теги по необходимости -->
+                    </div>
+                    
+                    <!-- Ссылки -->
+                    <div class="project-links">
+                        <!-- 
+                          ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ href="#" на реальную ссылку.
+                        -->
+                        <a href="#" class="project-link" target="_blank" rel="noopener">
+                            Исходный код →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== ПРОЕКТ 2: МЕНЕДЖЕР ЗАДАЧ ===== -->
+            <div class="project-card">
+                <div class="project-image-placeholder">
+                    <span>СКРИНШОТ ПРОЕКТА</span>
+                </div>
+                
+                <div class="project-info">
+                    <!-- 
+                      ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА: "Task Manager"
+                    -->
+                    <h3 class="project-title">[Менеджер задач]</h3>
+                    
+                    <p class="project-description">
+                        [Здесь краткое описание проекта: что делает инструмент,
+                        какую задачу решал.]
+                    </p>
+                    
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                    </div>
+                    
+                    <div class="project-links">
+                        <a href="#" class="project-link" target="_blank" rel="noopener">
+                            Исходный код →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== ПРОЕКТ 3: EXCEL-АВТОМАТИЗАЦИЯ ===== -->
+            <div class="project-card">
+                <div class="project-image-placeholder">
+                    <span>СКРИНШОТ ПРОЕКТА</span>
+                </div>
+                
+                <div class="project-info">
+                    <!-- 
+                      ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА: "Excel Automation Tool"
+                    -->
+                    <h3 class="project-title">[Excel-автоматизация]</h3>
+                    
+                    <p class="project-description">
+                        [Здесь краткое описание проекта: что делает инструмент,
+                        какую задачу решал.]
+                    </p>
+                    
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                    </div>
+                    
+                    <div class="project-links">
+                        <a href="#" class="project-link" target="_blank" rel="noopener">
+                            Исходный код →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ===== ССЫЛКА НА GITHUB ===== -->
+        <!-- 
+          Блок с призывом посмотреть больше проектов на GitHub.
+          Отдельно от карточек, чтобы даже когда часть проектов
+          уйдёт с сайта, ссылка на полное портфолио оставалась.
+        -->
+        <div class="github-cta">
+            <!-- 
+              ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА:
+              "More projects on my GitHub"
+            -->
+            <p class="github-cta-text">
+                [Больше проектов — в моём GitHub]
+            </p>
+            <a href="https://github.com/arlenadamaliev-lgtm"
+               target="_blank"
+               rel="noopener"
+               class="github-cta-link">
+                <!-- Иконка GitHub (SVG) -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+                arlenadamaliev-lgtm
+            </a>
+        </div>
+
+    </div>
+</section>
 
         <!-- ============================================= -->
         <!-- ПАЗЛ 9: КОНТАКТЫ (призыв + форма + ссылки)   -->
         <!-- Будет заполнен позже                         -->
         <!-- ============================================= -->
-        <section id="contacts">
-            <!-- Сюда вставим: призывной текст, кнопку Telegram, форму, email -->
-        </section>
+        <!-- ============================================= -->
+<!-- ПАЗЛ 9: КОНТАКТЫ (призыв + форма + ссылки)   -->
+<!-- ============================================= -->
+<section id="contacts">
+    <div class="container">
+
+        <!-- Заголовок секции -->
+        <!-- 
+          ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА:
+          "Let's discuss your project"
+        -->
+        <h2 class="section-title">
+            [Давайте обсудим ваш проект]
+        </h2>
+
+        <!-- Призывной текст -->
+        <!-- 
+          ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА:
+          "Tell me what routine processes you'd like to automate.
+          I'll ask clarifying questions and suggest solutions — free of charge."
+        -->
+        <p class="contacts-cta-text">
+            [Здесь призывной текст: расскажите, какие процессы в вашей рутине
+            можно автоматизировать. Я задам уточняющие вопросы и предложу
+            варианты решений — бесплатно.]
+        </p>
+
+        <!-- Блок с кнопками и контактами -->
+        <div class="contacts-actions">
+
+            <!-- ===== КНОПКА TELEGRAM (основной призыв) ===== -->
+            <!-- 
+              href — прямая ссылка на твой Telegram.
+              target="_blank" — откроется в новой вкладке или приложении.
+            -->
+            <a href="https://t.me/lApollonicusl"
+               target="_blank"
+               rel="noopener"
+               class="contact-btn contact-btn-telegram">
+                <!-- Иконка Telegram (SVG) -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.901-.903-1.056-.692-1.653-1.123-2.678-1.799-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.015-.15-.056-.212s-.174-.04-.249-.024c-.106.024-1.793 1.139-5.062 3.345-.479.329-.913.489-1.302.481-.428-.009-1.252-.242-1.865-.441-.752-.244-1.349-.374-1.297-.789.027-.216.324-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.015 3.333-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.138.121.098.154.233.171.327.016.094.036.307.02.477z"/>
+                </svg>
+                <!-- 
+                  ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА:
+                  "Write me on Telegram"
+                -->
+                [Написать в Telegram]
+            </a>
+
+            <!-- ===== EMAIL ===== -->
+            <!-- 
+              mailto: — открывает почтовый клиент пользователя.
+              ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ "твой.email@example.com" на реальный адрес.
+            -->
+            <a href="mailto:твой.email@example.com"
+               class="contact-btn contact-btn-email">
+                <!-- Иконка Email (SVG) -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2"/>
+                    <path d="M22 4L12 13 2 4"/>
+                </svg>
+                <!-- 
+                  ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА:
+                  "Email me"
+                -->
+                [Написать на Email]
+            </a>
+
+        </div>
+
+        <!-- ===== ЗАГЛУШКА ПОД ФОРМУ ОБРАТНОЙ СВЯЗИ ===== -->
+        <!-- 
+          ПОЗЖЕ МОЖНО ДОБАВИТЬ ФОРМУ.
+          Сейчас просто комментарий-напоминание.
+          Когда подключишь Formspree (или аналог) — заменишь этот блок
+          на форму с полями: имя, email, сообщение.
+        -->
+        <!--
+        <form class="contacts-form" action="https://formspree.io/f/твой-id" method="POST">
+            <input type="text" name="name" placeholder="Your name" required>
+            <input type="email" name="email" placeholder="Your email" required>
+            <textarea name="message" placeholder="Describe your task..." rows="4" required></textarea>
+            <button type="submit" class="contact-btn contact-btn-telegram">Send message</button>
+        </form>
+        -->
+
+    </div>
+</section>
 
     </main>
 
@@ -179,9 +846,65 @@
     <!-- ПАЗЛ 10: ПОДВАЛ (footer)                      -->
     <!-- Будет заполнен позже                         -->
     <!-- ============================================= -->
-    <footer id="footer">
-        <!-- Сюда вставим: копирайт, ссылки на соцсети -->
-    </footer>
+    <!-- ============================================= -->
+<!-- ПАЗЛ 10: ПОДВАЛ (footer)                     -->
+<!-- ============================================= -->
+<footer id="footer">
+    <div class="container footer-inner">
+
+        <!-- ===== КОПИРАЙТ ===== -->
+        <!-- 
+          © — символ копирайта.
+          new Date().getFullYear() в JavaScript позже заменит [ГОД] на текущий год.
+          Пока — заглушка.
+          ЗАГЛУШКА. ПОЗЖЕ ЗАМЕНИТЬ НА: "© 2026 Arlen Aliaskar uulu"
+        -->
+        <p class="footer-copy">
+            © [ГОД] Arlen Aliaskar uulu
+        </p>
+
+        <!-- ===== СОЦИАЛЬНЫЕ ССЫЛКИ ===== -->
+        <div class="footer-links">
+            <!-- GitHub -->
+            <a href="https://github.com/arlenadamaliev-lgtm"
+               target="_blank"
+               rel="noopener"
+               class="footer-icon-link"
+               aria-label="GitHub">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+            </a>
+
+            <!-- Telegram -->
+            <a href="https://t.me/lApollonicusl"
+               target="_blank"
+               rel="noopener"
+               class="footer-icon-link"
+               aria-label="Telegram">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.901-.903-1.056-.692-1.653-1.123-2.678-1.799-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.015-.15-.056-.212s-.174-.04-.249-.024c-.106.024-1.793 1.139-5.062 3.345-.479.329-.913.489-1.302.481-.428-.009-1.252-.242-1.865-.441-.752-.244-1.349-.374-1.297-.789.027-.216.324-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.015 3.333-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.138.121.098.154.233.171.327.016.094.036.307.02.477z"/>
+                </svg>
+            </a>
+
+            <!-- 
+              ЗАГЛУШКА ПОД LINKEDIN.
+              Когда появится — раскомментировать и вставить ссылку.
+            -->
+            <!--
+            <a href="https://linkedin.com/in/твой-ник"
+               target="_blank"
+               rel="noopener"
+               class="footer-icon-link"
+               aria-label="LinkedIn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+            </a>
+            -->
+        </div>
+    </div>
+</footer>
 
     <!-- ============================================= -->
     <!-- ПАЗЛ 11: ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКОВ (JavaScript)   -->
