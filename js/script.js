@@ -70,6 +70,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // --- Шаг 5: сохраняем выбор в localStorage ---
         localStorage.setItem(STORAGE_KEY, lang);
+        // --- Шаг 6: перепечатываем typewriter для нового языка ---
+        // Небольшая задержка, чтобы DOM обновился (скрытие/показ .lang элементов)
+        setTimeout(function () {
+            retypeForNewLanguage();
+        }, 50);
     }
 
     /**
@@ -135,5 +140,202 @@ document.addEventListener('DOMContentLoaded', function () {
         var currentYear = new Date().getFullYear();
         footerCopy.textContent = footerCopy.textContent.replace('[ГОД]', currentYear);
     }
+    
+    // ======================================================
+    // МОДУЛЬ 3: ПЕРЕКЛЮЧАТЕЛЬ ТЕМЫ (ТЁМНАЯ / СВЕТЛАЯ)
+    // ======================================================
+    
+    var themeToggle = document.querySelector('[data-theme-toggle]');
+    var themeIcon = document.querySelector('.theme-icon');
+    var THEME_KEY = 'portfolio-theme';
 
+    /**
+     * Применяет тему к сайту.
+     * @param {string} theme — 'dark' или 'light'
+     * 
+     * Если тема светлая — добавляет data-theme="light" к <html>.
+     * Если тёмная — убирает этот атрибут (работают стандартные :root переменные).
+     */
+    function applyTheme(theme) {
+        if (theme === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+            if (themeIcon) themeIcon.textContent = '☀️';
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+            if (themeIcon) themeIcon.textContent = '🌙';
+        }
+        // Сохраняем выбор
+        localStorage.setItem(THEME_KEY, theme);
+    }
+
+    /**
+     * Переключает тему: тёмная → светлая → тёмная.
+     */
+    function toggleTheme() {
+        var currentTheme = document.documentElement.getAttribute('data-theme');
+        if (currentTheme === 'light') {
+            applyTheme('dark');
+        } else {
+            applyTheme('light');
+        }
+    }
+
+    // Вешаем обработчик клика на кнопку
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+    }
+
+    // При загрузке страницы проверяем, не выбрана ли уже светлая тема
+    var savedTheme = localStorage.getItem(THEME_KEY);
+    if (savedTheme === 'light') {
+        applyTheme('light');
+    }
+    
+    // ======================================================
+    // МОДУЛЬ 4: КНОПКА "НАВЕРХ"
+    // ======================================================
+    
+    var scrollButton = document.querySelector('.scroll-to-top');
+    
+    if (scrollButton) {
+        /**
+         * Проверяет, насколько прокручена страница.
+         * Если больше 50% — показывает кнопку.
+         * Если меньше — скрывает.
+         * 
+         * Формула: scrollTop / (scrollHeight - clientHeight)
+         * scrollTop        — сколько пикселей уже прокручено сверху
+         * scrollHeight     — полная высота документа
+         * clientHeight     — высота видимой области (окна браузера)
+         * Результат — число от 0 (самый верх) до 1 (самый низ).
+         */
+        function checkScroll() {
+            var scrollTop = window.scrollY || document.documentElement.scrollTop;
+            var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrollPercent = scrollTop / docHeight;
+            
+            if (scrollPercent > 0.5) {
+                // Прокручено больше 50% — показываем кнопку
+                scrollButton.classList.add('visible');
+            } else {
+                // Меньше 50% — скрываем
+                scrollButton.classList.remove('visible');
+            }
+        }
+        
+        /**
+         * Плавно прокручивает страницу в самый верх.
+         * behavior: 'smooth' — встроенная плавная прокрутка браузера.
+         */
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Отслеживаем скролл — на каждое движение колеса/свайпа проверяем позицию
+        window.addEventListener('scroll', checkScroll);
+        
+        // При клике на кнопку — плавно наверх
+        scrollButton.addEventListener('click', scrollToTop);
+        
+        // Проверяем позицию сразу при загрузке (вдруг страница уже прокручена)
+        checkScroll();
+    }
+    
+    // ======================================================
+    // МОДУЛЬ 5: АНИМАЦИЯ НАБОРА ТЕКСТА (TYPEWRITER)
+    // ======================================================
+    
+    var typewriterCursor = document.querySelector('.typewriter-cursor');
+    var typingInterval = null;
+    var typingSpeed = 50;  // миллисекунд на букву
+    
+    /**
+     * Находит активный (видимый) элемент typewriter для текущего языка.
+     * Активный — тот, у которого нет класса .hidden.
+     * @returns {Element|null}
+     */
+    function getActiveTypewriter() {
+        var allTypewriters = document.querySelectorAll('.typewriter-text');
+        for (var i = 0; i < allTypewriters.length; i++) {
+            if (!allTypewriters[i].classList.contains('hidden')) {
+                return allTypewriters[i];
+            }
+        }
+        return null;
+    }
+    
+    /**
+     * Запускает печать текста для указанного элемента.
+     * @param {Element} element — элемент .typewriter-text
+     */
+    function startTypewriter(element) {
+        if (!element) return;
+        
+        // Останавливаем предыдущую анимацию, если была
+        if (typingInterval) {
+            clearInterval(typingInterval);
+            typingInterval = null;
+        }
+        
+        var fullText = element.getAttribute('data-text') || '';
+        var currentIndex = 0;
+        
+        // Очищаем элемент
+        element.textContent = '';
+        
+        // Показываем курсор
+        if (typewriterCursor) {
+            typewriterCursor.style.display = 'inline';
+        }
+        
+        // Запускаем печать по буквам
+        typingInterval = setInterval(function () {
+            if (currentIndex < fullText.length) {
+                element.textContent += fullText.charAt(currentIndex);
+                currentIndex++;
+            } else {
+                clearInterval(typingInterval);
+                typingInterval = null;
+            }
+        }, typingSpeed);
+    }
+    
+    /**
+     * Показывает текст мгновенно, без анимации.
+     * @param {Element} element
+     */
+    function showTextInstantly(element) {
+        if (!element) return;
+        
+        if (typingInterval) {
+            clearInterval(typingInterval);
+            typingInterval = null;
+        }
+        
+        element.textContent = element.getAttribute('data-text') || '';
+        
+        if (typewriterCursor) {
+            typewriterCursor.style.display = 'inline';
+        }
+    }
+    
+    /**
+     * Перепечатывает текст для нового языка.
+     * Вызывается при переключении языка.
+     */
+    function retypeForNewLanguage() {
+        var activeElement = getActiveTypewriter();
+        if (activeElement) {
+            startTypewriter(activeElement);
+        }
+    }
+    
+    // --- ЗАПУСК ПРИ ЗАГРУЗКЕ ---
+    var initialElement = getActiveTypewriter();
+    if (initialElement) {
+        startTypewriter(initialElement);
+    }
 });

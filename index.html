@@ -52,7 +52,16 @@
               Список ссылок. Пока здесь только переключатель языков.
               Позже можно добавить ссылки на секции: Проекты, Контакты.
             -->
-
+                <!-- ===== ПЕРЕКЛЮЧАТЕЛЬ ТЕМЫ (🌙/☀️) ===== -->
+            <!-- 
+              data-theme-toggle — атрибут для JavaScript.
+              aria-label — для скринридеров.
+              title — всплывающая подсказка при наведении.
+            -->
+            <button class="theme-toggle" data-theme-toggle aria-label="Переключить тему" title="Переключить тему">
+                <!-- Иконка по умолчанию (тёмная тема активна → показываем луну) -->
+                <span class="theme-icon">🌙</span>
+            </button>
             <!-- ===== ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКОВ (выпадающий) ===== -->
             <!-- 
               .lang-switcher — контейнер всего переключателя.
@@ -185,12 +194,26 @@
               Сейчас — краткое описание того, что здесь должно быть.
             -->
             <p class="hero-tagline">
-                <span class="lang lang-en">EN[Здесь твоя ударная фраза — 1-2 предложения о том, какую 
-                    проблему клиента ты решаешь с помощью Python]</span>
-                <span class="lang lang-kg hidden">КR[Здесь твоя ударная фраза — 1-2 предложения о том, какую
-                            проблему клиента ты решаешь с помощью Python]</span>
-                <span class="lang lang-ru hidden">RU[Здесь твоя ударная фраза — 1-2 предложения о том, какую
-                            проблему клиента ты решаешь с помощью Python]</span>
+                <!-- Английский (активен по умолчанию) -->
+                <span class="lang lang-en typewriter-text"  
+                data-text="[Your punchline — 1-2 sentences about the problem you solve with Python]"
+                aria-label="[Your punchline]">
+            </span>
+            <!-- Кыргызский -->
+            <span class="lang lang-kg hidden typewriter-text" 
+                data-text="[KR ударная фраза]"
+                aria-label="[KR ударная фраза]">
+            </span>
+
+            <!-- Русский -->
+            <span class="lang lang-ru hidden typewriter-text" 
+                data-text="[RU ударная фраза]"
+                aria-label="[RU ударная фраза]">
+            </span>
+
+            <!-- Курсор один на всех -->
+            <span class="typewriter-cursor" aria-hidden="true">|</span>
+            
             </p>
 
             <!-- Кнопка-призыв -->
@@ -1032,5 +1055,21 @@
     <!-- Будет заполнен позже                         -->
     <!-- ============================================= -->
     <script src="js/script.js"></script>
+        <!-- ============================================= -->
+    <!-- ПАЗЛ 13: КНОПКА "НАВЕРХ"                     -->
+    <!-- ============================================= -->
+    <!-- 
+      Кнопка появляется при скролле больше 50% страницы.
+      Плавно поднимает пользователя в начало.
+      aria-label — для доступности.
+      title — всплывающая подсказка.
+    -->
+    <button class="scroll-to-top" aria-label="Наверх" title="Наверх">
+        <!-- Стрелка вверх (SVG) -->
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"/>
+        </svg>
+    </button>
+
 </body>
 </html>

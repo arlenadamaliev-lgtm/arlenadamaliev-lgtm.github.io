@@ -46,7 +46,22 @@
        значение выше — и весь сайт перекрасится.
        ============================================ */
 }
-
+/* ============================================================
+   ПАЗЛ №12: ПЕРЕМЕННЫЕ ДЛЯ СВЕТЛОЙ ТЕМЫ
+   ============================================================
+   Когда к <html> добавляется data-theme="light",
+   эти переменные переопределяют стандартные из :root.
+   ============================================================ */
+[data-theme="light"] {
+    --color-bg-primary:   #F5F0EB;   /* тёплый кремовый вместо navy */
+    --color-bg-card:      #FFFFFF;   /* белый вместо чёрного */
+    --color-accent:       #8B0000;   /* акцент не меняем — он контрастный */
+    --color-accent-hover: #A00000;   /* ховер чуть светлее */
+    --color-text-primary: #2D2D2D;   /* тёмно-серый вместо платины */
+    --color-text-heading: #1A1A1A;   /* почти чёрный вместо белого */
+    --color-text-muted:   #5A5A5A;   /* средне-серый вместо серо-синего */
+    --color-border:       #D5CFC7;   /* бежевый вместо тёмно-синего */
+}
 
 /* ===== СБРОС СТАНДАРТНЫХ ОТСТУПОВ (CSS Reset) ===== */
 /* 
@@ -1291,4 +1306,334 @@ html {
        на уже выбранный язык. Но мы убираем это, чтобы можно было
        вернуться на английский даже если он активен.
     */
+}
+/* ============================================================
+   ПАЗЛ №12: СТИЛИ КНОПКИ ПЕРЕКЛЮЧЕНИЯ ТЕМЫ
+   ============================================================ */
+
+/* ----- КНОПКА ----- */
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 1;
+    padding: 4px;
+    
+    /* Плавный переход для иконки */
+    transition: transform 0.3s ease;
+    
+    /* Убираем стандартную обводку кнопки */
+    outline: none;
+    
+    /* Чтобы кнопка не сжималась */
+    flex-shrink: 0;
+}
+
+/* Лёгкое увеличение при наведении */
+.theme-toggle:hover {
+    transform: scale(1.15);
+}
+
+/* ----- ИКОНКА ВНУТРИ КНОПКИ ----- */
+.theme-icon {
+    /* 
+       transition для плавной смены эмодзи.
+       На практике эмодзи меняется мгновенно через JS,
+       но transform даёт приятный эффект.
+    */
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+/* Лёгкий поворот при наведении на иконку */
+.theme-toggle:hover .theme-icon {
+    transform: rotate(-15deg);
+}
+/* ============================================================
+   ПАЗЛ №13: СТИЛИ КНОПКИ "НАВЕРХ"
+   ============================================================ */
+
+/* ----- САМА КНОПКА ----- */
+.scroll-to-top {
+    /* Фиксированное позиционирование: правый нижний угол */
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;              /* поверх всего, но ниже шапки (у неё 1000) */
+    
+    /* Размеры и форма */
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;        /* круг */
+    
+    /* Цвета */
+    background-color: var(--color-accent);
+    color: var(--color-text-heading);
+    border: none;
+    box-shadow: 0 4px 16px rgba(139, 0, 0, 0.4);
+    
+    /* Центрируем иконку внутри круга */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Курсор и убираем стандартную обводку */
+    cursor: pointer;
+    outline: none;
+    
+    /* ===== СОСТОЯНИЕ ПО УМОЛЧАНИЮ: СКРЫТО ===== */
+    /* 
+       opacity: 0 — невидима.
+       visibility: hidden — не кликабельна.
+       transform: translateY(20px) — сдвинута вниз.
+       Когда появится класс .visible — всё возвращается.
+    */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    
+    /* Плавный переход для всех трёх свойств */
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* ----- ХОВЕР (наведение) ----- */
+.scroll-to-top:hover {
+    background-color: var(--color-accent-hover);
+    transform: translateY(-3px);   /* лёгкий подъём */
+    box-shadow: 0 6px 20px rgba(139, 0, 0, 0.6);
+}
+
+/* ----- АКТИВНОЕ СОСТОЯНИЕ (кнопка видна) ----- */
+/* 
+   JS добавляет класс .visible когда страница прокручена > 50%.
+*/
+.scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* ----- ФОКУС (для доступности с клавиатуры) ----- */
+.scroll-to-top:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+}
+/* ============================================================
+   ПАЗЛ №14: СТИЛИ АНИМАЦИИ НАБОРА ТЕКСТА
+   ============================================================ */
+
+/* ----- ТЕКСТ ДЛЯ НАБОРА ----- */
+.typewriter-text {
+    /* 
+       Никаких особых стилей — текст наследует
+       шрифт и цвет от .hero-tagline.
+       Просто чтобы был явный селектор для JS.
+    */
+}
+
+/* ----- МИГАЮЩИЙ КУРСОР ----- */
+.typewriter-cursor {
+    color: var(--color-accent);          /* бордовый курсор */
+    font-weight: 400;
+    
+    /* 
+       Анимация: blink — название, 0.8s — длительность одного цикла,
+       step-end — резкое переключение (без плавности),
+       infinite — бесконечно.
+    */
+    animation: blink 0.8s step-end infinite;
+}
+
+/* 
+   Ключевые кадры анимации blink.
+   Курсор то видимый (opacity: 1), то невидимый (opacity: 0).
+   step-end — переключается мгновенно каждые 50% времени.
+*/
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0; }
+}
+/* ============================================================
+   ПАЗЛ №15: АНИМАЦИИ ПОЯВЛЕНИЯ СЕКЦИЙ ПРИ СКРОЛЛЕ
+   ============================================================ */
+
+/* ==========================================
+   БАЗОВЫЙ КЛАСС: СКРЫТОЕ СОСТОЯНИЕ
+   ==========================================
+   Все анимируемые элементы по умолчанию скрыты.
+   JS добавляет класс .animate-visible когда
+   элемент попадает в зону видимости.
+   ========================================== */
+
+/* ----- СКРЫТОЕ СОСТОЯНИЕ (до анимации) ----- */
+.animate-hidden {
+    opacity: 0;
+    /* 
+       transition объявлен индивидуально в каждом типе анимации ниже.
+       Здесь только начальное состояние.
+    */
+}
+
+/* ----- ОБЩЕЕ ВИДИМОЕ СОСТОЯНИЕ (после анимации) ----- */
+.animate-visible {
+    opacity: 1;
+}
+
+
+/* ==========================================
+   ТИП 1: ВЫЕЗД СЛЕВА
+   Используется: Почему Python (3 карточки)
+   ========================================== */
+.slide-left {
+    transform: translateX(-60px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.slide-left.animate-visible {
+    transform: translateX(0);
+}
+
+
+/* ==========================================
+   ТИП 2: ВЫЕЗД СЛЕВА (для Почему я — левые карточки)
+   ========================================== */
+.slide-left-pair {
+    transform: translateX(-60px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.slide-left-pair.animate-visible {
+    transform: translateX(0);
+}
+
+
+/* ==========================================
+   ТИП 3: ВЫЕЗД СПРАВА (для Почему я — правые карточки)
+   ========================================== */
+.slide-right-pair {
+    transform: translateX(60px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.slide-right-pair.animate-visible {
+    transform: translateX(0);
+}
+
+
+/* ==========================================
+   ТИП 4: ВЫЕЗД СЛЕВА (для проектов — левая карточка)
+   ========================================== */
+.slide-left-project {
+    transform: translateX(-60px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.slide-left-project.animate-visible {
+    transform: translateX(0);
+}
+
+
+/* ==========================================
+   ТИП 5: ВЫЕЗД СНИЗУ (для проектов — центральная карточка)
+   ========================================== */
+.slide-up-project {
+    transform: translateY(60px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.slide-up-project.animate-visible {
+    transform: translateY(0);
+}
+
+
+/* ==========================================
+   ТИП 6: ВЫЕЗД СПРАВА (для проектов — правая карточка)
+   ========================================== */
+.slide-right-project {
+    transform: translateX(60px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.slide-right-project.animate-visible {
+    transform: translateX(0);
+}
+
+
+/* ==========================================
+   ТИП 7: МАСШТАБИРОВАНИЕ (SCALE-IN)
+   Используется: Процесс работы (4 шага)
+   ========================================== */
+.scale-in {
+    transform: scale(0.85);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.scale-in.animate-visible {
+    transform: scale(1);
+}
+
+
+/* ==========================================
+   ТИП 8: ПУЛЬСАЦИЯ (мягкая, бесконечная)
+   Используется: GitHub CTA, кнопки Контактов
+   ==========================================
+   Анимация запускается ПОСЛЕ того как элемент
+   стал видимым (получил класс .animate-visible).
+   Отдельный класс .pulse добавляется JS после появления.
+   ========================================== */
+.pulse {
+    animation: soft-pulse 3s ease-in-out infinite;
+}
+
+@keyframes soft-pulse {
+    0%, 100% { 
+        box-shadow: 0 0 0 0 rgba(139, 0, 0, 0.4);
+    }
+    50% { 
+        box-shadow: 0 0 12px 4px rgba(139, 0, 0, 0.15);
+    }
+}
+
+/* 
+   Для кнопок контактов — более заметная пульсация,
+   но всё ещё мягкая. Кнопки — главный призыв к действию.
+*/
+.pulse-cta {
+    animation: soft-pulse-cta 2.5s ease-in-out infinite;
+}
+
+@keyframes soft-pulse-cta {
+    0%, 100% { 
+        box-shadow: 0 0 0 0 rgba(139, 0, 0, 0.5);
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 0 16px 6px rgba(139, 0, 0, 0.2);
+        transform: scale(1.02);
+    }
+}
+
+
+/* ==========================================
+   ОТКЛЮЧЕНИЕ АНИМАЦИЙ ДЛЯ ПОЛЬЗОВАТЕЛЕЙ,
+   КОТОРЫЕ ПРЕДПОЧИТАЮТ УМЕНЬШЕННОЕ ДВИЖЕНИЕ
+   (настройка в операционной системе)
+   ========================================== */
+@media (prefers-reduced-motion: reduce) {
+    .slide-left,
+    .slide-left-pair,
+    .slide-right-pair,
+    .slide-left-project,
+    .slide-up-project,
+    .slide-right-project,
+    .scale-in {
+        transform: none;
+        transition: opacity 0.3s ease;
+    }
+    
+    .pulse,
+    .pulse-cta {
+        animation: none;
+    }
 }
