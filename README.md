@@ -1,20 +1,38 @@
-# My portfolio website
+# Personal Portfolio — Arlen Aliaskar uulu Python Developer
 
-This website has been created to showcase my work and skills.
+Single-page portfolio website for a Python developer, built with vanilla HTML, CSS, and JavaScript. Hosted on GitHub Pages.
 
-## Technologies
-- HTML
-- CSS
-- GitHub Pages
+## Features
 
-твой-проект/
-├── index.html
+- **Dark / light theme**
+- **Multilingual** 
+- **Typewriter effect** 
+- **Scroll-triggered animations**
+- **Project detail modal** 
+- **Contact form** 
+- **Fully responsive** 
+- **Smooth scroll**
+
+## Tech Stack
+
+- HTML5
+- CSS3 (custom properties, grid, flexbox, animations)
+- Vanilla JavaScript (no frameworks, no dependencies)
+
+## File Structure
+
+```
+├── index.html      # Main page
 ├── css/
-│   └── style.css
+│   └── style.css   # All styles
 ├── js/
-│   └── script.js     (сюда уедет логика переключения языка)
-├── images/
-│   ├── avatar.jpg
-│   ├── project-1.jpg
-│   └── hero-bg.svg   (абстрактная графика для фона)
+│   └── script.js   # All scripts
 └── README.md
+```
+
+## Deployment
+
+The site is designed to work on **GitHub Pages** out of the box — no build step required.
+
+
+### License MIT 
