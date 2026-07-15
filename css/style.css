@@ -1,319 +1,230 @@
+/**
+ * CSS Variables, Reset, Base Styles, Layout,
+ * Header, Hero, Why-Python, Why-Me, Workflow Timeline,
+ * Projects, Contacts, Footer, Theme Toggle, Scroll-to-Top,
+ * Typewriter, Scroll Animations, Modal, Contact Form
+ */
+
 /* ============================================================
-   ПАЗЛ №2: ЦВЕТОВАЯ СХЕМА, ШРИФТЫ, БАЗОВЫЕ СТИЛИ
-   ============================================================
-
-   Этот файл — фундамент дизайна. Все цвета здесь заданы
-   через CSS-переменные. Если позже захочешь поменять оттенок —
-   достаточно изменить значение переменной в :root,
-   и цвет обновится на всём сайте автоматически.
+   FONTS
    ============================================================ */
-
-/* ===== ПОДКЛЮЧЕНИЕ ШРИФТОВ ===== */
-/* 
-   Google Fonts: Inter — современный, читаемый шрифт.
-   400 (обычный), 500 (полужирный), 700 (жирный).
-   Загружается быстро, не требует файлов в проекте.
-*/
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
 
 
-/* ===== ЦВЕТОВАЯ ПАЛИТРА (CSS-переменные) ===== */
-:root {
-    /* -- Тёмно-синий: основной фон страницы -- */
-    --color-bg-primary:   #0A192F;   /* глубокий navy */
-
-    /* -- Чёрный: фон для карточек и секций -- */
-    --color-bg-card:      #111111;   /* почти чёрный, создаёт слои */
-
-    /* -- Бордовый: акцентный цвет -- */
-    --color-accent:       #8B0000;   /* тёмно-красный, дорогой оттенок */
-    --color-accent-hover: #A00000;   /* чуть светлее при наведении */
-
-    /* -- Платиновый: основной цвет текста -- */
-    --color-text-primary: #E5E4E2;   /* мягкий светло-серый */
-
-    /* -- Белый: для заголовков (максимальный контраст) -- */
-    --color-text-heading: #FFFFFF;   /* чистый белый */
-
-    /* -- Приглушённый серый: для второстепенного текста -- */
-    --color-text-muted:   #8892B0;   /* серо-голубой, хорошо читается */
-
-    /* -- Цвет для обводок и разделителей -- */
-    --color-border:       #233554;   /* тёмный сине-серый */
-
-    /* ============================================
-       Ты можешь в любой момент поменять любое
-       значение выше — и весь сайт перекрасится.
-       ============================================ */
-}
 /* ============================================================
-   ПАЗЛ №12: ПЕРЕМЕННЫЕ ДЛЯ СВЕТЛОЙ ТЕМЫ
-   ============================================================
-   Когда к <html> добавляется data-theme="light",
-   эти переменные переопределяют стандартные из :root.
+   COLOR PALETTE (CSS CUSTOM PROPERTIES)
+   ============================================================ */
+:root {
+    --color-bg-primary:   #0A192F;   /* deep navy — main background */
+    --color-bg-card:      #111111;   /* near black — cards & sections */
+    --color-accent:       #8B0000;   /* dark red — accent */
+    --color-accent-hover: #A00000;   /* slightly lighter red — hover state */
+    --color-text-primary: #E5E4E2;   /* soft light grey — body text */
+    --color-text-heading: #FFFFFF;   /* pure white — headings */
+    --color-text-muted:   #8892B0;   /* blue-grey — secondary text */
+    --color-border:       #233554;   /* dark blue-grey — borders & separators */
+}
+
+/* ============================================================
+   LIGHT THEME OVERRIDES
    ============================================================ */
 [data-theme="light"] {
-    --color-bg-primary:   #F5F0EB;   /* тёплый кремовый вместо navy */
-    --color-bg-card:      #FFFFFF;   /* белый вместо чёрного */
-    --color-accent:       #8B0000;   /* акцент не меняем — он контрастный */
-    --color-accent-hover: #A00000;   /* ховер чуть светлее */
-    --color-text-primary: #2D2D2D;   /* тёмно-серый вместо платины */
-    --color-text-heading: #1A1A1A;   /* почти чёрный вместо белого */
-    --color-text-muted:   #5A5A5A;   /* средне-серый вместо серо-синего */
-    --color-border:       #D5CFC7;   /* бежевый вместо тёмно-синего */
+    --color-bg-primary:   #F5F0EB;   /* warm cream */
+    --color-bg-card:      #FFFFFF;   /* pure white */
+    --color-accent:       #8B0000;   /* accent unchanged */
+    --color-accent-hover: #A00000;
+    --color-text-primary: #2D2D2D;   /* dark grey */
+    --color-text-heading: #1A1A1A;   /* near black */
+    --color-text-muted:   #5A5A5A;   /* medium grey */
+    --color-border:       #D5CFC7;   /* light beige */
 }
 
-/* ===== СБРОС СТАНДАРТНЫХ ОТСТУПОВ (CSS Reset) ===== */
-/* 
-   Браузеры по умолчанию добавляют отступы к body, h1, p и т.д.
-   Мы их обнуляем, чтобы контролировать всё самим.
-*/
+
+/* ============================================================
+   CSS RESET
+   ============================================================ */
 *,
 *::before,
 *::after {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;  
-    /* 
-       box-sizing: border-box — чтобы padding не увеличивал
-       реальную ширину элемента. Так проще считать размеры.
-    */
+    box-sizing: border-box;
 }
 
 
-/* ===== БАЗОВЫЕ СТИЛИ ВСЕЙ СТРАНИЦЫ ===== */
+/* ============================================================
+   BASE STYLES
+   ============================================================ */
 body {
-    /* Фон */
     background-color: var(--color-bg-primary);
-
-    /* Текст */
     font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif;
-    font-size: 16px;                /* базовый размер для десктопа */
-    line-height: 1.6;               /* комфортный межстрочный интервал */
+    font-size: 16px;
+    line-height: 1.6;
     color: var(--color-text-primary);
-
-    /* Сглаживание шрифтов (делает текст чётче на macOS) */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-
-    /* 
-       Убираем горизонтальный скролл, если какой-то элемент
-       случайно вылезет за край экрана.
-    */
     overflow-x: hidden;
 }
 
-
-/* ===== БАЗОВЫЕ СТИЛИ ДЛЯ ЗАГОЛОВКОВ ===== */
 h1, h2, h3 {
-    color: var(--color-text-heading);  /* заголовки — белые */
-    font-weight: 700;                  /* жирные */
-    line-height: 1.2;                  /* плотнее, чем у обычного текста */
+    color: var(--color-text-heading);
+    font-weight: 700;
+    line-height: 1.2;
 }
 
-
-/* ===== БАЗОВЫЕ СТИЛИ ДЛЯ ССЫЛОК ===== */
 a {
-    color: var(--color-accent);        /* ссылки — бордовые */
-    text-decoration: none;             /* убираем подчёркивание */
-    transition: color 0.3s ease;       
-    /* 
-       transition — плавное изменение цвета при наведении.
-       0.3s — длительность, ease — плавность.
-    */
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 a:hover {
-    color: var(--color-accent-hover);  /* при наведении — светлее */
+    color: var(--color-accent-hover);
 }
 
-
-/* ===== БАЗОВЫЕ СТИЛИ ДЛЯ ИЗОБРАЖЕНИЙ ===== */
 img {
-    max-width: 100%;    /* картинка никогда не шире своего контейнера */
-    height: auto;       /* сохраняет пропорции */
-    display: block;     /* убирает лишний отступ снизу (баг img) */
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 
-/* ===== КЛАСС ДЛЯ СКРЫТИЯ ЭЛЕМЕНТОВ ===== */
-/* 
-   Пригодится для переключателя языков.
-   Элементы с этим классом будут невидимы.
-   display: none убирает элемент из потока полностью.
-*/
+/* ============================================================
+   UTILITY CLASSES
+   ============================================================ */
+
+/* Language switcher: hide inactive language elements */
 .hidden {
     display: none !important;
-    /* 
-       !important — чтобы этот стиль нельзя было случайно переопределить.
-       Используем только здесь, в рабочих стилях так не злоупотребляют.
-    */
 }
 
-
-/* ===== УТИЛИТАРНЫЙ КЛАСС ДЛЯ КОНТЕЙНЕРА ===== */
-/* 
-   Ограничивает ширину контента и центрирует его.
-   Будем добавлять к секциям, чтобы текст не растягивался
-   на весь экран на широких мониторах.
-*/
+/* Constrain content width and center */
 .container {
-    max-width: 1100px;          /* максимальная ширина контента */
-    margin: 0 auto;             /* центрирование по горизонтали */
-    padding: 0 20px;            /* отступы по бокам для мобильных */
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 
-/* ===== ПЛАВНАЯ ПРОКРУТКА ДЛЯ ВСЕЙ СТРАНИЦЫ ===== */
-/* 
-   Когда пользователь нажимает на ссылку-якорь (например, "к контактам"),
-   страница прокручивается плавно, а не прыгает.
-*/
+/* ============================================================
+   SMOOTH SCROLL (ANCHOR LINKS)
+   ============================================================ */
 html {
     scroll-behavior: smooth;
 }
 
-/* ============================================================
-   ПАЗЛ №3: СТИЛИ ШАПКИ
-   ============================================================ */
 
-/* ----- САМА ШАПКА ----- */
+/* ============================================================
+   HEADER
+   ============================================================ */
 #header {
-    position: fixed;     
-    /* 
-       fixed — шапка всегда видна сверху, даже при прокрутке.
-       sticky тоже вариант, но fixed надёжнее для нашей задачи.
-    */
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;          /* на всю ширину экрана */
-    z-index: 1000;        /* чтобы шапка была поверх всего контента */
-    
-    /* Фон: тёмно-синий с лёгкой прозрачностью (стеклянный эффект) */
+    width: 100%;
+    z-index: 1000;
     background-color: rgba(10, 25, 47, 0.85);
-    
-    /* 
-       backdrop-filter — размытие фона под шапкой.
-       Работает в современных браузерах. Красиво и технологично.
-    */
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);  /* для Safari */
-    
-    /* Тонкая линия снизу для отделения от контента */
+    -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--color-border);
-    
-    /* Небольшая тень для глубины */
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* ----- ВНУТРЕННИЙ КОНТЕЙНЕР ШАПКИ ----- */
 .header-inner {
-    display: flex;            /* флекс-контейнер: элементы в ряд */
-    justify-content: space-between;  /* имя слева, навигация справа */
-    align-items: center;      /* выравнивание по вертикали */
-    height: 60px;             /* фиксированная высота шапки */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
 }
 
-/* ----- ИМЯ-ЛОГОТИП ----- */
+/* Logo / Name */
 .logo {
     font-size: 18px;
     font-weight: 700;
     color: var(--color-text-heading);
-    letter-spacing: 0.5px;    /* лёгкий межбуквенный интервал */
+    letter-spacing: 0.5px;
     transition: color 0.3s ease;
 }
 
 .logo:hover {
-    color: var(--color-accent);  /* при наведении — бордовый */
+    color: var(--color-accent);
 }
 
-/* ----- НАВИГАЦИЯ (контейнер для ссылок и переключателя) ----- */
+/* Navigation container */
 .header-nav {
     display: flex;
     align-items: center;
-    gap: 20px;                 /* расстояние между элементами навигации */
+    gap: 20px;
 }
 
-/* ----- ИКОНКИ GITHUB И TELEGRAM ----- */
+/* GitHub & WhatsApp icons */
 .header-icon-link {
     color: var(--color-text-muted);
     transition: color 0.3s ease, transform 0.3s ease;
-    display: flex;             /* чтобы SVG внутри центрировался */
+    display: flex;
     align-items: center;
 }
 
 .header-icon-link:hover {
     color: var(--color-accent);
-    transform: translateY(-2px);  /* лёгкий подъём при наведении */
+    transform: translateY(-2px);
 }
+
 
 /* ============================================================
-   ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКОВ (ВЫПАДАЮЩИЙ)
+   LANGUAGE SWITCHER (DROPDOWN)
    ============================================================ */
-
-/* ----- КОНТЕЙНЕР ПЕРЕКЛЮЧАТЕЛЯ ----- */
 .lang-switcher {
-    position: relative;        
-    /* 
-       relative — чтобы выпадающее меню (.lang-dropdown)
-       позиционировалось относительно этого контейнера.
-    */
+    position: relative;
     cursor: pointer;
-    user-select: none;         /* запрет выделения текста при клике */
+    user-select: none;
 }
 
-/* ----- ТЕКУЩИЙ ФЛАГ (всегда виден) ----- */
 .lang-current {
-    font-size: 20px;           /* флаг покрупнее */
+    font-size: 20px;
     line-height: 1;
     display: block;
     padding: 4px;
     transition: transform 0.3s ease;
 }
 
-/* Лёгкое увеличение флага при наведении */
 .lang-switcher:hover .lang-current {
     transform: scale(1.15);
 }
 
-/* ----- ВЫПАДАЮЩЕЕ МЕНЮ С ФЛАГАМИ ----- */
 .lang-dropdown {
-    position: absolute;        /* позиционируется относительно .lang-switcher */
-    top: 100%;                 /* прямо под текущим флагом */
-    right: 0;                  /* прижато к правому краю */
-    margin-top: 8px;           /* небольшой отступ от флага */
-    
-    /* Скрыто по умолчанию */
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 8px;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-5px);  /* лёгкий сдвиг вверх для анимации */
-    
-    /* Стили фона */
+    transform: translateY(-5px);
     background-color: var(--color-bg-card);
     border: 1px solid var(--color-border);
     border-radius: 8px;
     padding: 4px;
-    
-    /* Тень */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    
-    /* Плавное появление */
     transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
-    
-    list-style: none;          /* убираем маркеры списка */
+    list-style: none;
     display: flex;
-    flex-direction: column;    /* флаги друг под другом */
+    flex-direction: column;
     gap: 2px;
 }
 
-/* ----- ПОКАЗ ВЫПАДАЮЩЕГО МЕНЮ ПРИ НАВЕДЕНИИ ----- */
 .lang-switcher:hover .lang-dropdown {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);  /* возвращаем на место */
+    transform: translateY(0);
 }
 
-/* ----- КНОПКА С ФЛАГОМ ВНУТРИ ВЫПАДАЮЩЕГО МЕНЮ ----- */
+/* Click-based open (for mobile) */
+.lang-switcher.open .lang-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
 .lang-option {
     background: none;
     border: none;
@@ -323,85 +234,84 @@ html {
     border-radius: 4px;
     transition: background-color 0.2s ease;
     line-height: 1;
-    
-    /* Убираем стандартную обводку кнопки */
     outline: none;
 }
 
-/* Подсветка кнопки при наведении */
 .lang-option:hover {
-    background-color: rgba(139, 0, 0, 0.2);  /* бордовый с прозрачностью */
+    background-color: rgba(139, 0, 0, 0.2);
 }
-/* ============================================================
-   ДОПОЛНЕНИЕ К ПАЗЛУ №3: ОТКРЫТИЕ МЕНЮ ПО КЛИКУ (для телефона)
-   ============================================================ */
 
-/* 
-   Когда JavaScript добавляет класс .open к .lang-switcher,
-   показываем выпадающее меню точно так же, как при :hover.
-*/
-.lang-switcher.open .lang-dropdown {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+/* Active language highlight */
+.lang-option.active {
+    background-color: rgba(139, 0, 0, 0.3);
 }
-/* ============================================================
-   ПАЗЛ №4: СТИЛИ HERO-СЕКЦИИ
-   ============================================================ */
 
-/* ----- САМА СЕКЦИЯ ----- */
+
+/* ============================================================
+   THEME TOGGLE BUTTON
+   ============================================================ */
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 1;
+    padding: 4px;
+    transition: transform 0.3s ease;
+    outline: none;
+    flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.15);
+}
+
+.theme-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover .theme-icon {
+    transform: rotate(-15deg);
+}
+
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
 #hero {
-    /* 
-       padding-top: 100px — отступ сверху, чтобы контент
-       не залезал под фиксированную шапку (она высотой 60px + запас).
-    */
     padding-top: 100px;
     padding-bottom: 60px;
-    
-    /* Минимальная высота: на весь экран минус высота шапки */
     min-height: calc(100vh - 60px);
-    
-    /* Флекс для центрирования контента по вертикали */
     display: flex;
     align-items: center;
 }
 
-/* ----- ДВУХКОЛОНОЧНАЯ СЕТКА (фото | текст) ----- */
 .hero-grid {
     display: grid;
-    grid-template-columns: 1fr 1.5fr;  /* фото — 1 часть, текст — 1.5 части */
-    gap: 40px;                          /* расстояние между колонками */
-    align-items: center;                /* выравнивание по вертикали */
+    grid-template-columns: 1fr 1.5fr;
+    gap: 40px;
+    align-items: center;
 }
 
-/* ----- ОБЁРТКА ДЛЯ ФОТО ----- */
 .hero-image-wrapper {
     display: flex;
-    justify-content: center;  /* фото по центру своей колонки */
+    justify-content: center;
 }
 
-/* ----- PLACEHOLDER ДЛЯ ФОТО (временная заглушка) ----- */
+/* Avatar placeholder (replace with <img> later) */
 .hero-avatar-placeholder {
     width: 260px;
     height: 260px;
-    border-radius: 50%;                    /* круглое */
-    
-    /* Градиент: бордовый + тёмно-синий, перекликается с палитрой */
+    border-radius: 50%;
     background: linear-gradient(135deg, var(--color-accent), var(--color-bg-primary));
-    
-    /* Тонкая рамка */
     border: 3px solid var(--color-border);
-    
-    /* Тень для объёма */
     box-shadow: 0 0 40px rgba(139, 0, 0, 0.3);
-    
-    /* Текст "ФОТО" внутри — центрируем */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Текст "ФОТО" внутри круга */
 .placeholder-text {
     color: var(--color-text-primary);
     font-size: 14px;
@@ -410,39 +320,30 @@ html {
     opacity: 0.7;
 }
 
-/* 
-   КОГДА ПОЯВИТСЯ РЕАЛЬНОЕ ФОТО:
-   Удали .hero-avatar-placeholder и .placeholder-text.
-   В HTML замени <div> на:
-   <img src="images/avatar.jpg" alt="Arlen Aliaskar uulu" class="hero-avatar">
-   И добавь стиль:
-   .hero-avatar {
-       width: 260px;
-       height: 260px;
-       border-radius: 50%;
-       object-fit: cover;          — обрезает фото по кругу
-       border: 3px solid var(--color-border);
-       box-shadow: 0 0 40px rgba(139, 0, 0, 0.3);
-   }
+/* --- Replace placeholder with real photo ---
+.hero-avatar {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--color-border);
+    box-shadow: 0 0 40px rgba(139, 0, 0, 0.3);
+}
 */
 
-/* ----- КОНТЕНТНАЯ ЧАСТЬ (текст + кнопка) ----- */
 .hero-content {
-    /* Всё выравниваем по левому краю */
     text-align: left;
 }
 
-/* ----- ДОЛЖНОСТЬ (мелкий текст над именем) ----- */
 .hero-role {
     font-size: 14px;
     font-weight: 500;
-    color: var(--color-accent);        /* бордовый — привлекает внимание */
-    text-transform: uppercase;         /* КАПС */
-    letter-spacing: 2px;               /* широкий межбуквенный */
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 2px;
     margin-bottom: 12px;
 }
 
-/* ----- ИМЯ (крупный заголовок) ----- */
 .hero-name {
     font-size: 48px;
     font-weight: 700;
@@ -451,16 +352,14 @@ html {
     color: var(--color-text-heading);
 }
 
-/* ----- УДАРНАЯ ФРАЗА ----- */
 .hero-tagline {
     font-size: 18px;
     color: var(--color-text-muted);
-    max-width: 500px;        /* ограничиваем ширину для читаемости */
+    max-width: 500px;
     margin-bottom: 32px;
     line-height: 1.5;
 }
 
-/* ----- КНОПКА-ПРИЗЫВ ----- */
 .hero-cta {
     display: inline-block;
     background-color: var(--color-accent);
@@ -475,62 +374,19 @@ html {
 
 .hero-cta:hover {
     background-color: var(--color-accent-hover);
-    transform: translateY(-2px);  /* лёгкий подъём */
+    transform: translateY(-2px);
 }
 
+
 /* ============================================================
-   АДАПТИВ: HERO НА МОБИЛЬНЫХ (до 768px)
+   WHY PYTHON SECTION
    ============================================================ */
-@media (max-width: 768px) {
-    /* На телефонах — одна колонка, фото сверху */
-    .hero-grid {
-        grid-template-columns: 1fr;       /* одна колонка */
-        gap: 30px;
-        text-align: center;               /* текст по центру */
-    }
-
-    /* Фото меньше */
-    .hero-avatar-placeholder {
-        width: 180px;
-        height: 180px;
-    }
-
-    /* Контент — тоже по центру */
-    .hero-content {
-        text-align: center;
-    }
-
-    /* Имя поменьше */
-    .hero-name {
-        font-size: 32px;
-    }
-
-    /* Фраза — на всю ширину */
-    .hero-tagline {
-        font-size: 16px;
-        max-width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    /* Отступ сверху поменьше */
-    #hero {
-        padding-top: 80px;
-        padding-bottom: 40px;
-    }
-}
-/* ============================================================
-   ПАЗЛ №5: СТИЛИ СЕКЦИИ "ПОЧЕМУ PYTHON"
-   ============================================================ */
-
-/* ----- САМА СЕКЦИЯ ----- */
 #why-python {
     padding-top: 60px;
     padding-bottom: 60px;
-    background-color: var(--color-bg-card);  /* чёрный фон — создаёт слой */
+    background-color: var(--color-bg-card);
 }
 
-/* ----- ЗАГОЛОВОК СЕКЦИИ ----- */
 .section-title {
     font-size: 32px;
     font-weight: 700;
@@ -539,51 +395,42 @@ html {
     color: var(--color-text-heading);
 }
 
-/* ----- ПОДЗАГОЛОВОК ----- */
 .section-subtitle {
     font-size: 16px;
     color: var(--color-text-muted);
     text-align: center;
     max-width: 600px;
-    margin: 0 auto 48px auto;   /* центрируем, отступ снизу 48px */
+    margin: 0 auto 48px auto;
     line-height: 1.5;
 }
 
-/* ----- СЕТКА КАРТОЧЕК (3 колонки на десктопе) ----- */
 .cards-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);  /* три равные колонки */
-    gap: 24px;                               /* расстояние между карточками */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
 }
 
-/* ----- ОДНА КАРТОЧКА ----- */
 .info-card {
-    background-color: var(--color-bg-primary);  /* тёмно-синий фон */
+    background-color: var(--color-bg-primary);
     border: 1px solid var(--color-border);
     border-radius: 10px;
     padding: 32px 24px;
     text-align: center;
-    
-    /* Плавный переход для ховер-эффекта */
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-/* Подъём карточки при наведении */
 .info-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-    border-color: var(--color-accent);  /* бордовая обводка */
+    border-color: var(--color-accent);
 }
 
-/* ----- ИКОНКА В КАРТОЧКЕ ----- */
 .info-card-icon {
     font-size: 40px;
     margin-bottom: 16px;
-    /* Убираем выделение эмодзи */
     user-select: none;
 }
 
-/* ----- ЗАГОЛОВОК КАРТОЧКИ ----- */
 .info-card-title {
     font-size: 20px;
     font-weight: 600;
@@ -591,255 +438,131 @@ html {
     color: var(--color-text-heading);
 }
 
-/* ----- ТЕКСТ КАРТОЧКИ ----- */
 .info-card-text {
     font-size: 14px;
     color: var(--color-text-muted);
     line-height: 1.6;
 }
 
-/* ============================================================
-   АДАПТИВ: КАРТОЧКИ НА МОБИЛЬНЫХ
-   ============================================================ */
-@media (max-width: 768px) {
-    /* На телефоне — одна колонка */
-    .cards-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    /* Заголовок поменьше */
-    .section-title {
-        font-size: 26px;
-    }
-
-    /* Подзаголовок — на всю ширину */
-    .section-subtitle {
-        font-size: 15px;
-        max-width: 100%;
-        margin-bottom: 32px;
-    }
-
-    /* В карточке текст выравниваем влево для читаемости */
-    .info-card {
-        text-align: left;
-        padding: 24px 20px;
-    }
-    
-    /* Отступы секции поменьше */
-    #why-python {
-        padding-top: 40px;
-        padding-bottom: 40px;
-    }
-}
 
 /* ============================================================
-   АДАПТИВ: ПЛАНШЕТЫ (2 колонки)
+   WHY ME SECTION
    ============================================================ */
-@media (min-width: 769px) and (max-width: 1024px) {
-    /* На планшете — две колонки, третья карточка снизу по центру */
-    .cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-/* ============================================================
-   ПАЗЛ №6: СТИЛИ СЕКЦИИ "ПОЧЕМУ Я"
-   ============================================================ */
-
-/* ----- САМА СЕКЦИЯ ----- */
 #about-me {
     padding-top: 60px;
     padding-bottom: 60px;
-    /* Фон — основной тёмно-синий, как у Hero */
     background-color: var(--color-bg-primary);
 }
 
-/* ----- СЕТКА ПРИЧИН (2 колонки на десктопе) ----- */
 .reasons-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);  /* две равные колонки */
+    grid-template-columns: repeat(2, 1fr);
     gap: 24px;
-    margin-top: 40px;  /* отступ от заголовка */
+    margin-top: 40px;
 }
 
-/* ----- ОДНА КАРТОЧКА-ПРИЧИНА ----- */
 .reason-card {
-    background-color: var(--color-bg-card);   /* чёрный фон */
+    background-color: var(--color-bg-card);
     border: 1px solid var(--color-border);
     border-radius: 10px;
     padding: 28px 24px;
-    
-    /* Плавный переход для ховера */
     transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-    
-    /* Позиционирование для номера (будет абсолютным) */
     position: relative;
 }
 
-/* Ховер-эффект */
 .reason-card:hover {
     transform: translateY(-4px);
     border-color: var(--color-accent);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
-/* ----- НОМЕР ПРИЧИНЫ (01, 02...) ----- */
 .reason-number {
-    /* Абсолютное позиционирование: в правом верхнем углу */
     position: absolute;
     top: 16px;
     right: 20px;
-    
     font-size: 48px;
     font-weight: 700;
     color: var(--color-accent);
-    opacity: 0.15;           /* едва видимый, как водяной знак */
+    opacity: 0.15;
     line-height: 1;
-    user-select: none;       /* нельзя выделить */
-    pointer-events: none;    /* не мешает кликам */
+    user-select: none;
+    pointer-events: none;
 }
 
-/* ----- ЗАГОЛОВОК ПРИЧИНЫ ----- */
 .reason-title {
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 12px;
     color: var(--color-text-heading);
-    /* Оставляем место справа, чтобы не перекрывалось номером */
     padding-right: 60px;
 }
 
-/* ----- ТЕКСТ ПРИЧИНЫ ----- */
 .reason-text {
     font-size: 15px;
     color: var(--color-text-muted);
     line-height: 1.6;
 }
 
+
 /* ============================================================
-   АДАПТИВ: ПРИЧИНЫ НА МОБИЛЬНЫХ
+   WORKFLOW TIMELINE SECTION
    ============================================================ */
-@media (max-width: 768px) {
-    /* Одна колонка */
-    .reasons-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-        margin-top: 24px;
-    }
-
-    /* Номер чуть меньше */
-    .reason-number {
-        font-size: 36px;
-        top: 12px;
-        right: 14px;
-    }
-
-    /* Заголовок меньше, меньше отступ под номер */
-    .reason-title {
-        font-size: 18px;
-        padding-right: 50px;
-    }
-
-    .reason-text {
-        font-size: 14px;
-    }
-
-    /* Карточка — меньше паддингов */
-    .reason-card {
-        padding: 20px 16px;
-    }
-
-    #about-me {
-        padding-top: 40px;
-        padding-bottom: 40px;
-    }
-}
-/* ============================================================
-   ПАЗЛ №7: СТИЛИ СЕКЦИИ "ПРОЦЕСС РАБОТЫ" (TIMELINE)
-   ============================================================ */
-
-/* ----- САМА СЕКЦИЯ ----- */
 #workflow {
     padding-top: 60px;
     padding-bottom: 60px;
-    background-color: var(--color-bg-card);  /* чёрный фон — чередуем слои */
+    background-color: var(--color-bg-card);
 }
 
-/* ----- ТАЙМЛАЙН-КОНТЕЙНЕР ----- */
 .timeline {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);  /* 4 равные колонки на десктопе */
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     margin-top: 40px;
-    
-    /* 
-       position: relative — чтобы линия-соединитель (псевдоэлемент)
-       позиционировалась относительно таймлайна.
-    */
     position: relative;
 }
 
-/* 
-   ГОРИЗОНТАЛЬНАЯ ЛИНИЯ МЕЖДУ ШАГАМИ.
-   Псевдоэлемент ::before рисует линию через весь таймлайн.
-   Линия проходит на уровне кружков (.timeline-dot).
-*/
+/* Horizontal connecting line */
 .timeline::before {
     content: '';
     position: absolute;
-    top: 20px;               /* высота: половина диаметра кружка (40px / 2) */
+    top: 20px;
     left: 0;
     width: 100%;
     height: 2px;
     background-color: var(--color-border);
-    z-index: 0;              /* линия за кружками */
+    z-index: 0;
 }
 
-/* ----- ОДИН ШАГ ТАЙМЛАЙНА ----- */
 .timeline-step {
     display: flex;
     flex-direction: column;
-    align-items: center;      /* всё по центру колонки */
+    align-items: center;
     text-align: center;
     position: relative;
-    z-index: 1;               /* шаг над линией */
+    z-index: 1;
 }
 
-/* ----- КРУЖОК С НОМЕРОМ ----- */
 .timeline-dot {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    
-    /* Фон: градиент от бордового к тёмно-синему */
     background: linear-gradient(135deg, var(--color-accent), #4a0000);
-    
-    /* Белая обводка (маскирует линию под кружком) */
     border: 3px solid var(--color-bg-card);
-    
     color: var(--color-text-heading);
     font-weight: 700;
     font-size: 16px;
-    
-    /* Центрируем цифру внутри кружка */
     display: flex;
     align-items: center;
     justify-content: center;
-    
     margin-bottom: 20px;
-    
-    /* Лёгкая тень */
     box-shadow: 0 0 12px rgba(139, 0, 0, 0.5);
-    
     user-select: none;
 }
 
-/* ----- СОДЕРЖИМОЕ ШАГА (заголовок + текст) ----- */
 .timeline-content {
     padding: 0 8px;
 }
 
-/* ----- ЗАГОЛОВОК ШАГА ----- */
 .timeline-title {
     font-size: 17px;
     font-weight: 600;
@@ -847,97 +570,22 @@ html {
     color: var(--color-text-heading);
 }
 
-/* ----- ТЕКСТ ШАГА ----- */
 .timeline-text {
     font-size: 14px;
     color: var(--color-text-muted);
     line-height: 1.6;
 }
 
+
 /* ============================================================
-   АДАПТИВ: ТАЙМЛАЙН НА МОБИЛЬНЫХ
+   PROJECTS SECTION
    ============================================================ */
-@media (max-width: 768px) {
-    /* 
-       На телефоне таймлайн превращается в вертикальный.
-       Шаги идут друг под другом, линия — слева.
-    */
-    .timeline {
-        grid-template-columns: 1fr;    /* одна колонка */
-        gap: 0;
-        margin-top: 24px;
-    }
-
-    /* Вертикальная линия слева */
-    .timeline::before {
-        top: 0;
-        left: 20px;             /* линия по центру кружков */
-        width: 2px;
-        height: 100%;
-    }
-
-    /* Шаг — горизонтальный: кружок слева, контент справа */
-    .timeline-step {
-        flex-direction: row;
-        align-items: flex-start;
-        text-align: left;
-        padding-bottom: 32px;   /* отступ между шагами */
-        padding-left: 20px;     /* чтобы контент не наезжал на линию */
-    }
-
-    /* Убираем нижний отступ у последнего шага */
-    .timeline-step:last-child {
-        padding-bottom: 0;
-    }
-
-    /* Кружок */
-    .timeline-dot {
-        flex-shrink: 0;         /* не сжимается */
-        width: 32px;
-        height: 32px;
-        font-size: 14px;
-        margin-bottom: 0;
-        margin-right: 16px;
-        /* Смещаем кружок влево, чтобы он был по центру линии */
-        margin-left: -36px;     
-        /* 
-           margin-left считается так:
-           половина ширины кружка (16px) + ширина линии (2px) + отступ (20px от края) = 36px.
-           Так кружок встаёт ровно на линию.
-        */
-    }
-
-    /* Контент */
-    .timeline-content {
-        padding: 0;
-    }
-
-    .timeline-title {
-        font-size: 16px;
-        margin-bottom: 6px;
-    }
-
-    .timeline-text {
-        font-size: 14px;
-    }
-
-    #workflow {
-        padding-top: 40px;
-        padding-bottom: 40px;
-    }
-}
-/* ============================================================
-   ПАЗЛ №8: СТИЛИ СЕКЦИИ ПРОЕКТОВ
-   ============================================================ */
-
-/* ----- САМА СЕКЦИЯ ----- */
 #projects {
     padding-top: 60px;
     padding-bottom: 60px;
-    background-color: var(--color-bg-primary);  /* возвращаемся к тёмно-синему */
+    background-color: var(--color-bg-primary);
 }
 
-/* ----- СЕТКА ПРОЕКТОВ (3 колонки) ----- */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -945,13 +593,11 @@ html {
     margin-top: 40px;
 }
 
-/* ----- КАРТОЧКА ПРОЕКТА ----- */
 .project-card {
     background-color: var(--color-bg-card);
     border: 1px solid var(--color-border);
     border-radius: 10px;
-    overflow: hidden;          /* обрезаем углы у изображения внутри */
-    
+    overflow: hidden;
     transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -961,47 +607,34 @@ html {
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
 }
 
-/* ----- ЗАГЛУШКА ИЗОБРАЖЕНИЯ ПРОЕКТА ----- */
+/* Image placeholder (replace with <img> later) */
 .project-image-placeholder {
     width: 100%;
     height: 180px;
-    
-    /* Градиент-заглушка: тёмный с акцентным оттенком */
     background: linear-gradient(135deg, #1a1a2e, #16213e);
-    
-    /* Текст "СКРИНШОТ ПРОЕКТА" по центру */
     display: flex;
     align-items: center;
     justify-content: center;
-    
     color: var(--color-text-muted);
     font-size: 13px;
     letter-spacing: 1px;
     user-select: none;
-    
-    /* Тонкая полоска-разделитель снизу */
     border-bottom: 2px solid var(--color-accent);
 }
 
-/* 
-   КОГДА ПОЯВЯТСЯ РЕАЛЬНЫЕ СКРИНШОТЫ:
-   Замени .project-image-placeholder на:
-   <img src="images/project-1.jpg" alt="Описание" class="project-image">
-   И добавь стиль:
-   .project-image {
-       width: 100%;
-       height: 180px;
-       object-fit: cover;       — обрезает по размеру
-       border-bottom: 2px solid var(--color-accent);
-   }
+/* --- Replace placeholder with real screenshot ---
+.project-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 2px solid var(--color-accent);
+}
 */
 
-/* ----- ИНФОРМАЦИЯ О ПРОЕКТЕ (текстовая часть) ----- */
 .project-info {
     padding: 20px;
 }
 
-/* ----- НАЗВАНИЕ ПРОЕКТА ----- */
 .project-title {
     font-size: 18px;
     font-weight: 600;
@@ -1009,20 +642,17 @@ html {
     color: var(--color-text-heading);
 }
 
-/* ----- ОПИСАНИЕ ----- */
 .project-description {
     font-size: 14px;
     color: var(--color-text-muted);
     line-height: 1.5;
     margin-bottom: 14px;
-    /* Ограничиваем в 3 строки, остальное обрезаем */
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
-/* ----- ТЕГИ ТЕХНОЛОГИЙ ----- */
 .project-tags {
     display: flex;
     flex-wrap: wrap;
@@ -1035,13 +665,12 @@ html {
     font-size: 12px;
     font-weight: 500;
     color: var(--color-accent);
-    background-color: rgba(139, 0, 0, 0.15);  /* бордовый с прозрачностью */
+    background-color: rgba(139, 0, 0, 0.15);
     padding: 4px 10px;
     border-radius: 4px;
     letter-spacing: 0.5px;
 }
 
-/* ----- ССЫЛКИ ПРОЕКТА ----- */
 .project-links {
     display: flex;
     gap: 16px;
@@ -1058,12 +687,11 @@ html {
     color: var(--color-accent);
 }
 
-/* ----- БЛОК "БОЛЬШЕ НА GITHUB" ----- */
+/* GitHub CTA block */
 .github-cta {
     margin-top: 48px;
     text-align: center;
     padding: 32px;
-    
     background-color: var(--color-bg-card);
     border: 1px solid var(--color-border);
     border-radius: 10px;
@@ -1079,15 +707,12 @@ html {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    
     font-size: 16px;
     font-weight: 600;
     color: var(--color-text-heading);
-    
     padding: 10px 24px;
     border: 1px solid var(--color-border);
     border-radius: 6px;
-    
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
@@ -1097,81 +722,41 @@ html {
     color: var(--color-text-heading);
 }
 
-/* ============================================================
-   АДАПТИВ: ПРОЕКТЫ НА МОБИЛЬНЫХ
-   ============================================================ */
-@media (max-width: 768px) {
-    .projects-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-        margin-top: 24px;
-    }
-
-    .project-image-placeholder {
-        height: 160px;
-    }
-
-    #projects {
-        padding-top: 40px;
-        padding-bottom: 40px;
-    }
-
-    .github-cta {
-        margin-top: 32px;
-        padding: 24px 16px;
-    }
-}
 
 /* ============================================================
-   АДАПТИВ: ПЛАНШЕТЫ (2 колонки)
+   CONTACTS SECTION
    ============================================================ */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-/* ============================================================
-   ПАЗЛ №9: СТИЛИ СЕКЦИИ КОНТАКТОВ
-   ============================================================ */
-
-/* ----- САМА СЕКЦИЯ ----- */
 #contacts {
     padding-top: 60px;
-    padding-bottom: 80px;      /* побольше отступ снизу — финальная секция */
+    padding-bottom: 80px;
     background-color: var(--color-bg-card);
     text-align: center;
 }
 
-/* ----- ПРИЗЫВНОЙ ТЕКСТ ----- */
 .contacts-cta-text {
     font-size: 18px;
     color: var(--color-text-primary);
     max-width: 550px;
-    margin: 0 auto 40px auto;   /* центрируем, отступ до кнопок */
+    margin: 0 auto 40px auto;
     line-height: 1.6;
 }
 
-/* ----- БЛОК С КНОПКАМИ ----- */
 .contacts-actions {
     display: flex;
     justify-content: center;
     gap: 16px;
-    flex-wrap: wrap;            /* на узких экранах кнопки переносятся */
+    flex-wrap: wrap;
 }
 
-/* ----- ОБЩИЕ СТИЛИ ДЛЯ КНОПОК КОНТАКТОВ ----- */
 .contact-btn {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    
     font-size: 16px;
     font-weight: 600;
     padding: 14px 28px;
     border-radius: 8px;
-    
     text-decoration: none;
-    
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -1180,7 +765,7 @@ html {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* ----- КНОПКА TELEGRAM (акцентная) ----- */
+/* WhatsApp button — primary */
 .contact-btn-telegram {
     background-color: var(--color-accent);
     color: var(--color-text-heading);
@@ -1191,7 +776,7 @@ html {
     color: var(--color-text-heading);
 }
 
-/* ----- КНОПКА EMAIL (второстепенная) ----- */
+/* Email button — secondary */
 .contact-btn-email {
     background-color: transparent;
     color: var(--color-text-primary);
@@ -1199,714 +784,25 @@ html {
 }
 
 .contact-btn-email:hover {
-    background-color: rgba(229, 228, 226, 0.05);  /* платиновый с прозрачностью */
+    background-color: rgba(229, 228, 226, 0.05);
     border-color: var(--color-text-muted);
     color: var(--color-text-heading);
 }
 
-/* ============================================================
-   АДАПТИВ: КОНТАКТЫ НА МОБИЛЬНЫХ
-   ============================================================ */
-@media (max-width: 768px) {
-    #contacts {
-        padding-top: 40px;
-        padding-bottom: 60px;
-    }
-
-    .contacts-cta-text {
-        font-size: 16px;
-        max-width: 100%;
-        margin-bottom: 28px;
-    }
-
-    /* Кнопки в колонку на узких экранах */
-    .contacts-actions {
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-    }
-
-    .contact-btn {
-        width: 100%;
-        max-width: 300px;       /* не растягиваются на весь экран */
-        justify-content: center;
-        font-size: 15px;
-        padding: 12px 24px;
-    }
-}
-/* ============================================================
-   ПАЗЛ №10: СТИЛИ ПОДВАЛА
-   ============================================================ */
-
-/* ----- САМ ПОДВАЛ ----- */
-#footer {
-    background-color: var(--color-bg-primary);
-    border-top: 1px solid var(--color-border);
-    padding: 24px 0;
-}
-
-/* ----- ВНУТРЕННИЙ КОНТЕЙНЕР ----- */
-.footer-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;          /* на узких экранах переносятся */
-    gap: 12px;
-}
-
-/* ----- КОПИРАЙТ ----- */
-.footer-copy {
-    font-size: 14px;
-    color: var(--color-text-muted);
-}
-
-/* ----- БЛОК ССЫЛОК ----- */
-.footer-links {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-}
-
-/* ----- ИКОНКИ ССЫЛОК ----- */
-.footer-icon-link {
-    color: var(--color-text-muted);
-    transition: color 0.3s ease, transform 0.3s ease;
-    display: flex;
-    align-items: center;
-}
-
-.footer-icon-link:hover {
-    color: var(--color-accent);
-    transform: translateY(-2px);
-}
 
 /* ============================================================
-   АДАПТИВ: ПОДВАЛ НА МОБИЛЬНЫХ
+   CONTACT FORM
    ============================================================ */
-@media (max-width: 768px) {
-    /* На телефоне — колонкой, по центру */
-    .footer-inner {
-        flex-direction: column;
-        text-align: center;
-    }
-}
-/* ============================================================
-   ДОПОЛНЕНИЕ К ПАЗЛУ №11: ПОДСВЕТКА АКТИВНОГО ЯЗЫКА
-   ============================================================ */
-
-/* 
-   Когда язык выбран, его кнопка в меню слегка подсвечивается.
-   JS будет добавлять класс .active к нужной кнопке.
-   Пока просто подготовим стиль.
-*/
-.lang-option.active {
-    background-color: rgba(139, 0, 0, 0.3);  /* бордовый полупрозрачный */
-    /* 
-       pointer-events: none — чтобы нельзя было повторно кликнуть
-       на уже выбранный язык. Но мы убираем это, чтобы можно было
-       вернуться на английский даже если он активен.
-    */
-}
-/* ============================================================
-   ПАЗЛ №12: СТИЛИ КНОПКИ ПЕРЕКЛЮЧЕНИЯ ТЕМЫ
-   ============================================================ */
-
-/* ----- КНОПКА ----- */
-.theme-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 20px;
-    line-height: 1;
-    padding: 4px;
-    
-    /* Плавный переход для иконки */
-    transition: transform 0.3s ease;
-    
-    /* Убираем стандартную обводку кнопки */
-    outline: none;
-    
-    /* Чтобы кнопка не сжималась */
-    flex-shrink: 0;
-}
-
-/* Лёгкое увеличение при наведении */
-.theme-toggle:hover {
-    transform: scale(1.15);
-}
-
-/* ----- ИКОНКА ВНУТРИ КНОПКИ ----- */
-.theme-icon {
-    /* 
-       transition для плавной смены эмодзи.
-       На практике эмодзи меняется мгновенно через JS,
-       но transform даёт приятный эффект.
-    */
-    display: inline-block;
-    transition: transform 0.3s ease;
-}
-
-/* Лёгкий поворот при наведении на иконку */
-.theme-toggle:hover .theme-icon {
-    transform: rotate(-15deg);
-}
-/* ============================================================
-   ПАЗЛ №13: СТИЛИ КНОПКИ "НАВЕРХ"
-   ============================================================ */
-
-/* ----- САМА КНОПКА ----- */
-.scroll-to-top {
-    /* Фиксированное позиционирование: правый нижний угол */
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 999;              /* поверх всего, но ниже шапки (у неё 1000) */
-    
-    /* Размеры и форма */
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;        /* круг */
-    
-    /* Цвета */
-    background-color: var(--color-accent);
-    color: var(--color-text-heading);
-    border: none;
-    box-shadow: 0 4px 16px rgba(139, 0, 0, 0.4);
-    
-    /* Центрируем иконку внутри круга */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    /* Курсор и убираем стандартную обводку */
-    cursor: pointer;
-    outline: none;
-    
-    /* ===== СОСТОЯНИЕ ПО УМОЛЧАНИЮ: СКРЫТО ===== */
-    /* 
-       opacity: 0 — невидима.
-       visibility: hidden — не кликабельна.
-       transform: translateY(20px) — сдвинута вниз.
-       Когда появится класс .visible — всё возвращается.
-    */
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-    
-    /* Плавный переход для всех трёх свойств */
-    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
-}
-
-/* ----- ХОВЕР (наведение) ----- */
-.scroll-to-top:hover {
-    background-color: var(--color-accent-hover);
-    transform: translateY(-3px);   /* лёгкий подъём */
-    box-shadow: 0 6px 20px rgba(139, 0, 0, 0.6);
-}
-
-/* ----- АКТИВНОЕ СОСТОЯНИЕ (кнопка видна) ----- */
-/* 
-   JS добавляет класс .visible когда страница прокручена > 50%.
-*/
-.scroll-to-top.visible {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-/* ----- ФОКУС (для доступности с клавиатуры) ----- */
-.scroll-to-top:focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 3px;
-}
-/* ============================================================
-   ПАЗЛ №14: СТИЛИ АНИМАЦИИ НАБОРА ТЕКСТА
-   ============================================================ */
-
-/* ----- ТЕКСТ ДЛЯ НАБОРА ----- */
-.typewriter-text {
-    /* 
-       Никаких особых стилей — текст наследует
-       шрифт и цвет от .hero-tagline.
-       Просто чтобы был явный селектор для JS.
-    */
-}
-
-/* ----- МИГАЮЩИЙ КУРСОР ----- */
-.typewriter-cursor {
-    color: var(--color-accent);          /* бордовый курсор */
-    font-weight: 400;
-    
-    /* 
-       Анимация: blink — название, 0.8s — длительность одного цикла,
-       step-end — резкое переключение (без плавности),
-       infinite — бесконечно.
-    */
-    animation: blink 0.8s step-end infinite;
-}
-
-/* 
-   Ключевые кадры анимации blink.
-   Курсор то видимый (opacity: 1), то невидимый (opacity: 0).
-   step-end — переключается мгновенно каждые 50% времени.
-*/
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50%      { opacity: 0; }
-}
-/* ============================================================
-   ПАЗЛ №15: АНИМАЦИИ ПОЯВЛЕНИЯ СЕКЦИЙ ПРИ СКРОЛЛЕ
-   ============================================================ */
-
-/* ==========================================
-   БАЗОВЫЙ КЛАСС: СКРЫТОЕ СОСТОЯНИЕ
-   ==========================================
-   Все анимируемые элементы по умолчанию скрыты.
-   JS добавляет класс .animate-visible когда
-   элемент попадает в зону видимости.
-   ========================================== */
-
-/* ----- СКРЫТОЕ СОСТОЯНИЕ (до анимации) ----- */
-.animate-hidden {
-    opacity: 0;
-    /* 
-       transition объявлен индивидуально в каждом типе анимации ниже.
-       Здесь только начальное состояние.
-    */
-}
-
-/* ----- ОБЩЕЕ ВИДИМОЕ СОСТОЯНИЕ (после анимации) ----- */
-.animate-visible {
-    opacity: 1;
-}
-
-
-/* ==========================================
-   ТИП 1: ВЫЕЗД СЛЕВА
-   Используется: Почему Python (3 карточки)
-   ========================================== */
-.slide-left {
-    transform: translateX(-60px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.slide-left.animate-visible {
-    transform: translateX(0);
-}
-
-
-/* ==========================================
-   ТИП 2: ВЫЕЗД СЛЕВА (для Почему я — левые карточки)
-   ========================================== */
-.slide-left-pair {
-    transform: translateX(-60px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.slide-left-pair.animate-visible {
-    transform: translateX(0);
-}
-
-
-/* ==========================================
-   ТИП 3: ВЫЕЗД СПРАВА (для Почему я — правые карточки)
-   ========================================== */
-.slide-right-pair {
-    transform: translateX(60px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.slide-right-pair.animate-visible {
-    transform: translateX(0);
-}
-
-
-/* ==========================================
-   ТИП 4: ВЫЕЗД СЛЕВА (для проектов — левая карточка)
-   ========================================== */
-.slide-left-project {
-    transform: translateX(-60px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.slide-left-project.animate-visible {
-    transform: translateX(0);
-}
-
-
-/* ==========================================
-   ТИП 5: ВЫЕЗД СНИЗУ (для проектов — центральная карточка)
-   ========================================== */
-.slide-up-project {
-    transform: translateY(60px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.slide-up-project.animate-visible {
-    transform: translateY(0);
-}
-
-
-/* ==========================================
-   ТИП 6: ВЫЕЗД СПРАВА (для проектов — правая карточка)
-   ========================================== */
-.slide-right-project {
-    transform: translateX(60px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.slide-right-project.animate-visible {
-    transform: translateX(0);
-}
-
-
-/* ==========================================
-   ТИП 7: МАСШТАБИРОВАНИЕ (SCALE-IN)
-   Используется: Процесс работы (4 шага)
-   ========================================== */
-.scale-in {
-    transform: scale(0.85);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.scale-in.animate-visible {
-    transform: scale(1);
-}
-
-
-/* ==========================================
-   ТИП 8: ПУЛЬСАЦИЯ (мягкая, бесконечная)
-   Используется: GitHub CTA, кнопки Контактов
-   ==========================================
-   Анимация запускается ПОСЛЕ того как элемент
-   стал видимым (получил класс .animate-visible).
-   Отдельный класс .pulse добавляется JS после появления.
-   ========================================== */
-.pulse {
-    animation: soft-pulse 3s ease-in-out infinite;
-}
-
-@keyframes soft-pulse {
-    0%, 100% { 
-        box-shadow: 0 0 0 0 rgba(139, 0, 0, 0.4);
-    }
-    50% { 
-        box-shadow: 0 0 12px 4px rgba(139, 0, 0, 0.15);
-    }
-}
-
-/* 
-   Для кнопок контактов — более заметная пульсация,
-   но всё ещё мягкая. Кнопки — главный призыв к действию.
-*/
-.pulse-cta {
-    animation: soft-pulse-cta 2.5s ease-in-out infinite;
-}
-
-@keyframes soft-pulse-cta {
-    0%, 100% { 
-        box-shadow: 0 0 0 0 rgba(139, 0, 0, 0.5);
-        transform: scale(1);
-    }
-    50% { 
-        box-shadow: 0 0 16px 6px rgba(139, 0, 0, 0.2);
-        transform: scale(1.02);
-    }
-}
-
-
-/* ==========================================
-   ОТКЛЮЧЕНИЕ АНИМАЦИЙ ДЛЯ ПОЛЬЗОВАТЕЛЕЙ,
-   КОТОРЫЕ ПРЕДПОЧИТАЮТ УМЕНЬШЕННОЕ ДВИЖЕНИЕ
-   (настройка в операционной системе)
-   ========================================== */
-@media (prefers-reduced-motion: reduce) {
-    .slide-left,
-    .slide-left-pair,
-    .slide-right-pair,
-    .slide-left-project,
-    .slide-up-project,
-    .slide-right-project,
-    .scale-in {
-        transform: none;
-        transition: opacity 0.3s ease;
-    }
-    
-    .pulse,
-    .pulse-cta {
-        animation: none;
-    }
-}
-/* ============================================================
-   ФИКС: УБИРАЕМ ГОРИЗОНТАЛЬНЫЙ СКРОЛЛ НА МОБИЛЬНЫХ
-   ============================================================ */
-
-/* Запрещаем скролл по горизонтали на уровне всего документа */
-html {
-    overflow-x: hidden;
-}
-
-/* 
-   На всякий случай — все элементы не должны быть шире экрана.
-   Это не ломает вёрстку, но перестраховывает.
-*/
-* {
-    max-width: 100%;
-}
-
-/* 
-   Но для html и body max-width не нужен — убираем.
-   И для элементов с position: fixed/absolute тоже (они сами управляют).
-*/
-html, body, .scroll-to-top, .lang-dropdown, .theme-toggle {
-    max-width: none;
-}
-
-/* ============================================================
-   ПАЗЛ №16: СТИЛИ МОДАЛЬНОГО ОКНА
-   ============================================================ */
-
-/* ----- ЗАТЕМНЁННЫЙ ФОН ----- */
-.modal-overlay {
-    /* Фиксированное позиционирование на весь экран */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2000;              /* поверх всего, включая шапку */
-    
-    /* Затемнение */
-    background-color: rgba(0, 0, 0, 0.8);
-    
-    /* Центрируем окно */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    /* Плавное появление/скрытие */
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    
-    /* Отступы по краям для мобильных */
-    padding: 20px;
-}
-
-/* Активное состояние (JS добавляет класс .active) */
-.modal-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* ----- САМО ОКНО ----- */
-.modal-window {
-    background-color: var(--color-bg-card);
-    border: 1px solid var(--color-border);
-    border-radius: 12px;
-    
-    /* Максимальные размеры */
-    max-width: 700px;
-    width: 100%;
-    max-height: 85vh;           /* не выше 85% экрана */
-    overflow-y: auto;            /* скролл внутри если контент не влезает */
-    
-    /* Позиционирование для крестика */
-    position: relative;
-    
-    /* Тень */
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-    
-    /* Анимация появления */
-    transform: translateY(20px) scale(0.95);
-    transition: transform 0.3s ease;
-}
-
-.modal-overlay.active .modal-window {
-    transform: translateY(0) scale(1);
-}
-
-/* ----- КНОПКА ЗАКРЫТИЯ (КРЕСТИК) ----- */
-.modal-close {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    z-index: 10;
-    
-    background-color: var(--color-bg-card);
-    border: 1px solid var(--color-border);
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    
-    color: var(--color-text-muted);
-    cursor: pointer;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    transition: color 0.3s ease, background-color 0.3s ease;
-    outline: none;
-}
-
-.modal-close:hover {
-    color: var(--color-accent);
-    background-color: rgba(139, 0, 0, 0.1);
-}
-
-/* ----- КОНТЕЙНЕР ИЗОБРАЖЕНИЯ ----- */
-.modal-image-container {
-    position: relative;
-    width: 100%;
-    
-    /* Фон-заглушка пока изображение грузится */
-    background-color: #1a1a2e;
-    
-    border-radius: 12px 12px 0 0;
-    overflow: hidden;
-}
-
-/* ----- САМО ИЗОБРАЖЕНИЕ ----- */
-.modal-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    
-    /* Максимальная высота: чтобы не занимало весь экран */
-    max-height: 380px;
-    object-fit: cover;
-}
-
-/* ----- СЧЁТЧИК СКРИНШОТОВ (для итерации 2) ----- */
-.modal-image-counter {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    
-    background-color: rgba(0, 0, 0, 0.6);
-    color: var(--color-text-heading);
-    font-size: 13px;
-    padding: 4px 10px;
-    border-radius: 4px;
-    
-    user-select: none;
-}
-
-/* ----- ИНФОРМАЦИОННЫЙ БЛОК ----- */
-.modal-info {
-    padding: 24px;
-}
-
-/* ----- НАЗВАНИЕ ПРОЕКТА ----- */
-.modal-title {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 12px;
-    color: var(--color-text-heading);
-}
-
-/* ----- ОПИСАНИЕ ----- */
-.modal-description {
-    font-size: 15px;
-    color: var(--color-text-muted);
-    line-height: 1.6;
-    margin-bottom: 18px;
-}
-
-/* ----- ТЕГИ ----- */
-.modal-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 20px;
-}
-
-.modal-tags .tag {
-    /* Используем тот же класс .tag что и в карточках проектов */
-}
-
-/* ----- ССЫЛКА НА GITHUB ----- */
-.modal-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--color-text-heading);
-    background-color: var(--color-accent);
-    
-    padding: 10px 20px;
-    border-radius: 6px;
-    
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-}
-
-.modal-link:hover {
-    background-color: var(--color-accent-hover);
-    color: var(--color-text-heading);
-}
-
-/* ----- БЛОКИРОВКА СКРОЛЛА СТРАНИЦЫ ПРИ ОТКРЫТОМ МОДАЛЬНОМ ОКНЕ ----- */
-/* JS добавляет этот класс к body */
-body.no-scroll {
-    overflow: hidden;
-}
-
-/* ============================================================
-   АДАПТИВ: МОДАЛЬНОЕ ОКНО НА МОБИЛЬНЫХ
-   ============================================================ */
-@media (max-width: 768px) {
-    .modal-overlay {
-        padding: 10px;
-        align-items: flex-end;   /* на телефоне окно прижато к низу */
-    }
-    
-    .modal-window {
-        max-height: 90vh;
-        border-radius: 16px 16px 0 0;  /* скругление только сверху */
-    }
-    
-    .modal-image-container {
-        border-radius: 16px 16px 0 0;
-    }
-    
-    .modal-image {
-        max-height: 220px;
-    }
-    
-    .modal-info {
-        padding: 18px;
-    }
-    
-    .modal-title {
-        font-size: 20px;
-    }
-    
-    .modal-description {
-        font-size: 14px;
-    }
-}
-
-/* ============================================================
-   ПАЗЛ №17: СТИЛИ ФОРМЫ ОБРАТНОЙ СВЯЗИ
-   ============================================================ */
-
-/* ----- САМА ФОРМА ----- */
 .contacts-form {
     max-width: 500px;
     margin: 48px auto 0 auto;
     text-align: left;
 }
 
-/* ----- ГРУППА ПОЛЯ (лейбл + инпут) ----- */
 .form-group {
     margin-bottom: 20px;
 }
 
-/* ----- ЛЕЙБЛ ----- */
 .form-label {
     display: block;
     font-size: 14px;
@@ -1915,58 +811,49 @@ body.no-scroll {
     margin-bottom: 6px;
 }
 
-/* ----- ПОЛЯ ВВОДА (общие стили) ----- */
 .form-input {
     width: 100%;
     padding: 12px 16px;
-    
     font-size: 15px;
     font-family: inherit;
     color: var(--color-text-primary);
-    
     background-color: var(--color-bg-primary);
     border: 1px solid var(--color-border);
     border-radius: 8px;
-    
     outline: none;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Фокус — подсветка бордовым */
 .form-input:focus {
     border-color: var(--color-accent);
     box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.15);
 }
 
-/* Placeholder — приглушённый */
 .form-input::placeholder {
     color: var(--color-text-muted);
     opacity: 0.6;
 }
 
-/* ----- SELECT (выпадающий список) ----- */
+/* Select dropdown */
 .form-select {
-    appearance: none;                /* убираем стандартную стрелку */
+    appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238892B0' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 14px center;
-    padding-right: 40px;            /* место под стрелку */
+    padding-right: 40px;
     cursor: pointer;
 }
 
-/* Цвет выбранной опции */
 .form-select option {
     background-color: var(--color-bg-card);
     color: var(--color-text-primary);
 }
 
-/* ----- TEXTAREA ----- */
 .form-textarea {
-    resize: vertical;               /* можно растягивать только по вертикали */
+    resize: vertical;
     min-height: 100px;
 }
 
-/* ----- КНОПКА ОТПРАВКИ ----- */
 .form-submit {
     width: 100%;
     justify-content: center;
@@ -1990,13 +877,603 @@ body.no-scroll {
     transform: translateY(-2px);
 }
 
-/* ----- СООБЩЕНИЕ ОБ УСПЕХЕ ----- */
+/* Success message */
 .form-success {
     text-align: center;
     font-size: 15px;
-    color: #4CAF50;                 /* зелёный — успех */
+    color: #4CAF50;
     margin-top: 16px;
     padding: 12px;
     background-color: rgba(76, 175, 80, 0.1);
     border-radius: 8px;
+}
+
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+#footer {
+    background-color: var(--color-bg-primary);
+    border-top: 1px solid var(--color-border);
+    padding: 24px 0;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.footer-copy {
+    font-size: 14px;
+    color: var(--color-text-muted);
+}
+
+.footer-links {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.footer-icon-link {
+    color: var(--color-text-muted);
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.footer-icon-link:hover {
+    color: var(--color-accent);
+    transform: translateY(-2px);
+}
+
+
+/* ============================================================
+   SCROLL-TO-TOP BUTTON
+   ============================================================ */
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--color-accent);
+    color: var(--color-text-heading);
+    border: none;
+    box-shadow: 0 4px 16px rgba(139, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    outline: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+}
+
+.scroll-to-top:hover {
+    background-color: var(--color-accent-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(139, 0, 0, 0.6);
+}
+
+/* Visible state (added by JS when scrolled past 50%) */
+.scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-to-top:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+}
+
+
+/* ============================================================
+   TYPEWRITER ANIMATION
+   ============================================================ */
+.typewriter-cursor {
+    color: var(--color-accent);
+    font-weight: 400;
+    animation: blink 0.8s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0; }
+}
+
+
+/* ============================================================
+   SCROLL-TRIGGERED APPEARANCE ANIMATIONS
+   ============================================================ */
+
+/* Hidden state (before element enters viewport) */
+.animate-hidden {
+    opacity: 0;
+}
+
+/* Visible state (added by JS via Intersection Observer) */
+.animate-visible {
+    opacity: 1;
+}
+
+/* Slide in from left */
+.slide-left,
+.slide-left-pair {
+    transform: translateX(-60px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.slide-left.animate-visible,
+.slide-left-pair.animate-visible {
+    transform: translateX(0);
+}
+
+/* Slide in from right */
+.slide-right-pair {
+    transform: translateX(60px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.slide-right-pair.animate-visible {
+    transform: translateX(0);
+}
+
+/* Project cards: left */
+.slide-left-project {
+    transform: translateX(-60px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.slide-left-project.animate-visible {
+    transform: translateX(0);
+}
+
+/* Project cards: up (center) */
+.slide-up-project {
+    transform: translateY(60px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.slide-up-project.animate-visible {
+    transform: translateY(0);
+}
+
+/* Project cards: right */
+.slide-right-project {
+    transform: translateX(60px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.slide-right-project.animate-visible {
+    transform: translateX(0);
+}
+
+/* Scale in (timeline steps) */
+.scale-in {
+    transform: scale(0.85);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.scale-in.animate-visible {
+    transform: scale(1);
+}
+
+/* Soft pulse (GitHub CTA, contacts) */
+.pulse {
+    animation: soft-pulse 3s ease-in-out infinite;
+}
+@keyframes soft-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(139, 0, 0, 0.4); }
+    50%      { box-shadow: 0 0 12px 4px rgba(139, 0, 0, 0.15); }
+}
+
+.pulse-cta {
+    animation: soft-pulse-cta 2.5s ease-in-out infinite;
+}
+@keyframes soft-pulse-cta {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(139, 0, 0, 0.5);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 16px 6px rgba(139, 0, 0, 0.2);
+        transform: scale(1.02);
+    }
+}
+
+/* Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .slide-left,
+    .slide-left-pair,
+    .slide-right-pair,
+    .slide-left-project,
+    .slide-up-project,
+    .slide-right-project,
+    .scale-in {
+        transform: none;
+        transition: opacity 0.3s ease;
+    }
+    .pulse,
+    .pulse-cta {
+        animation: none;
+    }
+}
+
+
+/* ============================================================
+   PROJECT DETAIL MODAL
+   ============================================================ */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding: 20px;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-window {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    max-width: 700px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    transform: translateY(20px) scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-window {
+    transform: translateY(0) scale(1);
+}
+
+/* Close button */
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 10;
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    outline: none;
+}
+
+.modal-close:hover {
+    color: var(--color-accent);
+    background-color: rgba(139, 0, 0, 0.1);
+}
+
+/* Image container */
+.modal-image-container {
+    position: relative;
+    width: 100%;
+    background-color: #1a1a2e;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+}
+
+.modal-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 380px;
+    object-fit: cover;
+}
+
+/* Image counter (reserved for future multi-image support) */
+.modal-image-counter {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: var(--color-text-heading);
+    font-size: 13px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    user-select: none;
+}
+
+/* Info block */
+.modal-info {
+    padding: 24px;
+}
+
+.modal-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--color-text-heading);
+}
+
+.modal-description {
+    font-size: 15px;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.modal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.modal-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-text-heading);
+    background-color: var(--color-accent);
+    padding: 10px 20px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.modal-link:hover {
+    background-color: var(--color-accent-hover);
+    color: var(--color-text-heading);
+}
+
+/* Prevent body scroll when modal is open */
+body.no-scroll {
+    overflow: hidden;
+}
+
+
+/* ============================================================
+   OVERFLOW FIX (PREVENT HORIZONTAL SCROLL ON MOBILE)
+   ============================================================ */
+html {
+    overflow-x: hidden;
+}
+
+* {
+    max-width: 100%;
+}
+
+/* Exempt certain elements from max-width */
+html, body, .scroll-to-top, .lang-dropdown, .theme-toggle {
+    max-width: none;
+}
+
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+/* --- Mobile (up to 768px) --- */
+@media (max-width: 768px) {
+    /* Hero */
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    .hero-avatar-placeholder {
+        width: 180px;
+        height: 180px;
+    }
+    .hero-content {
+        text-align: center;
+    }
+    .hero-name {
+        font-size: 32px;
+    }
+    .hero-tagline {
+        font-size: 16px;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #hero {
+        padding-top: 80px;
+        padding-bottom: 40px;
+    }
+
+    /* Why Python */
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .section-title {
+        font-size: 26px;
+    }
+    .section-subtitle {
+        font-size: 15px;
+        max-width: 100%;
+        margin-bottom: 32px;
+    }
+    .info-card {
+        text-align: left;
+        padding: 24px 20px;
+    }
+    #why-python {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    /* Why Me */
+    .reasons-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-top: 24px;
+    }
+    .reason-number {
+        font-size: 36px;
+        top: 12px;
+        right: 14px;
+    }
+    .reason-title {
+        font-size: 18px;
+        padding-right: 50px;
+    }
+    .reason-text {
+        font-size: 14px;
+    }
+    .reason-card {
+        padding: 20px 16px;
+    }
+    #about-me {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    /* Workflow timeline */
+    .timeline {
+        grid-template-columns: 1fr;
+        gap: 0;
+        margin-top: 24px;
+    }
+    .timeline::before {
+        top: 0;
+        left: 20px;
+        width: 2px;
+        height: 100%;
+    }
+    .timeline-step {
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
+        padding-bottom: 32px;
+        padding-left: 20px;
+    }
+    .timeline-step:last-child {
+        padding-bottom: 0;
+    }
+    .timeline-dot {
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+        margin-bottom: 0;
+        margin-right: 16px;
+        margin-left: -36px;
+    }
+    .timeline-content {
+        padding: 0;
+    }
+    .timeline-title {
+        font-size: 16px;
+        margin-bottom: 6px;
+    }
+    .timeline-text {
+        font-size: 14px;
+    }
+    #workflow {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    /* Projects */
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-top: 24px;
+    }
+    .project-image-placeholder {
+        height: 160px;
+    }
+    #projects {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .github-cta {
+        margin-top: 32px;
+        padding: 24px 16px;
+    }
+
+    /* Contacts */
+    #contacts {
+        padding-top: 40px;
+        padding-bottom: 60px;
+    }
+    .contacts-cta-text {
+        font-size: 16px;
+        max-width: 100%;
+        margin-bottom: 28px;
+    }
+    .contacts-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+    .contact-btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+        font-size: 15px;
+        padding: 12px 24px;
+    }
+
+    /* Footer */
+    .footer-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Modal */
+    .modal-overlay {
+        padding: 10px;
+        align-items: flex-end;
+    }
+    .modal-window {
+        max-height: 90vh;
+        border-radius: 16px 16px 0 0;
+    }
+    .modal-image-container {
+        border-radius: 16px 16px 0 0;
+    }
+    .modal-image {
+        max-height: 220px;
+    }
+    .modal-info {
+        padding: 18px;
+    }
+    .modal-title {
+        font-size: 20px;
+    }
+    .modal-description {
+        font-size: 14px;
+    }
+}
+
+/* --- Tablet (769px to 1024px) --- */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
