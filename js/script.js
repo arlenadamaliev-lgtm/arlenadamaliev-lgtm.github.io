@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var typewriterCursor = document.querySelector('.typewriter-cursor');
     var typingInterval = null;
-    var typingSpeed = 50; // ms per character
+    var typingSpeed = 30; // ms per character
 
     /**
      * Returns the currently visible typewriter element (matching the active language).
@@ -623,4 +623,44 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
+    
+    // Share button functionality
+
+    var shareWrapper = document.querySelector('.share-btn-wrapper');
+    var shareToggle = document.querySelector('.share-toggle');
+    var shareOptions = document.querySelectorAll('.share-option');
+    var shareUrl = encodeURIComponent(window.location.href);
+    var shareTitle = encodeURIComponent(document.title);
+
+    if (shareToggle && shareWrapper) {
+        shareToggle.addEventListener('click', function (e) {
+            e.stopPropagation();
+            shareWrapper.classList.toggle('open');
+        });
+        document.addEventListener('click', function () {
+            shareWrapper.classList.remove('open');
+        });
+    }
+
+    shareOptions.forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            var action = btn.getAttribute('data-share');
+            if (action === 'telegram') {
+                window.open('https://t.me/share/url?url=' + shareUrl + '&text=' + shareTitle, '_blank');
+            } else if (action === 'whatsapp') {
+                window.open('https://wa.me/?text=' + shareTitle + '%20' + shareUrl, '_blank');
+            } else if (action === 'copy') {
+                navigator.clipboard.writeText(window.location.href).then(function () {
+                    var copyText = btn.querySelector('.share-copy-text');
+                    if (copyText) {
+                        var original = copyText.textContent;
+                        copyText.textContent = 'Copied!';
+                        setTimeout(function () { copyText.textContent = original; }, 1500);
+                    }
+                });
+            }
+            shareWrapper.classList.remove('open');
+        });
+    });
 });

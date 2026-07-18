@@ -1,796 +1,1049 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <!-- Meta -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Python-разработчик. Автоматизация, интеграции, быстрые и надёжные инструменты для бизнеса.">
-    <title>Твоё Имя | Python-разработчик</title>
+    <head>
+        <!-- Meta -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Python-разработчик. Автоматизация, интеграции, быстрые и надёжные инструменты для бизнеса."
+        />
+        <title>Arlen Aliaskar uulu | Python-разработчик</title>
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="css/style.css">
+        <!-- Styles -->
+        <link rel="stylesheet" href="css/style.css" />
 
-    <!-- Favicon (emoji placeholder) -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐍</text></svg>">
-</head>
-<body>
+        <!-- Favicon (emoji placeholder) -->
+        <link
+            rel="icon"
+            href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐍</text></svg>"
+        />
+    </head>
+    <body>
+        <!-- Header & Navigation -->
+        <header id="header">
+            <div class="container header-inner">
+                <!-- Logo / Name -->
+                <a href="#" class="logo">Arlen Aliaskar uulu</a>
 
-    <!-- Header & Navigation -->
-    <header id="header">
-        <div class="container header-inner">
-
-            <!-- Logo / Name -->
-            <a href="#" class="logo">Arlen Aliaskar uulu</a>
-
-            <nav class="header-nav">
-                <!-- Theme toggle -->
-                <button class="theme-toggle" data-theme-toggle aria-label="Переключить тему" title="Переключить тему">
-                    <span class="theme-icon">🌙</span>
-                </button>
-
-                <!-- Language switcher -->
-                <div class="lang-switcher">
-                    <span class="lang-current" data-lang="en">🇬🇧</span>
-                    <ul class="lang-dropdown">
-                        <li><button class="lang-option" data-lang="en">🇬🇧</button></li>
-                        <li><button class="lang-option" data-lang="kg">🇰🇬</button></li>
-                        <li><button class="lang-option" data-lang="ru">🇷🇺</button></li>
-                    </ul>
-                </div>
-
-                <!-- GitHub link -->
-                <a href="https://github.com/arlenadamaliev-lgtm"
-                   target="_blank"
-                   rel="noopener"
-                   class="header-icon-link"
-                   aria-label="GitHub">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                    </svg>
-                </a>
-
-                <!-- WhatsApp link -->
-                <a href="https://wa.me/+996999079977"
-                   target="_blank"
-                   rel="noopener"
-                   class="header-icon-link"
-                   aria-label="WhatsApp">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12.04 0C5.38 0 0 5.38 0 12.04 0 14.7.9 17.2 2.48 19.2L.8 23.2l4.12-1.62c2 1.28 4.38 2.02 7.12 2.02 6.66 0 12.04-5.38 12.04-12.04S18.7 0 12.04 0zm0 22c-2.22 0-4.34-.62-6.16-1.78l-.44-.26-2.44.96.66-2.34-.28-.46C1.86 16.52 1.2 14.32 1.2 12.04 1.2 6.06 6.06 1.2 12.04 1.2S22.88 6.06 22.88 12.04 18.02 22 12.04 22zm6.1-6.56c-.26-.44-.96-.7-2-.98-1.04-.28-1.72-.14-1.98.22-.26.36-.78 1.12-.96 1.36-.18.24-.36.26-.68.08-.32-.18-1.38-.52-2.62-1.62-.96-.86-1.62-1.92-1.8-2.24-.18-.32-.02-.5.14-.66.14-.14.32-.36.48-.54.16-.18.22-.32.32-.52.1-.2.06-.38-.02-.54-.08-.16-.68-1.66-.94-2.28-.24-.6-.5-.52-.68-.52h-.58c-.2 0-.52.08-.78.38-.26.3-1.02 1-1.02 2.44 0 1.44 1.04 2.82 1.18 3.02.14.2 2.04 3.12 4.94 4.38.7.3 1.24.48 1.66.62.7.22 1.32.18 1.82.1.56-.08 1.72-.7 1.96-1.38.24-.68.24-1.26.18-1.38-.06-.12-.24-.2-.5-.34z"/>
-                    </svg>
-                </a>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <main>
-
-        <!-- Hero Section -->
-        <section id="hero">
-            <div class="container hero-grid">
-
-                <!-- Photo placeholder -->
-                <div class="hero-image-wrapper">
-                    <div class="hero-avatar-placeholder" aria-label="Фото Arlen">
-                        <span class="placeholder-text">ФОТО</span>
-                    </div>
-                </div>
-
-                <!-- Text & CTA -->
-                <div class="hero-content">
-                    <p class="hero-role">
-                        <span class="lang lang-en">Python Developer</span>
-                        <span class="lang lang-kg hidden">Python-тилинде разработчик</span>
-                        <span class="lang lang-ru hidden">Разработчик на Python</span>
-                    </p>
-
-                    <h1 class="hero-name">[Arlen Aliaskar uulu]</h1>
-
-                    <p class="hero-tagline">
-                        <span class="lang lang-en typewriter-text"
-                              data-text="[Your punchline — 1-2 sentences about the problem you solve with Python]"
-                              aria-label="[Your punchline]">
-                        </span>
-                        <span class="lang lang-kg hidden typewriter-text"
-                              data-text="[KR ударная фраза]"
-                              aria-label="[KR ударная фраза]">
-                        </span>
-                        <span class="lang lang-ru hidden typewriter-text"
-                              data-text="[RU ударная фраза]"
-                              aria-label="[RU ударная фраза]">
-                        </span>
-                        <span class="typewriter-cursor" aria-hidden="true">|</span>
-                    </p>
-
-                    <!-- CTA button linking to contacts -->
-                    <a href="#contacts" class="hero-cta">
-                        [Обсудить автоматизацию]
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Why Python Section -->
-        <section id="why-python">
-            <div class="container">
-                <h2 class="section-title">
-                    [Здесь заголовок: почему Python — это выгодно для клиента]
-                </h2>
-
-                <p class="section-subtitle">
-                    <span class="lang lang-en">EN[Здесь пояснение: ты не просто пишешь код, а решаешь бизнес-задачи
-                    инструментами, которые быстро создаются, надёжно работают
-                    и легко поддерживаются.]</span>
-                    <span class="lang lang-kg hidden">KR[Здесь пояснение: ты не просто пишешь код, а решаешь бизнес-задачи
-                    инструментами, которые быстро создаются, надёжно работают
-                    и легко поддерживаются.]</span>
-                    <span class="lang lang-ru hidden">RU[Здесь пояснение: ты не просто пишешь код, а решаешь бизнес-задачи
-                    инструментами, которые быстро создаются, надёжно работают
-                    и легко поддерживаются.]</span>
-                </p>
-
-                <!-- 3 Cards Grid -->
-                <div class="cards-grid">
-
-                    <!-- Card 1: Speed -->
-                    <div class="info-card animate-hidden slide-left">
-                        <div class="info-card-icon">⚡</div>
-                        <h3 class="info-card-title">
-                            [Скорость разработки = ниже стоимость]
-                        </h3>
-                        <p class="info-card-text">
-                            <span class="lang lang-en">EN[Здесь текст: чистый синтаксис и богатая экосистема Python
-                            позволяют создавать решения быстрее, чем на многих других языках.
-                            Меньше времени разработки = ниже стоимость проекта для клиента.]</span>
-                            <span class="lang lang-kg hidden">KR[Здесь текст: чистый синтаксис и богатая экосистема Python
-                            позволяют создавать решения быстрее, чем на многих других языках.
-                            Меньше времени разработки = ниже стоимость проекта для клиента.]</span>
-                            <span class="lang lang-ru hidden">RU[Здесь текст: чистый синтаксис и богатая экосистема Python
-                            позволяют создавать решения быстрее, чем на многих других языках.
-                            Меньше времени разработки = ниже стоимость проекта для клиента.]</span>
-                        </p>
-                    </div>
-
-                    <!-- Card 2: Automation -->
-                    <div class="info-card animate-hidden slide-left">
-                        <div class="info-card-icon">🔗</div>
-                        <h3 class="info-card-title">
-                            [Автоматизация чего угодно]
-                        </h3>
-                        <p class="info-card-text">
-                            <span class="lang lang-en">EN[Здесь текст: Excel-отчёты, Telegram-боты, email-рассылки,
-                            синхронизация баз данных, парсинг — Python связывает
-                            и автоматизирует всё это. Если команда делает повторяющиеся
-                            задачи — их можно автоматизировать.]</span>
-                            <span class="lang lang-kg hidden">KR[Здесь текст: Excel-отчёты, Telegram-боты, email-рассылки,
-                            синхронизация баз данных, парсинг — Python связывает
-                            и автоматизирует всё это. Если команда делает повторяющиеся
-                            задачи — их можно автоматизировать.]</span>
-                            <span class="lang lang-ru hidden">RU[Здесь текст: Excel-отчёты, Telegram-боты, email-рассылки,
-                            синхронизация баз данных, парсинг — Python связывает
-                            и автоматизирует всё это. Если команда делает повторяющиеся
-                            задачи — их можно автоматизировать.]</span>
-                        </p>
-                    </div>
-
-                    <!-- Card 3: Reliability -->
-                    <div class="info-card animate-hidden slide-left">
-                        <div class="info-card-icon">🔒</div>
-                        <h3 class="info-card-title">
-                            [Надёжность и прозрачность]
-                        </h3>
-                        <p class="info-card-text">
-                            <span class="lang lang-en">EN[Здесь текст: код на Python чистый и читаемый по своей природе.
-                            Клиент не привязан к одному разработчику — любой Python-специалист
-                            сможет продолжить работу. Полная прозрачность, никаких чёрных ящиков.]</span>
-                            <span class="lang lang-kg hidden">KR[Здесь текст: код на Python чистый и читаемый по своей природе.
-                            Клиент не привязан к одному разработчику — любой Python-специалист
-                            сможет продолжить работу. Полная прозрачность, никаких чёрных ящиков.]</span>
-                            <span class="lang lang-ru hidden">RU[Здесь текст: код на Python чистый и читаемый по своей природе.
-                            Клиент не привязан к одному разработчику — любой Python-специалист
-                            сможет продолжить работу. Полная прозрачность, никаких чёрных ящиков.]</span>
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Why Me Section -->
-        <section id="about-me">
-            <div class="container">
-                <h2 class="section-title">
-                    [Почему вам стоит выбрать меня]
-                </h2>
-
-                <div class="reasons-grid">
-
-                    <!-- Reason 1: Deliberate transition -->
-                    <div class="reason-card animate-hidden slide-left-pair">
-                        <span class="reason-number">01</span>
-                        <h3 class="reason-title">
-                            [Осознанный переход в IT]
-                        </h3>
-                        <p class="reason-text">
-                            <span class="lang lang-en">EN[Здесь текст: ты ушёл с хорошо оплачиваемой работы,
-                            чтобы строить карьеру в IT. Это не спонтанное решение —
-                            ты знал риски и взял на себя ответственность.
-                            Теперь ты привносишь тот же уровень обязательств
-                            в каждый проект.]</span>
-                            <span class="lang lang-kg hidden">KR[Здесь текст: ты ушёл с хорошо оплачиваемой работы,
-                            чтобы строить карьеру в IT. Это не спонтанное решение —
-                            ты знал риски и взял на себя ответственность.
-                            Теперь ты привносишь тот же уровень обязательств
-                            в каждый проект.]</span>
-                            <span class="lang lang-ru hidden">RU[Здесь текст: ты ушёл с хорошо оплачиваемой работы,
-                            чтобы строить карьеру в IT. Это не спонтанное решение —
-                            ты знал риски и взял на себя ответственность.
-                            Теперь ты привносишь тот же уровень обязательств
-                            в каждый проект.]</span>
-                        </p>
-                    </div>
-
-                    <!-- Reason 2: Flexibility -->
-                    <div class="reason-card animate-hidden slide-right-pair">
-                        <span class="reason-number">02</span>
-                        <h3 class="reason-title">
-                            [Гибкость и интерес к разным задачам]
-                        </h3>
-                        <p class="reason-text">
-                            <span class="lang lang-en">EN[Здесь текст: тебе искренне интересны разные проекты —
-                            от скриптов автоматизации до Telegram-ботов и работы с данными.
-                            Каждая новая задача расширяет твой кругозор,
-                            и ты привносишь этот междисциплинарный взгляд в работу.
-                            Если у клиента нестандартная задача — ты хочешь её решить.]</span>
-                            <span class="lang lang-kg hidden">KR[Здесь текст: тебе искренне интересны разные проекты —
-                            от скриптов автоматизации до Telegram-ботов и работы с данными.
-                            Каждая новая задача расширяет твой кругозор,
-                            и ты привносишь этот междисциплинарный взгляд в работу.
-                            Если у клиента нестандартная задача — ты хочешь её решить.]</span>
-                            <span class="lang lang-ru hidden">RU[Здесь текст: тебе искренне интересны разные проекты —
-                            от скриптов автоматизации до Telegram-ботов и работы с данными.
-                            Каждая новая задача расширяет твой кругозор,
-                            и ты привносишь этот междисциплинарный взгляд в работу.
-                            Если у клиента нестандартная задача — ты хочешь её решить.]</span>
-                        </p>
-                    </div>
-
-                    <!-- Reason 3: Portfolio focus -->
-                    <div class="reason-card animate-hidden slide-left-pair">
-                        <span class="reason-number">03</span>
-                        <h3 class="reason-title">
-                            [Портфолио строится — максимум внимания к вашему проекту]
-                        </h3>
-                        <p class="reason-text">
-                            <span class="lang lang-en">EN[Здесь текст: ты сейчас активно формируешь портфолио,
-                            поэтому каждый проект получает максимум твоего внимания
-                            к качеству, срокам и коммуникации. Проект клиента —
-                            это не просто задача, а фундамент твоей репутации.]</span>
-                            <span class="lang lang-kg hidden">KR[Здесь текст: ты сейчас активно формируешь портфолио,
-                            поэтому каждый проект получает максимум твоего внимания
-                            к качеству, срокам и коммуникации. Проект клиента —
-                            это не просто задача, а фундамент твоей репутации.]</span>
-                            <span class="lang lang-ru hidden">RU[Здесь текст: ты сейчас активно формируешь портфолио,
-                            поэтому каждый проект получает максимум твоего внимания
-                            к качеству, срокам и коммуникации. Проект клиента —
-                            это не просто задача, а фундамент твоей репутации.]</span>
-                        </p>
-                    </div>
-
-                    <!-- Reason 4: Pricing -->
-                    <div class="reason-card animate-hidden slide-right-pair">
-                        <span class="reason-number">04</span>
-                        <h3 class="reason-title">
-                            [Прозрачные условия и доступные цены]
-                        </h3>
-                        <p class="reason-text">
-                            <span class="lang lang-en">EN[Здесь текст: стоимость определяется после обсуждения
-                            конкретной задачи — никаких скрытых платежей и сюрпризов.
-                            Работаю по частичной предоплате. Цены сейчас доступные,
-                            потому что главная цель — не просто заработок,
-                            а построение портфолио и долгосрочных отношений.]</span>
-                            <span class="lang lang-kg hidden">KR[Здесь текст: стоимость определяется после обсуждения
-                            конкретной задачи — никаких скрытых платежей и сюрпризов.
-                            Работаю по частичной предоплате. Цены сейчас доступные,
-                            потому что главная цель — не просто заработок,
-                            а построение портфолио и долгосрочных отношений.]</span>
-                            <span class="lang lang-ru hidden">RU[Здесь текст: стоимость определяется после обсуждения
-                            конкретной задачи — никаких скрытых платежей и сюрпризов.
-                            Работаю по частичной предоплате. Цены сейчас доступные,
-                            потому что главная цель — не просто заработок,
-                            а построение портфолио и долгосрочных отношений.]</span>
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Workflow Section -->
-        <section id="workflow">
-            <div class="container">
-                <h2 class="section-title">
-                    [Как мы будем работать]
-                </h2>
-
-                <!-- Timeline -->
-                <div class="timeline">
-
-                    <!-- Step 1 -->
-                    <div class="timeline-step animate-hidden scale-in">
-                        <div class="timeline-dot">1</div>
-                        <div class="timeline-content">
-                            <h3 class="timeline-title">
-                                [Брифинг и анализ]
-                            </h3>
-                            <p class="timeline-text">
-                                <span class="lang lang-en">EN[Здесь текст: детально обсуждаем задачу — цели, текущие процессы,
-                                боли, ожидаемый результат. Ты задаёшь вопросы, клиент делится
-                                контекстом. Итог: чёткое техническое задание.]</span>
-                                <span class="lang lang-kg hidden">KR[Здесь текст: детально обсуждаем задачу — цели, текущие процессы,
-                                боли, ожидаемый результат. Ты задаёшь вопросы, клиент делится
-                                контекстом. Итог: чёткое техническое задание.]</span>
-                                <span class="lang lang-ru hidden">RU[Здесь текст: детально обсуждаем задачу — цели, текущие процессы,
-                                боли, ожидаемый результат. Ты задаёшь вопросы, клиент делится
-                                контекстом. Итог: чёткое техническое задание.]</span>
-                            </p>
+                <nav class="header-nav">
+                    <!-- ===== КНОПКА "ПОДЕЛИТЬСЯ" ===== -->
+                    <div class="share-btn-wrapper">
+                        <button class="share-toggle" aria-label="Share" title="Share">
+                            <svg
+                                width="18"
+                                height="18"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <circle cx="18" cy="5" r="3" />
+                                <circle cx="6" cy="12" r="3" />
+                                <circle cx="18" cy="19" r="3" />
+                                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+                                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+                            </svg>
+                        </button>
+                        <div class="share-dropdown">
+                            <button class="share-option" data-share="telegram">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.901-.903-1.056-.692-1.653-1.123-2.678-1.799-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.015-.15-.056-.212s-.174-.04-.249-.024c-.106.024-1.793 1.139-5.062 3.345-.479.329-.913.489-1.302.481-.428-.009-1.252-.242-1.865-.441-.752-.244-1.349-.374-1.297-.789.027-.216.324-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.015 3.333-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.138.121.098.154.233.171.327.016.094.036.307.02.477z"
+                                    />
+                                </svg>
+                                Telegram
+                            </button>
+                            <button class="share-option" data-share="whatsapp">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12.04 0C5.38 0 0 5.38 0 12.04c0 2.66.9 5.16 2.48 7.16L.8 23.2l4.12-1.62c2 1.28 4.38 2.02 7.12 2.02 6.66 0 12.04-5.38 12.04-12.04S18.7 0 12.04 0zm0 22c-2.22 0-4.34-.62-6.16-1.78l-.44-.26-2.44.96.66-2.34-.28-.46A10.76 10.76 0 011.2 12.04 10.84 10.84 0 1112.04 22zm6.1-6.56c-.26-.44-.96-.7-2-.98s-1.72-.14-1.98.22-.78 1.12-.96 1.36-.36.26-.68.08-1.38-.52-2.62-1.62-1.62-1.92-1.8-2.24.02-.5.14-.66.32-.36.48-.54.22-.32.32-.52.06-.38-.02-.54-.68-1.66-.94-2.28-.5-.52-.68-.52h-.58c-.2 0-.52.08-.78.38-.26.3-1.02 1-1.02 2.44s1.04 2.82 1.18 3.02 2.04 3.12 4.94 4.38 1.24.48 1.66.62 1.32.18 1.82.1 1.72-.7 1.96-1.38.24-1.26.18-1.38-.24-.2-.5-.34z"
+                                    />
+                                </svg>
+                                WhatsApp
+                            </button>
+                            <button class="share-option" data-share="copy">
+                                <svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                    <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
+                                </svg>
+                                <span class="share-copy-text">Copy link</span>
+                            </button>
                         </div>
                     </div>
 
-                    <!-- Step 2 -->
-                    <div class="timeline-step animate-hidden scale-in">
-                        <div class="timeline-dot">2</div>
-                        <div class="timeline-content">
-                            <h3 class="timeline-title">
-                                [Прототип и утверждение]
-                            </h3>
-                            <p class="timeline-text">
-                                <span class="lang lang-en">EN[Здесь текст: показываю структуру будущего решения — как инструмент
-                                будет работать, какие технологии использую, примерный срок.
-                                Согласовываем ожидания до того, как написан хоть один код.]</span>
-                                <span class="lang lang-kg hidden">KR[Здесь текст: показываю структуру будущего решения — как инструмент
-                                будет работать, какие технологии использую, примерный срок.
-                                Согласовываем ожидания до того, как написан хоть один код.]</span>
-                                <span class="lang lang-ru hidden">RU[Здесь текст: показываю структуру будущего решения — как инструмент
-                                будет работать, какие технологии использую, примерный срок.
-                                Согласовываем ожидания до того, как написан хоть один код.]</span>
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Step 3 -->
-                    <div class="timeline-step animate-hidden scale-in">
-                        <div class="timeline-dot">3</div>
-                        <div class="timeline-content">
-                            <h3 class="timeline-title">
-                                [Разработка с промежуточной демонстрацией]
-                            </h3>
-                            <p class="timeline-text">
-                                <span class="lang lang-en">EN[Здесь текст: создаю решение итеративно. Клиент видит
-                                промежуточные результаты и может корректировать направление.
-                                Никаких сюрпризов в конце — мы синхронизированы на всём пути.]</span>
-                                <span class="lang lang-kg hidden">KR[Здесь текст: создаю решение итеративно. Клиент видит
-                                промежуточные результаты и может корректировать направление.
-                                Никаких сюрпризов в конце — мы синхронизированы на всём пути.]</span>
-                                <span class="lang lang-ru hidden">RU[Здесь текст: создаю решение итеративно. Клиент видит
-                                промежуточные результаты и может корректировать направление.
-                                Никаких сюрпризов в конце — мы синхронизированы на всём пути.]</span>
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Step 4 -->
-                    <div class="timeline-step animate-hidden scale-in">
-                        <div class="timeline-dot">4</div>
-                        <div class="timeline-content">
-                            <h3 class="timeline-title">
-                                [Передача и поддержка]
-                            </h3>
-                            <p class="timeline-text">
-                                <span class="lang lang-en">EN[Здесь текст: клиент получает готовый инструмент, документацию
-                                и инструкцию. Ты остаёшься на связи для вопросов и оперативных
-                                правок после запуска. Цель — чтобы клиент уверенно пользовался
-                                решением самостоятельно.]</span>
-                                <span class="lang lang-kg hidden">KR[Здесь текст: клиент получает готовый инструмент, документацию
-                                и инструкцию. Ты остаёшься на связи для вопросов и оперативных
-                                правок после запуска. Цель — чтобы клиент уверенно пользовался
-                                решением самостоятельно.]</span>
-                                <span class="lang lang-ru hidden">RU[Здесь текст: клиент получает готовый инструмент, документацию
-                                и инструкцию. Ты остаёшься на связи для вопросов и оперативных
-                                правок после запуска. Цель — чтобы клиент уверенно пользовался
-                                решением самостоятельно.]</span>
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects">
-            <div class="container">
-                <h2 class="section-title">
-                    [Проекты]
-                </h2>
-
-                <div class="projects-grid">
-
-                    <!-- Project 1 -->
-                    <div class="project-card animate-hidden slide-left-project">
-                        <div class="project-image-placeholder">
-                            <span>СКРИНШОТ ПРОЕКТА</span>
-                        </div>
-                        <div class="project-info">
-                            <h3 class="project-title">[Калькулятор]</h3>
-                            <p class="project-description">
-                                <span class="lang lang-en">EN[Здесь краткое описание проекта: что делает инструмент,
-                                какую задачу решал.]</span>
-                                <span class="lang lang-kg hidden">KR[Здесь краткое описание проекта: что делает инструмент,
-                                какую задачу решал.]</span>
-                                <span class="lang lang-ru hidden">RU[Здесь краткое описание проекта: что делает инструмент,
-                                какую задачу решал.]</span>
-                            </p>
-                            <div class="project-tags">
-                                <span class="tag">Python</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link" target="_blank" rel="noopener">
-                                    Исходный код →
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 2 -->
-                    <div class="project-card animate-hidden slide-up-project">
-                        <div class="project-image-placeholder">
-                            <span>СКРИНШОТ ПРОЕКТА</span>
-                        </div>
-                        <div class="project-info">
-                            <h3 class="project-title">[Менеджер задач]</h3>
-                            <p class="project-description">
-                                <span class="lang lang-en">EN[Здесь краткое описание проекта: что делает инструмент,
-                                какую задачу решал.]</span>
-                                <span class="lang lang-kg hidden">KR[Здесь краткое описание проекта: что делает инструмент,
-                                какую задачу решал.]</span>
-                                <span class="lang lang-ru hidden">RU[Здесь краткое описание проекта: что делает инструмент,
-                                какую задачу решал.]</span>
-                            </p>
-                            <div class="project-tags">
-                                <span class="tag">Python</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link" target="_blank" rel="noopener">
-                                    Исходный код →
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 3 -->
-                    <div class="project-card animate-hidden slide-right-project">
-                        <div class="project-image-placeholder">
-                            <span>СКРИНШОТ ПРОЕКТА</span>
-                        </div>
-                        <div class="project-info">
-                            <h3 class="project-title">[Excel-автоматизация]</h3>
-                            <p class="project-description">
-                                <span class="lang lang-en">EN[Здесь краткое описание проекта: что делает инструмент,
-                                какую задачу решал.]</span>
-                                <span class="lang lang-kg hidden">KR[Здесь краткое описание проекта: что делает инструмент,
-                                какую задачу решал.]</span>
-                                <span class="lang lang-ru hidden">RU[Здесь краткое описание проекта: что делает инструмент,
-                                какую задачу решал.]</span>
-                            </p>
-                            <div class="project-tags">
-                                <span class="tag">Python</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link" target="_blank" rel="noopener">
-                                    Исходный код →
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- GitHub CTA -->
-                <div class="github-cta animate-hidden">
-                    <p class="github-cta-text">
-                        <span class="lang lang-en">EN[More projects — on my GitHub]</span>
-                        <span class="lang lang-kg hidden">KR[Больше проектов — в моём GitHub]</span>
-                        <span class="lang lang-ru hidden">RU[Больше проектов — в моём GitHub]</span>
-                    </p>
-                    <a href="https://github.com/arlenadamaliev-lgtm"
-                       target="_blank"
-                       rel="noopener"
-                       class="github-cta-link">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                        </svg>
-                        arlenadamaliev-lgtm
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contacts Section -->
-        <section id="contacts">
-            <div class="container">
-                <h2 class="section-title">
-                    [Давайте обсудим ваш проект]
-                </h2>
-
-                <p class="contacts-cta-text">
-                    <span class="lang lang-en">EN[Здесь призывной текст: расскажите, какие процессы в вашей рутине
-                    можно автоматизировать. Я задам уточняющие вопросы и предложу
-                    варианты решений — бесплатно.]</span>
-                    <span class="lang lang-kg hidden">KR[Здесь призывной текст: расскажите, какие процессы в вашей рутине
-                    можно автоматизировать. Я задам уточняющие вопросы и предложу
-                    варианты решений — бесплатно.]</span>
-                    <span class="lang lang-ru hidden">RU[Здесь призывной текст: расскажите, какие процессы в вашей рутине
-                    можно автоматизировать. Я задам уточняющие вопросы и предложу
-                    варианты решений — бесплатно.]</span>
-                </p>
-
-                <!-- Contact buttons -->
-                <div class="contacts-actions">
-
-                    <!-- WhatsApp -->
-                    <a href="https://wa.me/+996999079977"
-                       target="_blank"
-                       rel="noopener"
-                       class="contact-btn contact-btn-telegram animate-hidden">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12.04 0C5.38 0 0 5.38 0 12.04 0 14.7.9 17.2 2.48 19.2L.8 23.2l4.12-1.62c2 1.28 4.38 2.02 7.12 2.02 6.66 0 12.04-5.38 12.04-12.04S18.7 0 12.04 0zm0 22c-2.22 0-4.34-.62-6.16-1.78l-.44-.26-2.44.96.66-2.34-.28-.46C1.86 16.52 1.2 14.32 1.2 12.04 1.2 6.06 6.06 1.2 12.04 1.2S22.88 6.06 22.88 12.04 18.02 22 12.04 22zm6.1-6.56c-.26-.44-.96-.7-2-.98-1.04-.28-1.72-.14-1.98.22-.26.36-.78 1.12-.96 1.36-.18.24-.36.26-.68.08-.32-.18-1.38-.52-2.62-1.62-.96-.86-1.62-1.92-1.8-2.24-.18-.32-.02-.5.14-.66.14-.14.32-.36.48-.54.16-.18.22-.32.32-.52.1-.2.06-.38-.02-.54-.08-.16-.68-1.66-.94-2.28-.24-.6-.5-.52-.68-.52h-.58c-.2 0-.52.08-.78.38-.26.3-1.02 1-1.02 2.44 0 1.44 1.04 2.82 1.18 3.02.14.2 2.04 3.12 4.94 4.38.7.3 1.24.48 1.66.62.7.22 1.32.18 1.82.1.56-.08 1.72-.7 1.96-1.38.24-.68.24-1.26.18-1.38-.06-.12-.24-.2-.5-.34z"/>
-                        </svg>
-                        [Написать в WhatsApp]
-                    </a>
-
-                    <!-- Email -->
-                    <a href="mailto:твой.email@example.com"
-                       class="contact-btn contact-btn-email animate-hidden">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="4" width="20" height="16" rx="2"/>
-                            <path d="M22 4L12 13 2 4"/>
-                        </svg>
-                        [Написать на Email]
-                    </a>
-                </div>
-
-                <!-- Contact form (Formspree) -->
-                <form class="contacts-form"
-                      action="https://formspree.io/f/xaqgzyaz"
-                      method="POST"
-                      id="contact-form">
-
-                    <!-- Name -->
-                    <div class="form-group">
-                        <label for="form-name" class="form-label">
-                            <span class="lang lang-en">Name</span>
-                            <span class="lang lang-kg hidden">Атыңыз</span>
-                            <span class="lang lang-ru hidden">Имя</span>
-                        </label>
-                        <input type="text"
-                               id="form-name"
-                               name="name"
-                               class="form-input"
-                               data-placeholder-en="Your name"
-                               data-placeholder-kg="Атыңыз"
-                               data-placeholder-ru="Ваше имя"
-                               placeholder="Your name"
-                               required>
-                    </div>
-
-                    <!-- Email -->
-                    <div class="form-group">
-                        <label for="form-email" class="form-label">
-                            <span class="lang lang-en">Email</span>
-                            <span class="lang lang-kg hidden">Email</span>
-                            <span class="lang lang-ru hidden">Email</span>
-                        </label>
-                        <input type="email"
-                               id="form-email"
-                               name="email"
-                               class="form-input"
-                               data-placeholder-en="your@email.com"
-                               data-placeholder-kg="sizdin@email.com"
-                               data-placeholder-ru="your@email.com"
-                               placeholder="your@email.com"
-                               required>
-                    </div>
-
-                    <!-- Project type -->
-                    <div class="form-group">
-                        <label for="form-type" class="form-label">
-                            <span class="lang lang-en">Project type</span>
-                            <span class="lang lang-kg hidden">Долбоордун түрү</span>
-                            <span class="lang lang-ru hidden">Тип проекта</span>
-                        </label>
-                        <select id="form-type"
-                                name="project_type"
-                                class="form-input form-select"
-                                required>
-                            <option value="" disabled selected>
-                                <span class="lang lang-en">Select project type</span>
-                            </option>
-                            <option value="automation"
-                                    data-en="Automation (Excel, reports)"
-                                    data-kg="Автоматташтыруу (Excel, отчеттор)"
-                                    data-ru="Автоматизация (Excel, отчёты)">
-                                Автоматизация (Excel, отчёты)
-                            </option>
-                            <option value="bot"
-                                    data-en="Telegram / WhatsApp bot"
-                                    data-kg="Telegram / WhatsApp бот"
-                                    data-ru="Telegram-бот / WhatsApp-бот">
-                                Telegram-бот / WhatsApp-бот
-                            </option>
-                            <option value="parsing"
-                                    data-en="Data parsing / Scraping"
-                                    data-kg="Маалыматтарды парсинг / Скрапинг"
-                                    data-ru="Парсинг данных / Скрапинг">
-                                Парсинг данных / Скрапинг
-                            </option>
-                            <option value="integration"
-                                    data-en="Service integration / API"
-                                    data-kg="Сервистерди интеграциялоо / API"
-                                    data-ru="Интеграция сервисов / API">
-                                Интеграция сервисов / API
-                            </option>
-                            <option value="tool"
-                                    data-en="Python tool / Utility"
-                                    data-kg="Python куралы / Утилита"
-                                    data-ru="Инструмент / Утилита на Python">
-                                Инструмент / Утилита на Python
-                            </option>
-                            <option value="other"
-                                    data-en="Other"
-                                    data-kg="Башка"
-                                    data-ru="Другое">
-                                Другое
-                            </option>
-                        </select>
-                    </div>
-
-                    <!-- Message -->
-                    <div class="form-group">
-                        <label for="form-message" class="form-label">
-                            <span class="lang lang-en">Message</span>
-                            <span class="lang lang-kg hidden">Билдирүү</span>
-                            <span class="lang lang-ru hidden">Сообщение</span>
-                        </label>
-                        <textarea id="form-message"
-                                  name="message"
-                                  class="form-input form-textarea"
-                                  data-placeholder-en="Describe your task..."
-                                  data-placeholder-kg="Тапшырмаңызды сүрөттөп бериңиз..."
-                                  data-placeholder-ru="Опишите вашу задачу..."
-                                  placeholder="Describe your task..."
-                                  rows="5"
-                                  required></textarea>
-                    </div>
-
-                    <!-- Submit -->
-                    <button type="submit" class="contact-btn contact-btn-telegram form-submit">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="22" y1="2" x2="11" y2="13"/>
-                            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-                        </svg>
-                        <span class="lang lang-en">Send request</span>
-                        <span class="lang lang-kg hidden">Өтүнмө жөнөтүү</span>
-                        <span class="lang lang-ru hidden">Отправить заявку</span>
+                    <!-- Theme toggle -->
+                    <button class="theme-toggle" data-theme-toggle aria-label="Light|Dark" title="Light|Dark">
+                        <span class="theme-icon">🌙</span>
                     </button>
 
-                    <!-- Prevent redirect after submit -->
-                    <input type="hidden" name="_next" value="#contacts">
+                    <!-- Language switcher -->
+                    <div class="lang-switcher">
+                        <span class="lang-current" data-lang="en">🇬🇧</span>
+                        <ul class="lang-dropdown">
+                            <li>
+                                <button class="lang-option" data-lang="en">🇬🇧</button>
+                            </li>
+                            <li>
+                                <button class="lang-option" data-lang="kg">🇰🇬</button>
+                            </li>
+                            <li>
+                                <button class="lang-option" data-lang="ru">🇷🇺</button>
+                            </li>
+                        </ul>
+                    </div>
 
-                    <!-- Success message -->
-                    <p class="form-success hidden" id="form-success">
-                        <span class="lang lang-en">✅ Thank you! Your request has been sent. I'll contact you soon.</span>
-                        <span class="lang lang-kg hidden">✅ Рахмат! Сиздин өтүнмөңүз жөнөтүлдү. Мен жакында байланышам.</span>
-                        <span class="lang lang-ru hidden">✅ Спасибо! Ваша заявка отправлена. Я свяжусь с вами в ближайшее время.</span>
+                    <!-- GitHub link -->
+                    <a
+                        href="https://github.com/arlenadamaliev-lgtm"
+                        target="_blank"
+                        rel="noopener"
+                        class="header-icon-link"
+                        aria-label="GitHub"
+                    >
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
+                            />
+                        </svg>
+                    </a>
+
+                    <!-- WhatsApp link -->
+                    <a
+                        href="https://wa.me/+996999079977"
+                        target="_blank"
+                        rel="noopener"
+                        class="header-icon-link"
+                        aria-label="WhatsApp"
+                    >
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12.04 0C5.38 0 0 5.38 0 12.04 0 14.7.9 17.2 2.48 19.2L.8 23.2l4.12-1.62c2 1.28 4.38 2.02 7.12 2.02 6.66 0 12.04-5.38 12.04-12.04S18.7 0 12.04 0zm0 22c-2.22 0-4.34-.62-6.16-1.78l-.44-.26-2.44.96.66-2.34-.28-.46C1.86 16.52 1.2 14.32 1.2 12.04 1.2 6.06 6.06 1.2 12.04 1.2S22.88 6.06 22.88 12.04 18.02 22 12.04 22zm6.1-6.56c-.26-.44-.96-.7-2-.98-1.04-.28-1.72-.14-1.98.22-.26.36-.78 1.12-.96 1.36-.18.24-.36.26-.68.08-.32-.18-1.38-.52-2.62-1.62-.96-.86-1.62-1.92-1.8-2.24-.18-.32-.02-.5.14-.66.14-.14.32-.36.48-.54.16-.18.22-.32.32-.52.1-.2.06-.38-.02-.54-.08-.16-.68-1.66-.94-2.28-.24-.6-.5-.52-.68-.52h-.58c-.2 0-.52.08-.78.38-.26.3-1.02 1-1.02 2.44 0 1.44 1.04 2.82 1.18 3.02.14.2 2.04 3.12 4.94 4.38.7.3 1.24.48 1.66.62.7.22 1.32.18 1.82.1.56-.08 1.72-.7 1.96-1.38.24-.68.24-1.26.18-1.38-.06-.12-.24-.2-.5-.34z"
+                            />
+                        </svg>
+                    </a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Hero Section -->
+            <section id="hero">
+                <div class="container hero-grid">
+                    <!-- Photo placeholder -->
+                    <div class="hero-image-wrapper">
+                        <div class="hero-avatar-placeholder" aria-label="Фото Arlen">
+                            <span class="placeholder-text">ФОТО</span>
+                        </div>
+                    </div>
+
+                    <!-- Text & CTA -->
+                    <div class="hero-content">
+                        <p class="hero-role">
+                            <span class="lang lang-en">Python Developer</span>
+                            <span class="lang lang-kg hidden">Python програмчы</span>
+                            <span class="lang lang-ru hidden">Разработчик на Python</span>
+                        </p>
+
+                        <h1 class="hero-name">Arlen Aliaskar uulu</h1>
+
+                        <p class="hero-tagline">
+                            <span
+                                class="lang lang-en typewriter-text"
+                                data-text="I write Python code that automates routines and solves business problems. A former sales manager, I'm now fully dedicated to development, offering quality work and special terms for first clients."
+                                aria-label="Tagline"
+                            >
+                            </span>
+                            <span
+                                class="lang lang-kg hidden typewriter-text"
+                                data-text="Мен Python'до бизнес маселелерин чечкен жана күнүмдүк ишти автоматташтырган код жазам. Сатуу тармагынан келип, толугу менен иштеп чыгууга өттүм — сапаттуу иш жана биринчи кардарлар үчүн өзгөчө шарттар менен."
+                                aria-label="Tagline KG"
+                            >
+                            </span>
+                            <span
+                                class="lang lang-ru hidden typewriter-text"
+                                data-text="Пишу код на Python, который автоматизирует рутину и решает бизнес-задачи. Ушёл из продаж в разработку, чтобы делать качественные инструменты — ваша выгода на старте моей карьеры."
+                                aria-label="Tagline RU"
+                            >
+                            </span>
+                            <span class="typewriter-cursor" aria-hidden="true">|</span>
+                        </p>
+
+                        <!-- CTA button linking to contacts -->
+                        <a href="#contacts" class="hero-cta">
+                            <span class="lang lang-en">Discuss Automation</span>
+                            <span class="lang lang-kg hidden">Автоматташтырууну талкуулоо</span>
+                            <span class="lang lang-ru hidden">Обсудить автоматизацию</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Why Python Section -->
+            <section id="why-python">
+                <div class="container">
+                    <h2 class="section-title">
+                        <span class="lang lang-en">Why Python is Your Profit</span>
+                        <span class="lang lang-kg hidden">Эмне үчүн Python — бул сиздин пайдаңыз</span>
+                        <span class="lang lang-ru hidden">Почему Python — это ваша выгода</span>
+                    </h2>
+
+                    <p class="section-subtitle">
+                        <span class="lang lang-en"
+                            >I solve business problems with tools that are built quickly, work reliably, and are easy to
+                            maintain. Python is the perfect foundation for this.</span
+                        >
+                        <span class="lang lang-kg hidden"
+                            >Мен бизнес маселелерин тез түзүлүүчү, ишенимдүү иштөөчү жана оңой тейленүүчү куралдар менен
+                            чечем. Python — бул үчүн эң мыкты негиз.</span
+                        >
+                        <span class="lang lang-ru hidden"
+                            >Я решаю бизнес-задачи инструментами, которые быстро создаются, надёжно работают и легко
+                            поддерживаются. Python — идеальная основа для этого.</span
+                        >
                     </p>
-                </form>
+
+                    <!-- 3 Cards Grid -->
+                    <div class="cards-grid">
+                        <!-- Card 1: Speed -->
+                        <div class="info-card animate-hidden slide-left">
+                            <div class="info-card-icon">⚡</div>
+                            <h3 class="info-card-title">
+                                <span class="lang lang-en">Faster development = lower cost</span>
+                                <span class="lang lang-kg hidden">Ылдамыраак = баасы азыраак</span>
+                                <span class="lang lang-ru hidden"> Скорость разработки = ниже стоимость.</span>
+                            </h3>
+                            <p class="info-card-text">
+                                <span class="lang lang-en"
+                                    >Clean syntax and a rich ecosystem allow me to create solutions faster than in many
+                                    other languages. Less development time = lower project cost for you.</span
+                                >
+                                <span class="lang lang-kg hidden"
+                                    >Таза синтаксис жана бай экосистема көптөгөн башка тилдерге караганда тезирээк
+                                    чечимдерди түзүүгө мүмкүндүк берет. Азыраак иштеп чыгуу убактысы = сиз үчүн
+                                    долбоордун наркынын төмөндөшү.</span
+                                >
+                                <span class="lang lang-ru hidden"
+                                    >Чистый синтаксис и богатая экосистема позволяют создавать решения быстрее, чем на
+                                    многих других языках. Меньше времени разработки = ниже стоимость проекта для
+                                    вас.</span
+                                >
+                            </p>
+                        </div>
+
+                        <!-- Card 2: Automation -->
+                        <div class="info-card animate-hidden slide-left">
+                            <div class="info-card-icon">🔗</div>
+                            <h3 class="info-card-title">
+                                <span class="lang lang-en">Automation of anything</span>
+                                <span class="lang lang-kg hidden">Каалаган нерсени автоматташтыруу</span>
+                                <span class="lang lang-ru hidden">Автоматизация чего угодно</span>
+                            </h3>
+                            <p class="info-card-text">
+                                <span class="lang lang-en"
+                                    >Excel reports, Telegram bots, email newsletters, database sync, data scraping —
+                                    Python connects and automates it all. If your team does repetitive tasks, they can
+                                    be automated.</span
+                                >
+                                <span class="lang lang-kg hidden"
+                                    >Excel отчеттору, Telegram боттору, email каттары, маалымат базасын шайкештөө,
+                                    маалымат чогултуу — Python мунун баарын байланыштырып, автоматташтырат. Эгер
+                                    командаңыз кайталануучу иштерди жасаса, аларды автоматташтырса болот.</span
+                                >
+                                <span class="lang lang-ru hidden"
+                                    >Excel-отчёты, Telegram-боты, email-рассылки, синхронизация баз данных, парсинг —
+                                    Python связывает и автоматизирует всё это. Если ваша команда делает повторяющиеся
+                                    задачи, их можно автоматизировать.</span
+                                >
+                            </p>
+                        </div>
+
+                        <!-- Card 3: Reliability -->
+                        <div class="info-card animate-hidden slide-left">
+                            <div class="info-card-icon">🔒</div>
+                            <h3 class="info-card-title">
+                                <span class="lang lang-en">Reliability and transparency</span>
+                                <span class="lang lang-kg hidden">Ишенимдүүлүк жана ачык-айкындуулук</span>
+                                <span class="lang lang-ru hidden">Надёжность и прозрачность</span>
+                            </h3>
+                            <p class="info-card-text">
+                                <span class="lang lang-en"
+                                    >Python code is clean and readable by nature. You are not tied to one developer —
+                                    any Python specialist can continue the work. Full transparency, no black
+                                    boxes.</span
+                                >
+                                <span class="lang lang-kg hidden"
+                                    >Python коду табиятынан таза жана окууга жеңил. Сиз бир иштеп чыгуучуга байланып
+                                    калбайсыз — ар кандай Python адиси ишти уланта алат. Толук ачыктык, эч кандай "кара
+                                    кутулар" жок.</span
+                                >
+                                <span class="lang lang-ru hidden"
+                                    >Код на Python чистый и читаемый по своей природе. Вы не привязаны к одному
+                                    разработчику — любой Python-специалист сможет продолжить работу. Полная
+                                    прозрачность, никаких «чёрных ящиков».</span
+                                >
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Why Me Section -->
+            <section id="about-me">
+                <div class="container">
+                    <h2 class="section-title">
+                        <span class="lang lang-en">Why Choose Me</span>
+                        <span class="lang lang-kg hidden">Эмне үчүн мени тандаш керек</span>
+                        <span class="lang lang-ru hidden">Почему стоит выбрать меня</span>
+                    </h2>
+
+                    <div class="reasons-grid">
+                        <!-- Reason 1: Deliberate transition -->
+                        <div class="reason-card animate-hidden slide-left-pair">
+                            <span class="reason-number">01</span>
+                            <h3 class="reason-title">
+                                <span class="lang lang-en">A deliberate transition into IT</span>
+                                <span class="lang lang-kg hidden">IT тармагына атайылап өтүү</span>
+                                <span class="lang lang-ru hidden">Осознанный переход в IT</span>
+                            </h3>
+                            <p class="reason-text">
+                                <span class="lang lang-en"
+                                    >I left a well-paid sales job to build a career in IT. This wasn't a spontaneous
+                                    decision — I knew the risks and took responsibility. Now I bring that same level of
+                                    commitment to every project.</span
+                                >
+                                <span class="lang lang-kg hidden"
+                                    >Мен IT тармагында карьера куруу үчүн жакшы төлөнгөн сатуу жумушумдан кеттим. Бул
+                                    кокустук эмес — мен тобокелдиктерди билип, жоопкерчиликти алдым. Эми ошол эле
+                                    деңгээлдеги милдеттенмени ар бир долбоорго алып келем.</span
+                                >
+                                <span class="lang lang-ru hidden"
+                                    >Я ушёл с хорошо оплачиваемой работы в продажах, чтобы строить карьеру в IT. Это не
+                                    спонтанное решение — я знал риски и взял на себя ответственность. Теперь я привношу
+                                    тот же уровень обязательств в каждый проект.</span
+                                >
+                            </p>
+                        </div>
+
+                        <!-- Reason 2: Flexibility -->
+                        <div class="reason-card animate-hidden slide-right-pair">
+                            <span class="reason-number">02</span>
+                            <h3 class="reason-title">
+                                <span class="lang lang-en">Flexibility and enthusiasm for a variety of tasks</span>
+                                <span class="lang lang-kg hidden"
+                                    >Ар кандай тапшырмаларга ийкемдүүлүк жана шыктануу</span
+                                >
+                                <span class="lang lang-ru hidden">Гибкость и интерес к разным задачам</span>
+                            </h3>
+                            <p class="reason-text">
+                                <span class="lang lang-en"
+                                    >I'm genuinely interested in different projects — from automation scripts to
+                                    Telegram bots and data work. Each new task broadens my horizons, and I bring this
+                                    interdisciplinary view to your work. If you have a non-standard task, I want to
+                                    solve it.</span
+                                >
+                                <span class="lang lang-kg hidden"
+                                    >Мага ар түрдүү долбоорлор чындап кызыктуу — автоматташтыруу скрипттеринен тартып
+                                    Telegram ботторуна жана маалымат менен иштөөгө чейин. Ар бир жаңы тапшырма менин
+                                    ой-өрүшүмдү кеңейтет жана мен бул дисциплиналар аралык көз карашты сиздин ишиңизге
+                                    алып келем. Эгер сизде стандарттуу эмес тапшырма болсо, мен аны чечким келет.</span
+                                >
+                                <span class="lang lang-ru hidden"
+                                    >Мне искренне интересны разные проекты — от скриптов автоматизации до Telegram-ботов
+                                    и работы с данными. Каждая новая задача расширяет мой кругозор, и я привожу этот
+                                    междисциплинарный взгляд в вашу работу. Если у вас нестандартная задача — я хочу её
+                                    решить.</span
+                                >
+                            </p>
+                        </div>
+
+                        <!-- Reason 3: Portfolio focus -->
+                        <div class="reason-card animate-hidden slide-left-pair">
+                            <span class="reason-number">03</span>
+                            <h3 class="reason-title">
+                                <span class="lang lang-en">Full attention to your project</span>
+                                <span class="lang lang-kg hidden">Долбооруңузга толук көңүл буруу</span>
+                                <span class="lang lang-ru hidden">Максимум внимания вашему проекту</span>
+                            </h3>
+                            <p class="reason-text">
+                                <span class="lang lang-en"
+                                    >I'm actively building my portfolio right now, so every project gets my maximum
+                                    attention to quality, deadlines, and communication. Your project is not just a task,
+                                    but the foundation of my reputation.</span
+                                >
+                                <span class="lang lang-kg hidden"
+                                    >Мен азыр активдүү түрдө портфолиомду түзүп жатам, ошондуктан ар бир долбоор
+                                    сапатка, мөөнөткө жана баарлашууга максималдуу көңүл буруу менен ишке ашат. Сиздин
+                                    долбооруңуз — бул жөн гана тапшырма эмес, менин репутациямдын пайдубалы.</span
+                                >
+                                <span class="lang lang-ru hidden"
+                                    >Я сейчас активно формирую портфолио, поэтому каждый проект получает максимум моего
+                                    внимания к качеству, срокам и коммуникации. Ваш проект — это не просто задача, а
+                                    фундамент моей репутации.</span
+                                >
+                            </p>
+                        </div>
+
+                        <!-- Reason 4: Pricing -->
+                        <div class="reason-card animate-hidden slide-right-pair">
+                            <span class="reason-number">04</span>
+                            <h3 class="reason-title">
+                                <span class="lang lang-en">Transparent terms and affordable prices</span>
+                                <span class="lang lang-kg hidden">Ачык шарттар жана жеткиликтүү баалар</span>
+                                <span class="lang lang-ru hidden">Прозрачные условия и доступные цены</span>
+                            </h3>
+                            <p class="reason-text">
+                                <span class="lang lang-en"
+                                    >The cost is determined after discussing the specific task — no hidden fees or
+                                    surprises. I work on a partial prepayment basis. Prices are affordable now because
+                                    the main goal is not just earning, but building a portfolio and long-term
+                                    relationships.</span
+                                >
+                                <span class="lang lang-kg hidden"
+                                    >Нарк конкреттүү тапшырманы талкуулагандан кийин аныкталат — жашыруун төлөмдөр же
+                                    күтүлбөгөн жагдайлар жок. Мен жарым-жартылай алдын ала төлөм менен иштейм. Баалар
+                                    азыр жеткиликтүү, себеби негизги максат — жөн гана акча табуу эмес, портфолио түзүү
+                                    жана узак мөөнөттүү мамилелерди куруу.</span
+                                >
+                                <span class="lang lang-ru hidden"
+                                    >Стоимость определяется после обсуждения конкретной задачи — никаких скрытых
+                                    платежей и сюрпризов. Работаю по частичной предоплате. Цены сейчас доступные, потому
+                                    что главная цель — не просто заработок, а построение портфолио и долгосрочных
+                                    отношений.</span
+                                >
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Workflow Section -->
+            <section id="workflow">
+                <div class="container">
+                    <h2 class="section-title">
+                        <span class="lang lang-en">How We'll Work</span>
+                        <span class="lang lang-kg hidden">Кантип иштейбиз</span>
+                        <span class="lang lang-ru hidden">Как мы будем работать</span>
+                    </h2>
+
+                    <!-- Timeline -->
+                    <div class="timeline">
+                        <!-- Step 1 -->
+                        <div class="timeline-step animate-hidden scale-in">
+                            <div class="timeline-dot">1</div>
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">
+                                    <span class="lang lang-en">Briefing and analysis</span>
+                                    <span class="lang lang-kg hidden">Брифинг жана талдоо</span>
+                                    <span class="lang lang-ru hidden">Брифинг и анализ</span>
+                                </h3>
+                                <p class="timeline-text">
+                                    <span class="lang lang-en"
+                                        >We discuss the task in detail — goals, current processes, pain points, expected
+                                        results. I ask questions, you share the context. Result: a clear technical
+                                        specification.</span
+                                    >
+                                    <span class="lang lang-kg hidden"
+                                        >Биз тапшырманы кеңири талкуулайбыз — максаттар, учурдагы процесстер, көйгөйлөр,
+                                        күтүлгөн жыйынтык. Мен суроолорду берем, сиз контекст менен бөлүшөсүз. Жыйынтык:
+                                        так техникалык тапшырма.</span
+                                    >
+                                    <span class="lang lang-ru hidden"
+                                        >Детально обсуждаем задачу — цели, текущие процессы, боли, ожидаемый результат.
+                                        Я задаю вопросы, вы делитесь контекстом. Итог: чёткое техническое задание.</span
+                                    >
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="timeline-step animate-hidden scale-in">
+                            <div class="timeline-dot">2</div>
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">
+                                    <span class="lang lang-en">Prototyping and Approval</span>
+                                    <span class="lang lang-kg hidden">Прототиптөө жана бекитүү</span>
+                                    <span class="lang lang-ru hidden">Прототип и утверждение</span>
+                                </h3>
+                                <p class="timeline-text">
+                                    <span class="lang lang-en"
+                                        >I show the structure of the future solution — how the tool will work, what
+                                        technologies I'll use, and an estimated timeline. We align expectations before a
+                                        single line of code is written.</span
+                                    >
+                                    <span class="lang lang-kg hidden"
+                                        >Мен келечектеги чечимдин түзүмүн көрсөтөм — курал кандай иштейт, кандай
+                                        технологияларды колдоном, болжолдуу мөөнөт. Биз күтүүлөрдү код жазыла электе эле
+                                        шайкеш келтиребиз.</span
+                                    >
+                                    <span class="lang lang-ru hidden"
+                                        >Показываю структуру будущего решения — как инструмент будет работать, какие
+                                        технологии использую, примерный срок. Согласовываем ожидания до того, как
+                                        написан хоть один код.</span
+                                    >
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="timeline-step animate-hidden scale-in">
+                            <div class="timeline-dot">3</div>
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">
+                                    <span class="lang lang-en">Development with Interim Demos</span>
+                                    <span class="lang lang-kg hidden">Убактылуу демонстрациялар менен иштеп чыгуу</span>
+                                    <span class="lang lang-ru hidden">Разработка с промежуточной демонстрацией</span>
+                                </h3>
+                                <p class="timeline-text">
+                                    <span class="lang lang-en"
+                                        >I create the solution iteratively. You see intermediate results and can adjust
+                                        the direction. No surprises at the end — we are synchronized throughout the
+                                        entire process.</span
+                                    >
+                                    <span class="lang lang-kg hidden"
+                                        >Мен чечимди итеративдик түрдө түзөм. Сиз аралык жыйынтыктарды көрүп, багытты
+                                        оңдой аласыз. Аягында күтүлбөгөн жагдайлар болбойт — биз бүт процесс боюнча
+                                        синхрондоштурулганбыз.</span
+                                    >
+                                    <span class="lang lang-ru hidden"
+                                        >Создаю решение итеративно. Вы видите промежуточные результаты и можете
+                                        корректировать направление. Никаких сюрпризов в конце — мы синхронизированы на
+                                        всём пути.</span
+                                    >
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="timeline-step animate-hidden scale-in">
+                            <div class="timeline-dot">4</div>
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">
+                                    <span class="lang lang-en">Handover and Support</span>
+                                    <span class="lang lang-kg hidden">Тапшыруу жана колдоо</span>
+                                    <span class="lang lang-ru hidden">Передача и поддержка</span>
+                                </h3>
+                                <p class="timeline-text">
+                                    <span class="lang lang-en"
+                                        >You receive a ready-to-use tool, documentation, and instructions. I stay in
+                                        touch for questions and quick fixes after launch. The goal is for you to
+                                        confidently use the solution independently.</span
+                                    >
+                                    <span class="lang lang-kg hidden"
+                                        >Сиз даяр куралды, документтерди жана көрсөтмөлөрдү аласыз. Мен ишке
+                                        киргизгенден кийинки суроолор жана ыкчам оңдоолор үчүн байланышта болом. Максат
+                                        — сиз чечимди өз алдынча ишенимдүү колдонушуңуз.</span
+                                    >
+                                    <span class="lang lang-ru hidden"
+                                        >Вы получаете готовый инструмент, документацию и инструкцию. Я остаюсь на связи
+                                        для вопросов и оперативных правок после запуска. Цель — чтобы вы уверенно
+                                        пользовались решением самостоятельно.</span
+                                    >
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects">
+                <div class="container">
+                    <h2 class="section-title">
+                        <span class="lang lang-en">Projects</span>
+                        <span class="lang lang-kg hidden">Долбоорлор</span>
+                        <span class="lang lang-ru hidden">Проекты</span>
+                    </h2>
+
+                    <div class="projects-grid">
+                        <!-- Project 1 -->
+                        <div class="project-card animate-hidden slide-left-project">
+                            <div class="project-image-placeholder">
+                                <span>
+                                    <span class="lang lang-en">PROJECT SCREENSHOT</span>
+                                    <span class="lang lang-kg hidden">ДОЛБОРДУН СКРИНШОТУ</span>
+                                    <span class="lang lang-ru hidden">СКРИНШОТ ПРОЕКТА</span>
+                                </span>
+                            </div>
+                            <div class="project-info">
+                                <h3 class="project-title">
+                                    <span class="lang lang-en">[Calculator]</span>
+                                    <span class="lang lang-kg hidden">[Калькулятор]</span>
+                                    <span class="lang lang-ru hidden">[Калькулятор]</span>
+                                </h3>
+                                <p class="project-description">
+                                    <span class="lang lang-en"
+                                        >[Brief project description here: what the tool does, what problem it
+                                        solved.]</span
+                                    >
+                                    <span class="lang lang-kg hidden"
+                                        >[Долбоордун кыскача сүрөттөмөсү бул жерде: курал эмне кылат, кандай көйгөйдү
+                                        чечти.]</span
+                                    >
+                                    <span class="lang lang-ru hidden"
+                                        >[Здесь краткое описание проекта: что делает инструмент, какую задачу
+                                        решал.]</span
+                                    >
+                                </p>
+                                <div class="project-tags">
+                                    <span class="tag">Python</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link" target="_blank" rel="noopener">
+                                        <span class="lang lang-en">Source code →</span>
+                                        <span class="lang lang-kg hidden">Булак коду →</span>
+                                        <span class="lang lang-ru hidden">Исходный код →</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 2 -->
+                        <div class="project-card animate-hidden slide-up-project">
+                            <div class="project-image-placeholder">
+                                <span>
+                                    <span class="lang lang-en">PROJECT SCREENSHOT</span>
+                                    <span class="lang lang-kg hidden">ДОЛБОРДУН СКРИНШОТУ</span>
+                                    <span class="lang lang-ru hidden">СКРИНШОТ ПРОЕКТА</span>
+                                </span>
+                            </div>
+                            <div class="project-info">
+                                <h3 class="project-title">
+                                    <span class="lang lang-en">[Task Manager]</span>
+                                    <span class="lang lang-kg hidden">[Тапшырма менеджери]</span>
+                                    <span class="lang lang-ru hidden">[Менеджер задач]</span>
+                                </h3>
+                                <p class="project-description">
+                                    <span class="lang lang-en"
+                                        >[Brief project description here: what the tool does, what problem it
+                                        solved.]</span
+                                    >
+                                    <span class="lang lang-kg hidden"
+                                        >[Долбоордун кыскача сүрөттөмөсү бул жерде: курал эмне кылат, кандай көйгөйдү
+                                        чечти.]</span
+                                    >
+                                    <span class="lang lang-ru hidden"
+                                        >[Здесь краткое описание проекта: что делает инструмент, какую задачу
+                                        решал.]</span
+                                    >
+                                </p>
+                                <div class="project-tags">
+                                    <span class="tag">Python</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link" target="_blank" rel="noopener">
+                                        <span class="lang lang-en">Source code →</span>
+                                        <span class="lang lang-kg hidden">Булак коду →</span>
+                                        <span class="lang lang-ru hidden">Исходный код →</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 3 -->
+                        <div class="project-card animate-hidden slide-right-project">
+                            <div class="project-image-placeholder">
+                                <span>
+                                    <span class="lang lang-en">PROJECT SCREENSHOT</span>
+                                    <span class="lang lang-kg hidden">ДОЛБОРДУН СКРИНШОТУ</span>
+                                    <span class="lang lang-ru hidden">СКРИНШОТ ПРОЕКТА</span>
+                                </span>
+                            </div>
+                            <div class="project-info">
+                                <h3 class="project-title">
+                                    <span class="lang lang-en">[Excel Automation]</span>
+                                    <span class="lang lang-kg hidden">[Excel Automation]</span>
+                                    <span class="lang lang-ru hidden">[Excel-автоматизация]</span>
+                                </h3>
+                                <p class="project-description">
+                                    <span class="lang lang-en"
+                                        >[Brief project description here: what the tool does, what problem it
+                                        solved.]</span
+                                    >
+                                    <span class="lang lang-kg hidden"
+                                        >[Долбоордун кыскача сүрөттөмөсү бул жерде: курал эмне кылат, кандай көйгөйдү
+                                        чечти.]</span
+                                    >
+                                    <span class="lang lang-ru hidden"
+                                        >[Здесь краткое описание проекта: что делает инструмент, какую задачу
+                                        решал.]</span
+                                    >
+                                </p>
+                                <div class="project-tags">
+                                    <span class="tag">Python</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link" target="_blank" rel="noopener">
+                                        <span class="lang lang-en">Source code →</span>
+                                        <span class="lang lang-kg hidden">Булак коду →</span>
+                                        <span class="lang lang-ru hidden">Исходный код →</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- GitHub CTA -->
+                    <div class="github-cta animate-hidden">
+                        <p class="github-cta-text">
+                            <span class="lang lang-en">More projects on my GitHub</span>
+                            <span class="lang lang-kg hidden">GitHub'умдагы дагы долбоорлор</span>
+                            <span class="lang lang-ru hidden">Больше проектов — в моём GitHub</span>
+                        </p>
+                        <a
+                            href="https://github.com/arlenadamaliev-lgtm"
+                            target="_blank"
+                            rel="noopener"
+                            class="github-cta-link"
+                        >
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
+                                />
+                            </svg>
+                            arlenadamaliev-lgtm
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contacts Section -->
+            <section id="contacts">
+                <div class="container">
+                    <h2 class="section-title">
+                        <span class="lang lang-en">Let's Discuss Your Project</span>
+                        <span class="lang lang-kg hidden">Долбооруңузду талкуулайлы</span>
+                        <span class="lang lang-ru hidden">Давайте обсудим ваш проект</span>
+                    </h2>
+
+                    <p class="contacts-cta-text">
+                        <span class="lang lang-en"
+                            >Tell me what processes in your routine can be automated. I will ask clarifying questions
+                            and suggest solutions — free of charge.</span
+                        >
+                        <span class="lang lang-kg hidden"
+                            >Күнүмдүк ишиңиздеги кайсы процесстерди автоматташтырса болорун айтып бериңиз. Мен тактоочу
+                            суроолорду берип, чечүү жолдорун сунуштайм — акысыз.</span
+                        >
+                        <span class="lang lang-ru hidden"
+                            >Расскажите, какие процессы в вашей рутине можно автоматизировать. Я задам уточняющие
+                            вопросы и предложу варианты решений — бесплатно.</span
+                        >
+                    </p>
+
+                    <!-- Contact buttons -->
+                    <div class="contacts-actions">
+                        <!-- WhatsApp -->
+                        <a
+                            href="https://wa.me/+996999079977"
+                            target="_blank"
+                            rel="noopener"
+                            class="contact-btn contact-btn-telegram animate-hidden"
+                        >
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12.04 0C5.38 0 0 5.38 0 12.04 0 14.7.9 17.2 2.48 19.2L.8 23.2l4.12-1.62c2 1.28 4.38 2.02 7.12 2.02 6.66 0 12.04-5.38 12.04-12.04S18.7 0 12.04 0zm0 22c-2.22 0-4.34-.62-6.16-1.78l-.44-.26-2.44.96.66-2.34-.28-.46C1.86 16.52 1.2 14.32 1.2 12.04 1.2 6.06 6.06 1.2 12.04 1.2S22.88 6.06 22.88 12.04 18.02 22 12.04 22zm6.1-6.56c-.26-.44-.96-.7-2-.98-1.04-.28-1.72-.14-1.98.22-.26.36-.78 1.12-.96 1.36-.18.24-.36.26-.68.08-.32-.18-1.38-.52-2.62-1.62-.96-.86-1.62-1.92-1.8-2.24-.18-.32-.02-.5.14-.66.14-.14.32-.36.48-.54.16-.18.22-.32.32-.52.1-.2.06-.38-.02-.54-.08-.16-.68-1.66-.94-2.28-.24-.6-.5-.52-.68-.52h-.58c-.2 0-.52.08-.78.38-.26.3-1.02 1-1.02 2.44 0 1.44 1.04 2.82 1.18 3.02.14.2 2.04 3.12 4.94 4.38.7.3 1.24.48 1.66.62.7.22 1.32.18 1.82.1.56-.08 1.72-.7 1.96-1.38.24-.68.24-1.26.18-1.38-.06-.12-.24-.2-.5-.34z"
+                                />
+                            </svg>
+                            <span class="lang lang-en">Write on WhatsApp</span>
+                            <span class="lang lang-kg hidden">WhatsApp'ка жазуу</span>
+                            <span class="lang lang-ru hidden">Написать в WhatsApp</span>
+                        </a>
+
+                        <!-- Email -->
+                        <a href="mailto:твой.email@example.com" class="contact-btn contact-btn-email animate-hidden">
+                            <svg
+                                width="22"
+                                height="22"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <rect x="2" y="4" width="20" height="16" rx="2" />
+                                <path d="M22 4L12 13 2 4" />
+                            </svg>
+                            <span class="lang lang-en">Write on Email</span>
+                            <span class="lang lang-kg hidden">Email'ге жазуу</span>
+                            <span class="lang lang-ru hidden">Написать на Email</span>
+                        </a>
+                    </div>
+
+                    <!-- Contact form (Formspree) -->
+                    <form
+                        class="contacts-form"
+                        action="https://formspree.io/f/xaqgzyaz"
+                        method="POST"
+                        id="contact-form"
+                    >
+                        <!-- Name -->
+                        <div class="form-group">
+                            <label for="form-name" class="form-label">
+                                <span class="lang lang-en">Name</span>
+                                <span class="lang lang-kg hidden">Атыңыз</span>
+                                <span class="lang lang-ru hidden">Имя</span>
+                            </label>
+                            <input
+                                type="text"
+                                id="form-name"
+                                name="name"
+                                class="form-input"
+                                data-placeholder-en="Your name"
+                                data-placeholder-kg="Атыңыз"
+                                data-placeholder-ru="Ваше имя"
+                                placeholder="Your name"
+                                required
+                            />
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="form-email" class="form-label">
+                                <span class="lang lang-en">Email</span>
+                                <span class="lang lang-kg hidden">Email</span>
+                                <span class="lang lang-ru hidden">Email</span>
+                            </label>
+                            <input
+                                type="email"
+                                id="form-email"
+                                name="email"
+                                class="form-input"
+                                data-placeholder-en="your@email.com"
+                                data-placeholder-kg="sizdin@email.com"
+                                data-placeholder-ru="your@email.com"
+                                placeholder="your@email.com"
+                                required
+                            />
+                        </div>
+
+                        <!-- Project type -->
+                        <div class="form-group">
+                            <label for="form-type" class="form-label">
+                                <span class="lang lang-en">Project type</span>
+                                <span class="lang lang-kg hidden">Долбоордун түрү</span>
+                                <span class="lang lang-ru hidden">Тип проекта</span>
+                            </label>
+                            <select id="form-type" name="project_type" class="form-input form-select" required>
+                                <option value="" disabled selected>-- Select project type --</option>
+                                <option
+                                    value="automation"
+                                    data-en="Automation (Excel, reports)"
+                                    data-kg="Автоматташтыруу (Excel, отчеттор)"
+                                    data-ru="Автоматизация (Excel, отчёты)"
+                                >
+                                    Автоматизация (Excel, отчёты)
+                                </option>
+                                <option
+                                    value="bot"
+                                    data-en="Telegram / WhatsApp bot"
+                                    data-kg="Telegram / WhatsApp бот"
+                                    data-ru="Telegram-бот / WhatsApp-бот"
+                                >
+                                    Telegram-бот / WhatsApp-бот
+                                </option>
+                                <option
+                                    value="parsing"
+                                    data-en="Data parsing / Scraping"
+                                    data-kg="Маалыматтарды парсинг / Скрапинг"
+                                    data-ru="Парсинг данных / Скрапинг"
+                                >
+                                    Парсинг данных / Скрапинг
+                                </option>
+                                <option
+                                    value="integration"
+                                    data-en="Service integration / API"
+                                    data-kg="Сервистерди интеграциялоо / API"
+                                    data-ru="Интеграция сервисов / API"
+                                >
+                                    Интеграция сервисов / API
+                                </option>
+                                <option
+                                    value="tool"
+                                    data-en="Python tool / Utility"
+                                    data-kg="Python куралы / Утилита"
+                                    data-ru="Инструмент / Утилита на Python"
+                                >
+                                    Инструмент / Утилита на Python
+                                </option>
+                                <option value="other" data-en="Other" data-kg="Башка" data-ru="Другое">Другое</option>
+                            </select>
+                        </div>
+
+                        <!-- Message -->
+                        <div class="form-group">
+                            <label for="form-message" class="form-label">
+                                <span class="lang lang-en">Message</span>
+                                <span class="lang lang-kg hidden">Билдирүү</span>
+                                <span class="lang lang-ru hidden">Сообщение</span>
+                            </label>
+                            <textarea
+                                id="form-message"
+                                name="message"
+                                class="form-input form-textarea"
+                                data-placeholder-en="Describe your task..."
+                                data-placeholder-kg="Тапшырмаңызды сүрөттөп бериңиз..."
+                                data-placeholder-ru="Опишите вашу задачу..."
+                                placeholder="Describe your task..."
+                                rows="5"
+                                required
+                            ></textarea>
+                        </div>
+
+                        <!-- Submit -->
+                        <button type="submit" class="contact-btn contact-btn-telegram form-submit">
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <line x1="22" y1="2" x2="11" y2="13" />
+                                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                            </svg>
+                            <span class="lang lang-en">Send request</span>
+                            <span class="lang lang-kg hidden">Өтүнмө жөнөтүү</span>
+                            <span class="lang lang-ru hidden">Отправить заявку</span>
+                        </button>
+
+                        <!-- Prevent redirect after submit -->
+                        <input type="hidden" name="_next" value="#contacts" />
+
+                        <!-- Success message -->
+                        <p class="form-success hidden" id="form-success">
+                            <span class="lang lang-en"
+                                >✅ Thank you! Your request has been sent. I'll contact you soon.</span
+                            >
+                            <span class="lang lang-kg hidden"
+                                >✅ Рахмат! Сиздин өтүнмөңүз жөнөтүлдү. Мен жакында байланышам.</span
+                            >
+                            <span class="lang lang-ru hidden"
+                                >✅ Спасибо! Ваша заявка отправлена. Я свяжусь с вами в ближайшее время.</span
+                            >
+                        </p>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <div class="container footer-inner">
+                <!-- Copyright -->
+                <p class="footer-copy">© 2026 Arlen Aliaskar uulu</p>
+
+                <!-- Social links -->
+                <div class="footer-links">
+                    <!-- GitHub -->
+                    <a
+                        href="https://github.com/arlenadamaliev-lgtm"
+                        target="_blank"
+                        rel="noopener"
+                        class="footer-icon-link"
+                        aria-label="GitHub"
+                    >
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
+                            />
+                        </svg>
+                    </a>
+
+                    <!-- WhatsApp -->
+                    <a
+                        href="https://wa.me/+996999079977"
+                        target="_blank"
+                        rel="noopener"
+                        class="footer-icon-link"
+                        aria-label="WhatsApp"
+                    >
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12.04 0C5.38 0 0 5.38 0 12.04 0 14.7.9 17.2 2.48 19.2L.8 23.2l4.12-1.62c2 1.28 4.38 2.02 7.12 2.02 6.66 0 12.04-5.38 12.04-12.04S18.7 0 12.04 0zm0 22c-2.22 0-4.34-.62-6.16-1.78l-.44-.26-2.44.96.66-2.34-.28-.46C1.86 16.52 1.2 14.32 1.2 12.04 1.2 6.06 6.06 1.2 12.04 1.2S22.88 6.06 22.88 12.04 18.02 22 12.04 22zm6.1-6.56c-.26-.44-.96-.7-2-.98-1.04-.28-1.72-.14-1.98.22-.26.36-.78 1.12-.96 1.36-.18.24-.36.26-.68.08-.32-.18-1.38-.52-2.62-1.62-.96-.86-1.62-1.92-1.8-2.24-.18-.32-.02-.5.14-.66.14-.14.32-.36.48-.54.16-.18.22-.32.32-.52.1-.2.06-.38-.02-.54-.08-.16-.68-1.66-.94-2.28-.24-.6-.5-.52-.68-.52h-.58c-.2 0-.52.08-.78.38-.26.3-1.02 1-1.02 2.44 0 1.44 1.04 2.82 1.18 3.02.14.2 2.04 3.12 4.94 4.38.7.3 1.24.48 1.66.62.7.22 1.32.18 1.82.1.56-.08 1.72-.7 1.96-1.38.24-.68.24-1.26.18-1.38-.06-.12-.24-.2-.5-.34z"
+                            />
+                        </svg>
+                    </a>
+                </div>
             </div>
-        </section>
+        </footer>
 
-    </main>
+        <!-- JavaScript -->
+        <script src="js/script.js"></script>
 
-    <!-- Footer -->
-    <footer id="footer">
-        <div class="container footer-inner">
+        <!-- Scroll-to-top button -->
+        <button class="scroll-to-top" aria-label="Наверх" title="Наверх">
+            <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
+                <polyline points="18 15 12 9 6 15" />
+            </svg>
+        </button>
 
-            <!-- Copyright -->
-            <p class="footer-copy">
-                © [ГОД] Arlen Aliaskar uulu
-            </p>
-
-            <!-- Social links -->
-            <div class="footer-links">
-                <!-- GitHub -->
-                <a href="https://github.com/arlenadamaliev-lgtm"
-                   target="_blank"
-                   rel="noopener"
-                   class="footer-icon-link"
-                   aria-label="GitHub">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+        <!-- Project detail modal -->
+        <div class="modal-overlay" id="project-modal" aria-hidden="true">
+            <div class="modal-window">
+                <!-- Close button -->
+                <button class="modal-close" aria-label="Закрыть окно" title="Закрыть">
+                    <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
                     </svg>
-                </a>
+                </button>
 
-                <!-- WhatsApp -->
-                <a href="https://wa.me/+996999079977"
-                   target="_blank"
-                   rel="noopener"
-                   class="footer-icon-link"
-                   aria-label="WhatsApp">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12.04 0C5.38 0 0 5.38 0 12.04 0 14.7.9 17.2 2.48 19.2L.8 23.2l4.12-1.62c2 1.28 4.38 2.02 7.12 2.02 6.66 0 12.04-5.38 12.04-12.04S18.7 0 12.04 0zm0 22c-2.22 0-4.34-.62-6.16-1.78l-.44-.26-2.44.96.66-2.34-.28-.46C1.86 16.52 1.2 14.32 1.2 12.04 1.2 6.06 6.06 1.2 12.04 1.2S22.88 6.06 22.88 12.04 18.02 22 12.04 22zm6.1-6.56c-.26-.44-.96-.7-2-.98-1.04-.28-1.72-.14-1.98.22-.26.36-.78 1.12-.96 1.36-.18.24-.36.26-.68.08-.32-.18-1.38-.52-2.62-1.62-.96-.86-1.62-1.92-1.8-2.24-.18-.32-.02-.5.14-.66.14-.14.32-.36.48-.54.16-.18.22-.32.32-.52.1-.2.06-.38-.02-.54-.08-.16-.68-1.66-.94-2.28-.24-.6-.5-.52-.68-.52h-.58c-.2 0-.52.08-.78.38-.26.3-1.02 1-1.02 2.44 0 1.44 1.04 2.82 1.18 3.02.14.2 2.04 3.12 4.94 4.38.7.3 1.24.48 1.66.62.7.22 1.32.18 1.82.1.56-.08 1.72-.7 1.96-1.38.24-.68.24-1.26.18-1.38-.06-.12-.24-.2-.5-.34z"/>
-                    </svg>
-                </a>
+                <!-- Project image -->
+                <div class="modal-image-container">
+                    <img class="modal-image" src="" alt="" id="modal-img" />
+                    <span class="modal-image-counter hidden" id="modal-counter"></span>
+                </div>
 
-                <!-- LinkedIn (commented out) -->
-                <!--
-                <a href="https://linkedin.com/in/твой-ник"
-                   target="_blank"
-                   rel="noopener"
-                   class="footer-icon-link"
-                   aria-label="LinkedIn">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                    </svg>
-                </a>
-                -->
+                <!-- Project info -->
+                <div class="modal-info">
+                    <h3 class="modal-title" id="modal-title"></h3>
+                    <p class="modal-description" id="modal-description"></p>
+                    <div class="modal-tags" id="modal-tags"></div>
+                    <a class="modal-link" href="#" target="_blank" rel="noopener" id="modal-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
+                            />
+                        </svg>
+                        Исходный код на GitHub
+                    </a>
+                </div>
             </div>
         </div>
-    </footer>
-
-    <!-- JavaScript -->
-    <script src="js/script.js"></script>
-
-    <!-- Scroll-to-top button -->
-    <button class="scroll-to-top" aria-label="Наверх" title="Наверх">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="18 15 12 9 6 15"/>
-        </svg>
-    </button>
-
-    <!-- Project detail modal -->
-    <div class="modal-overlay" id="project-modal" aria-hidden="true">
-        <div class="modal-window">
-
-            <!-- Close button -->
-            <button class="modal-close" aria-label="Закрыть окно" title="Закрыть">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="18" y1="6" x2="6" y2="18"/>
-                    <line x1="6" y1="6" x2="18" y2="18"/>
-                </svg>
-            </button>
-
-            <!-- Project image -->
-            <div class="modal-image-container">
-                <img class="modal-image" src="" alt="" id="modal-img">
-                <span class="modal-image-counter hidden" id="modal-counter"></span>
-            </div>
-
-            <!-- Project info -->
-            <div class="modal-info">
-                <h3 class="modal-title" id="modal-title"></h3>
-                <p class="modal-description" id="modal-description"></p>
-                <div class="modal-tags" id="modal-tags"></div>
-                <a class="modal-link" href="#" target="_blank" rel="noopener" id="modal-link">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                    </svg>
-                    Исходный код на GitHub
-                </a>
-            </div>
-        </div>
-    </div>
-
-</body>
+    </body>
 </html>
