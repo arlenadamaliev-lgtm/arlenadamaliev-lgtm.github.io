@@ -8,37 +8,35 @@
 /* ============================================================
    FONTS
    ============================================================ */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
 
 /* ============================================================
    COLOR PALETTE (CSS CUSTOM PROPERTIES)
    ============================================================ */
 :root {
-    --color-bg-primary:   #0A192F;   /* deep navy — main background */
-    --color-bg-card:      #111111;   /* near black — cards & sections */
-    --color-accent:       #8B0000;   /* dark red — accent */
-    --color-accent-hover: #A00000;   /* slightly lighter red — hover state */
-    --color-text-primary: #E5E4E2;   /* soft light grey — body text */
-    --color-text-heading: #FFFFFF;   /* pure white — headings */
-    --color-text-muted:   #8892B0;   /* blue-grey — secondary text */
-    --color-border:       #233554;   /* dark blue-grey — borders & separators */
+    --color-bg-primary: #0a192f; /* deep navy — main background */
+    --color-bg-card: #111111; /* near black — cards & sections */
+    --color-accent: #8b0000; /* dark red — accent */
+    --color-accent-hover: #a00000; /* slightly lighter red — hover state */
+    --color-text-primary: #e5e4e2; /* soft light grey — body text */
+    --color-text-heading: #ffffff; /* pure white — headings */
+    --color-text-muted: #8892b0; /* blue-grey — secondary text */
+    --color-border: #233554; /* dark blue-grey — borders & separators */
 }
 
 /* ============================================================
    LIGHT THEME OVERRIDES
    ============================================================ */
 [data-theme="light"] {
-    --color-bg-primary:   #F5F0EB;   /* warm cream */
-    --color-bg-card:      #FFFFFF;   /* pure white */
-    --color-accent:       #8B0000;   /* accent unchanged */
-    --color-accent-hover: #A00000;
-    --color-text-primary: #2D2D2D;   /* dark grey */
-    --color-text-heading: #1A1A1A;   /* near black */
-    --color-text-muted:   #5A5A5A;   /* medium grey */
-    --color-border:       #D5CFC7;   /* light beige */
+    --color-bg-primary: #f5f0eb; /* warm cream */
+    --color-bg-card: #ffffff; /* pure white */
+    --color-accent: #8b0000; /* accent unchanged */
+    --color-accent-hover: #a00000;
+    --color-text-primary: #2d2d2d; /* dark grey */
+    --color-text-heading: #1a1a1a; /* near black */
+    --color-text-muted: #5a5a5a; /* medium grey */
+    --color-border: #d5cfc7; /* light beige */
 }
-
 
 /* ============================================================
    CSS RESET
@@ -51,13 +49,12 @@
     box-sizing: border-box;
 }
 
-
 /* ============================================================
    BASE STYLES
    ============================================================ */
 body {
     background-color: var(--color-bg-primary);
-    font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif;
+    font-family: "Inter", "Segoe UI", Tahoma, sans-serif;
     font-size: 16px;
     line-height: 1.6;
     color: var(--color-text-primary);
@@ -66,7 +63,9 @@ body {
     overflow-x: hidden;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     color: var(--color-text-heading);
     font-weight: 700;
     line-height: 1.2;
@@ -88,7 +87,6 @@ img {
     display: block;
 }
 
-
 /* ============================================================
    UTILITY CLASSES
    ============================================================ */
@@ -105,14 +103,12 @@ img {
     padding: 0 20px;
 }
 
-
 /* ============================================================
    SMOOTH SCROLL (ANCHOR LINKS)
    ============================================================ */
 html {
     scroll-behavior: smooth;
 }
-
 
 /* ============================================================
    HEADER
@@ -160,7 +156,9 @@ html {
 /* GitHub & WhatsApp icons */
 .header-icon-link {
     color: var(--color-text-muted);
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
     display: flex;
     align-items: center;
 }
@@ -169,7 +167,6 @@ html {
     color: var(--color-accent);
     transform: translateY(-2px);
 }
-
 
 /* ============================================================
    LANGUAGE SWITCHER (DROPDOWN)
@@ -205,7 +202,10 @@ html {
     border-radius: 8px;
     padding: 4px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+    transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease,
+        transform 0.2s ease;
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -246,7 +246,6 @@ html {
     background-color: rgba(139, 0, 0, 0.3);
 }
 
-
 /* ============================================================
    THEME TOGGLE BUTTON
    ============================================================ */
@@ -275,7 +274,6 @@ html {
     transform: rotate(-15deg);
 }
 
-
 /* ============================================================
    HERO SECTION
    ============================================================ */
@@ -289,8 +287,8 @@ html {
 
 .hero-grid {
     display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 40px;
+    grid-template-columns: auto 1fr;
+    gap: 32px;
     align-items: center;
 }
 
@@ -299,37 +297,48 @@ html {
     justify-content: center;
 }
 
-/* Avatar placeholder (replace with <img> later) */
-.hero-avatar-placeholder {
+.hero-avatar-frame {
+    /* Размеры */
     width: 260px;
     height: 260px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--color-accent), var(--color-bg-primary));
-    border: 3px solid var(--color-border);
-    box-shadow: 0 0 40px rgba(139, 0, 0, 0.3);
+
+    border-radius: 24px;
+
+    border: 4px solid transparent;
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    background-image:
+        linear-gradient(var(--color-bg-card), var(--color-bg-card)),
+        linear-gradient(135deg, var(--color-accent), #4a0000, var(--color-accent));
+
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.5),
+        0 0 0 12px rgba(0, 0, 0, 0.15),
+        0 0 60px rgba(139, 0, 0, 0.2);
+
+    padding: 4px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
+    transition:
+        box-shadow 0.4s ease,
+        background-image 0.4s ease;
 }
 
-.placeholder-text {
-    color: var(--color-text-primary);
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 2px;
-    opacity: 0.7;
-}
-
-/* --- Replace placeholder with real photo ---
-.hero-avatar {
-    width: 260px;
-    height: 260px;
-    border-radius: 50%;
+.hero-avatar-img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    border: 3px solid var(--color-border);
-    box-shadow: 0 0 40px rgba(139, 0, 0, 0.3);
+    border-radius: 20px;
+    display: block;
 }
-*/
+
+.hero-image-wrapper {
+    display: flex;
+    justify-content: center;
+}
 
 .hero-content {
     text-align: left;
@@ -368,7 +377,9 @@ html {
     font-size: 16px;
     padding: 14px 32px;
     border-radius: 6px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
     text-align: center;
 }
 
@@ -376,7 +387,6 @@ html {
     background-color: var(--color-accent-hover);
     transform: translateY(-2px);
 }
-
 
 /* ============================================================
    WHY PYTHON SECTION
@@ -416,7 +426,10 @@ html {
     border-radius: 10px;
     padding: 32px 24px;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
 }
 
 .info-card:hover {
@@ -444,7 +457,6 @@ html {
     line-height: 1.6;
 }
 
-
 /* ============================================================
    WHY ME SECTION
    ============================================================ */
@@ -466,7 +478,10 @@ html {
     border: 1px solid var(--color-border);
     border-radius: 10px;
     padding: 28px 24px;
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
     position: relative;
 }
 
@@ -503,7 +518,6 @@ html {
     line-height: 1.6;
 }
 
-
 /* ============================================================
    WORKFLOW TIMELINE SECTION
    ============================================================ */
@@ -523,7 +537,7 @@ html {
 
 /* Horizontal connecting line */
 .timeline::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 20px;
     left: 0;
@@ -576,7 +590,6 @@ html {
     line-height: 1.6;
 }
 
-
 /* ============================================================
    PROJECTS SECTION
    ============================================================ */
@@ -598,7 +611,10 @@ html {
     border: 1px solid var(--color-border);
     border-radius: 10px;
     overflow: hidden;
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .project-card:hover {
@@ -713,7 +729,9 @@ html {
     padding: 10px 24px;
     border: 1px solid var(--color-border);
     border-radius: 6px;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease;
 }
 
 .github-cta-link:hover {
@@ -721,7 +739,6 @@ html {
     border-color: var(--color-accent);
     color: var(--color-text-heading);
 }
-
 
 /* ============================================================
    CONTACTS SECTION
@@ -757,7 +774,10 @@ html {
     padding: 14px 28px;
     border-radius: 8px;
     text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .contact-btn:hover {
@@ -788,7 +808,6 @@ html {
     border-color: var(--color-text-muted);
     color: var(--color-text-heading);
 }
-
 
 /* ============================================================
    CONTACT FORM
@@ -821,7 +840,9 @@ html {
     border: 1px solid var(--color-border);
     border-radius: 8px;
     outline: none;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .form-input:focus {
@@ -866,7 +887,9 @@ html {
     border-radius: 8px;
     background-color: var(--color-accent);
     color: var(--color-text-heading);
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -881,13 +904,12 @@ html {
 .form-success {
     text-align: center;
     font-size: 15px;
-    color: #4CAF50;
+    color: #4caf50;
     margin-top: 16px;
     padding: 12px;
     background-color: rgba(76, 175, 80, 0.1);
     border-radius: 8px;
 }
-
 
 /* ============================================================
    FOOTER
@@ -919,7 +941,9 @@ html {
 
 .footer-icon-link {
     color: var(--color-text-muted);
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
     display: flex;
     align-items: center;
 }
@@ -928,7 +952,6 @@ html {
     color: var(--color-accent);
     transform: translateY(-2px);
 }
-
 
 /* ============================================================
    SCROLL-TO-TOP BUTTON
@@ -953,7 +976,11 @@ html {
     opacity: 0;
     visibility: hidden;
     transform: translateY(20px);
-    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        transform 0.3s ease,
+        background-color 0.3s ease;
 }
 
 .scroll-to-top:hover {
@@ -974,7 +1001,6 @@ html {
     outline-offset: 3px;
 }
 
-
 /* ============================================================
    TYPEWRITER ANIMATION
    ============================================================ */
@@ -985,10 +1011,14 @@ html {
 }
 
 @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50%      { opacity: 0; }
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
 }
-
 
 /* ============================================================
    SCROLL-TRIGGERED APPEARANCE ANIMATIONS
@@ -1008,7 +1038,9 @@ html {
 .slide-left,
 .slide-left-pair {
     transform: translateX(-60px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
 }
 .slide-left.animate-visible,
 .slide-left-pair.animate-visible {
@@ -1018,7 +1050,9 @@ html {
 /* Slide in from right */
 .slide-right-pair {
     transform: translateX(60px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
 }
 .slide-right-pair.animate-visible {
     transform: translateX(0);
@@ -1027,7 +1061,9 @@ html {
 /* Project cards: left */
 .slide-left-project {
     transform: translateX(-60px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
 }
 .slide-left-project.animate-visible {
     transform: translateX(0);
@@ -1036,7 +1072,9 @@ html {
 /* Project cards: up (center) */
 .slide-up-project {
     transform: translateY(60px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
 }
 .slide-up-project.animate-visible {
     transform: translateY(0);
@@ -1045,7 +1083,9 @@ html {
 /* Project cards: right */
 .slide-right-project {
     transform: translateX(60px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
 }
 .slide-right-project.animate-visible {
     transform: translateX(0);
@@ -1054,7 +1094,9 @@ html {
 /* Scale in (timeline steps) */
 .scale-in {
     transform: scale(0.85);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
 }
 .scale-in.animate-visible {
     transform: scale(1);
@@ -1065,15 +1107,21 @@ html {
     animation: soft-pulse 3s ease-in-out infinite;
 }
 @keyframes soft-pulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(139, 0, 0, 0.4); }
-    50%      { box-shadow: 0 0 12px 4px rgba(139, 0, 0, 0.15); }
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(139, 0, 0, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 12px 4px rgba(139, 0, 0, 0.15);
+    }
 }
 
 .pulse-cta {
     animation: soft-pulse-cta 2.5s ease-in-out infinite;
 }
 @keyframes soft-pulse-cta {
-    0%, 100% {
+    0%,
+    100% {
         box-shadow: 0 0 0 0 rgba(139, 0, 0, 0.5);
         transform: scale(1);
     }
@@ -1101,9 +1149,8 @@ html {
     }
 }
 
-
 /* ============================================================
-   PROJECT DETAIL MODAL
+    PROJECT DETAIL MODAL
    ============================================================ */
 .modal-overlay {
     position: fixed;
@@ -1118,7 +1165,9 @@ html {
     justify-content: center;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
     padding: 20px;
 }
 
@@ -1161,7 +1210,9 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: color 0.3s ease, background-color 0.3s ease;
+    transition:
+        color 0.3s ease,
+        background-color 0.3s ease;
     outline: none;
 }
 
@@ -1250,7 +1301,6 @@ body.no-scroll {
     overflow: hidden;
 }
 
-
 /* ============================================================
    OVERFLOW FIX (PREVENT HORIZONTAL SCROLL ON MOBILE)
    ============================================================ */
@@ -1258,15 +1308,31 @@ html {
     overflow-x: hidden;
 }
 
-* {
+body {
     max-width: 100%;
 }
 
-/* Exempt certain elements from max-width */
-html, body, .scroll-to-top, .lang-dropdown, .theme-toggle {
-    max-width: none;
+img,
+video,
+iframe,
+svg {
+    max-width: 100%;
 }
 
+.container {
+    max-width: 1100px;
+}
+
+.hero-image-wrapper {
+    max-width: 100%;
+}
+
+.lang-dropdown,
+.share-dropdown,
+.scroll-to-top,
+.theme-toggle {
+    max-width: none;
+}
 
 /* ============================================================
    RESPONSIVE BREAKPOINTS
@@ -1275,27 +1341,43 @@ html, body, .scroll-to-top, .lang-dropdown, .theme-toggle {
 /* --- Mobile (up to 768px) --- */
 @media (max-width: 768px) {
     /* Hero */
+    /* Hero на мобильных */
     .hero-grid {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 24px;
         text-align: center;
+        justify-items: center;
     }
-    .hero-avatar-placeholder {
-        width: 180px;
-        height: 180px;
+
+    .hero-avatar-frame {
+        width: 200px;
+        height: 200px;
+        border-radius: 18px;
+        box-shadow:
+            0 6px 24px rgba(0, 0, 0, 0.5),
+            0 0 0 8px rgba(0, 0, 0, 0.15),
+            0 0 40px rgba(139, 0, 0, 0.2);
     }
+
+    .hero-avatar-img {
+        border-radius: 14px;
+    }
+
     .hero-content {
         text-align: center;
     }
+
     .hero-name {
         font-size: 32px;
     }
+
     .hero-tagline {
         font-size: 16px;
         max-width: 100%;
         margin-left: auto;
         margin-right: auto;
     }
+
     #hero {
         padding-top: 80px;
         padding-bottom: 40px;
@@ -1489,7 +1571,9 @@ html, body, .scroll-to-top, .lang-dropdown, .theme-toggle {
     padding: 4px;
     display: flex;
     align-items: center;
-    transition: color .3s ease, transform .3s ease;
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
     outline: none;
     flex-shrink: 0;
 }
@@ -1506,11 +1590,14 @@ html, body, .scroll-to-top, .lang-dropdown, .theme-toggle {
     border: 1px solid var(--color-border);
     border-radius: 8px;
     padding: 6px;
-    box-shadow: 0 10px 30px rgba(0,0,0,.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     opacity: 0;
     visibility: hidden;
     transform: translateY(-5px);
-    transition: opacity .2s ease, visibility .2s ease, transform .2s ease;
+    transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease,
+        transform 0.2s ease;
     white-space: nowrap;
 }
 .share-btn-wrapper.open .share-dropdown {
@@ -1530,15 +1617,20 @@ html, body, .scroll-to-top, .lang-dropdown, .theme-toggle {
     padding: 8px 12px;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color .2s ease, color .2s ease;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
     font-family: inherit;
     outline: none;
 }
 .share-option:hover {
-    background: rgba(139,0,0,.15);
+    background: rgba(139, 0, 0, 0.15);
     color: var(--color-text-heading);
 }
 .hero-cta:hover,
 .hero-cta:hover * {
     color: var(--color-text-heading) !important;
+}
+.hero-image-wrapper {
+    flex-shrink: 0;
 }
